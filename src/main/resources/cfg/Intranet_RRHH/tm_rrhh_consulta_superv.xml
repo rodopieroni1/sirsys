@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+	<!-- m4pr_findDatosGralesEmpleados - BEGIN-->
+		<ora-transaction name="m4pr_findDatosGralesEmpleados" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_CONSULTA_SUPERV.m4pr_findDatosGralesEmpleados">
+				<input-parameter name="pi_SOCIEDADSUPERV" oraTypeName="CHAR" />
+				<input-parameter name="pi_LEGAJOSUPERV" oraTypeName="CHAR" />
+				<input-parameter name="pi_SOCIEDADBUSQ" oraTypeName="CHAR" />     
+				<input-parameter name="pi_AREABUSQ" oraTypeName="CHAR" />     
+				<input-parameter name="pi_LEGAJOBUSQ" oraTypeName="CHAR" />     
+				<input-parameter name="pi_AREASUPERV" oraTypeName="CHAR" />     				
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="sociedad" 		 	javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="fecalta" 		 	javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="legajo_empl" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="apenom_empl" 		javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="area_empl" 		javaTypeName="java.lang.String" />	
+					<column-attribute-mapping attribute="puesto_empl" 		javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="nivel_rep" 		javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="sueldo_empl" 		javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="saldovac_empl" 	javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="ultEvaluacion_empl" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="presentismo_empl"  javaTypeName="java.lang.String" />				
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findDatosGralesEmpleados - END-->
+	<!-- m4pr_getNombresDependientesSup - BEGIN-->
+		<ora-transaction name="m4pr_getNombresDependientesSup" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_CONSULTA_SUPERV.m4pr_getNombresDependientesSup">
+				<input-parameter name="pi_SOCIEDADSUPERV" oraTypeName="CHAR" />
+				<input-parameter name="pi_LEGAJOSUPERV" oraTypeName="CHAR" />			
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="texto" 		 	javaTypeName="java.lang.String"  />			
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_getNombresDependientesSup - END-->	
+	<!-- m4pr_findDatosLiquidacion - BEGIN-->
+		<ora-transaction name="m4pr_findDatosLiquidacion" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_CONSULTA_SUPERV.m4pr_findDatosLiquidacion">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />			
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="GRUPO_LIQ" 			javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="RELACION_LABORAL" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="FECINGRESO" 			javaTypeName="java.sql.Date" />
+					<column-attribute-mapping attribute="FECANTIG" 				javaTypeName="java.sql.Date" />	
+					<column-attribute-mapping attribute="FECANTIGRUPO" 			javaTypeName="java.sql.Date" />
+					<column-attribute-mapping attribute="DIAS_PACTADOS" 		javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="CATEGORIA_CONVENIO" 	javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="NRO_CONTRATO" 			javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="FEC_INICIO_CONTRATO" 	javaTypeName="java.sql.Date" />
+					<column-attribute-mapping attribute="FEC_FIN_CONTRATO"  	javaTypeName="java.sql.Date" />			
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findDatosLiquidacion - END-->	
+	<!-- m4pr_findPuestoUbicacion - BEGIN-->
+		<ora-transaction name="m4pr_findPuestoUbicacion" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_CONSULTA_SUPERV.m4pr_findPuestoUbicacion">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />		
+				<input-parameter name="i_EMPRESA" oraTypeName="CHAR" />		
+					<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="FECDESDE" 		javaTypeName="java.sql.Date" />
+					<column-attribute-mapping attribute="PUESTO" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="NIVEL" 		javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="EMPRESA" 		javaTypeName="java.lang.String" />	
+					<column-attribute-mapping attribute="AREA" 			javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="EDIFICIO" 		javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="CENTROTRA" 	javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="CENTROCOS" 	javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="CENTROCON" 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="ACTIVO"  		javaTypeName="java.lang.String" />			
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findPuestoUbicacion - END-->	
+		
+	<convertion-manager 
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter"/>
+		<converter classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+      <!-- m4pr_alta_licencia- BEGIN-->
+
+            <ora-transaction name="m4pr_alta_licencia" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_LICENCIAS_GREMIALES.m4pr_insert_licencias">
+                   <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+                   <input-parameter name="pIdEmpleado" oraTypeName="CHAR" />
+                   <input-parameter name="pFecInicio" oraTypeName="CHAR" />
+                   <input-parameter name="pFecFin" oraTypeName="CHAR" />
+                   <input-parameter name="pIdTipoAus" oraTypeName="CHAR" />
+                   <input-parameter name="pckJornada" oraTypeName="CHAR" />
+                   <input-parameter name="pHoraHasta" oraTypeName="CHAR" />
+                   <input-parameter name="pHoraDesde" oraTypeName="CHAR" />
+                   <input-parameter name="pValDias" oraTypeName="CHAR" />
+                   <input-parameter name="pObservacion" oraTypeName="CHAR" />
+                   </statement-call>
+            </ora-transaction>           
+
+      <!--m4pr_alta_licencia - END-->
+
+      <!-- m4pr_upd_licencia- BEGIN-->
+            <ora-transaction name="m4pr_upd_licencia" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_LICENCIAS_GREMIALES.m4pr_upd_licencias">
+                   <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+                   <input-parameter name="pIdEmpleado" oraTypeName="CHAR" />
+                   <input-parameter name="pFecInicio" oraTypeName="CHAR" />
+                   <input-parameter name="pFecFin" oraTypeName="CHAR" />
+                   <input-parameter name="pIdTipoAus" oraTypeName="CHAR" />
+                   <input-parameter name="pckJornada" oraTypeName="CHAR" />
+                   <input-parameter name="pHoraHasta" oraTypeName="CHAR" />
+                   <input-parameter name="pHoraDesde" oraTypeName="CHAR" />
+                   <input-parameter name="pValDias" oraTypeName="CHAR" />
+                   <input-parameter name="pObservacion" oraTypeName="CHAR" />
+                   </statement-call>
+            </ora-transaction>           
+      <!--m4pr_upd_licencia - END-->
+
+      <!-- m4pr_consulta_licencias - Begin-->
+      
+      
+	<ora-transaction name="m4pr_consulta_licencias" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_LICENCIAS_GREMIALES.m4pr_consulta_licencias">
+			<input-parameter name="sociedad" oraTypeName="CHAR" />
+			<input-parameter name="empleado" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_INICIO" oraTypeName="DATE" />
+            <input-parameter name="P_FECHA_FIN" oraTypeName="DATE" />
+			<output-parameter name="datocur" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+			
+				<column-attribute-mapping attribute="FEC_INICIO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FEC_FIN" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="ID_TIPO_AUSENTISMO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_TIPO_AUSENTISMO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="D_LUNES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="D_MARTES" javaTypeName="java.lang.String" />				
+				<column-attribute-mapping attribute="D_MIERCOLES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="D_JUEVES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="D_VIERNES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CANT_DIAS" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="CANT_FERIADOS" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="CK_JORNADA_COMPLETA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="HORA_DESDE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="HORA_HASTA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CANT_HORAS" javaTypeName="java.lang.Double" />
+				<column-attribute-mapping attribute="CK_ESTADO" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="N_ESTADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="COMENT" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="OBSERVACION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="USUARIO_RRLL" javaTypeName="java.lang.String" />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_consulta_licencias - END-->
+	      <!-- m4pr_estado_licencia- BEGIN-->
+            <ora-transaction name="m4pr_estado_licencia" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_LICENCIAS_GREMIALES.m4pr_estado_licencia">
+                   <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+                   <input-parameter name="pIdEmpleado" oraTypeName="CHAR" />
+                   <input-parameter name="pFecAltaEmple" oraTypeName="DATE" />
+                   <input-parameter name="pFecInicio" oraTypeName="DATE" />
+                   <input-parameter name="pNuevoEstado" oraTypeName="CHAR" />
+                   <input-parameter name="pComent" oraTypeName="CHAR" />
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_estado_licencia - END-->
+      
+	<convertion-manager
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

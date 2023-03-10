@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+	<!-- m4pr_perfil - BEGIN-->
+	<ora-transaction name="m4pr_perfil"
+		dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_EMPLE.m4pr_perfil">
+			<input-parameter name="usuario" oraTypeName="CHAR" />
+			<output-parameter name="datocur" oraTypeName="CURSOR"
+				javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="id_perfil"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="n_perfil"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_rv"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_formacion"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_liquidacion"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_camb_oper_rv"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_competencias"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping
+					attribute="ck_competencias_eval" javaTypeName="java.lang.String" />
+				<column-attribute-mapping
+					attribute="ck_competencias_exp" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_manual_firmas"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping
+					attribute="ck_manual_firmas_camb" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_cupos"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_horas_extras"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_ausentismos"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_supervisores"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_seguridad_inf"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_riesgo_op"
+					javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ck_rv_admin"
+					javaTypeName="java.lang.String" />	
+				<column-attribute-mapping attribute="ck_horas_extras_rpt"
+				javaTypeName="java.lang.String" />	
+				<column-attribute-mapping attribute="ck_lic_grem"
+				javaTypeName="java.lang.String" />	
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_perfil - END-->
+	<!-- m4pr_for_legajo_nombre_empresa Begin-->
+	<ora-transaction name="m4pr_for_legajo_nombre_empresa" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_WEB_EMPLE.m4pr_for_legajo_nombre_empresa">
+			<output-parameter name="sociedad" oraTypeName="CHAR" />
+			<output-parameter name="empleado" oraTypeName="CHAR" />
+			<input-parameter name="usuario" oraTypeName="CHAR" />
+			<output-parameter name="esestructura" oraTypeName="CHAR" />
+			<output-parameter name="id_perfil" oraTypeName="CHAR" />
+			<output-parameter name="o_sociedad" oraTypeName="CHAR" />
+			<output-parameter name="datocur" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="nombre_formateado" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="vacio1" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="vacio2" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="n_empresa" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="id_estado_plantilla" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="n_unidad" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="id_unidad" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_EMPRESA" javaTypeName="java.lang.String" />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_for_legajo_nombre_empresa END-->
+
+	<!-- m4pr_consulta_de_horasextra Begin-->
+	<ora-transaction name="m4pr_consulta_de_horasextra" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_WEB_EMPLE.m4pr_consulta_de_horasextra">
+			<input-parameter name="inidunidad" oraTypeName="CHAR" />
+			<input-parameter name="fechainicial" oraTypeName="CHAR" />
+			
+			<output-parameter name="datocur" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+
+             <column-attribute-mapping attribute="nombre" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="id_empleado" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="dia1" javaTypeName="java.util.Date" />
+             <column-attribute-mapping attribute="dia2" javaTypeName="java.util.Date" />
+             <column-attribute-mapping attribute="dia3" javaTypeName="java.util.Date" />
+             <column-attribute-mapping attribute="dia4" javaTypeName="java.util.Date" />
+             <column-attribute-mapping attribute="dia5" javaTypeName="java.util.Date" />
+             <column-attribute-mapping attribute="dia6" javaTypeName="java.util.Date" />
+             <column-attribute-mapping attribute="dia7" javaTypeName="java.util.Date" />
+             <column-attribute-mapping attribute="dia8" javaTypeName="java.util.Date" />
+             <column-attribute-mapping attribute="canths1" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="canths2" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="canths3" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="canths4" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="canths5" javaTypeName="java.lang.String" />
+			 <column-attribute-mapping attribute="canths6" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="canths7" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="canths8" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="tipohs1" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="tipohs2" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="tipohs3" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="tipohs4" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="tipohs5" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="tipohs6" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="tipohs7" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="tipohs8" javaTypeName="java.lang.String" />
+             <column-attribute-mapping attribute="tiporiesgo1" javaTypeName="java.lang.String" />                       
+             <column-attribute-mapping attribute="tiporiesgo2" javaTypeName="java.lang.String" />                       
+             <column-attribute-mapping attribute="tiporiesgo3" javaTypeName="java.lang.String" />                       
+             <column-attribute-mapping attribute="tiporiesgo4" javaTypeName="java.lang.String" />                       
+	         <column-attribute-mapping attribute="tiporiesgo5" javaTypeName="java.lang.String" />                       
+             <column-attribute-mapping attribute="tiporiesgo6" javaTypeName="java.lang.String" />                       
+			 <column-attribute-mapping attribute="tiporiesgo7" javaTypeName="java.lang.String" />                       
+             <column-attribute-mapping attribute="tiporiesgo8" javaTypeName="java.lang.String" />                       
+             <column-attribute-mapping attribute="isriesgoop1" javaTypeName="java.lang.String" />                       			
+             <column-attribute-mapping attribute="isriesgoop2" javaTypeName="java.lang.String" />                       			
+             <column-attribute-mapping attribute="isriesgoop3" javaTypeName="java.lang.String" />                       			
+             <column-attribute-mapping attribute="isriesgoop4" javaTypeName="java.lang.String" />                       			
+             <column-attribute-mapping attribute="isriesgoop5" javaTypeName="java.lang.String" />                       			
+             <column-attribute-mapping attribute="isriesgoop6" javaTypeName="java.lang.String" />                       			
+             <column-attribute-mapping attribute="isriesgoop7" javaTypeName="java.lang.String" />                       			
+             <column-attribute-mapping attribute="isriesgoop8" javaTypeName="java.lang.String" />                       			
+             <column-attribute-mapping attribute="coment1" javaTypeName="java.lang.String" />              
+             <column-attribute-mapping attribute="coment2" javaTypeName="java.lang.String" />              
+             <column-attribute-mapping attribute="coment3" javaTypeName="java.lang.String" />              
+             <column-attribute-mapping attribute="coment4" javaTypeName="java.lang.String" />              
+             <column-attribute-mapping attribute="coment5" javaTypeName="java.lang.String" />              
+             <column-attribute-mapping attribute="coment6" javaTypeName="java.lang.String" />              
+             <column-attribute-mapping attribute="coment7" javaTypeName="java.lang.String" />              
+             <column-attribute-mapping attribute="coment8" javaTypeName="java.lang.String" />              
+         	 <column-attribute-mapping attribute="fechaliq1" javaTypeName="java.lang.String" />              
+			 <column-attribute-mapping attribute="fechaliq2" javaTypeName="java.lang.String" />              
+			 <column-attribute-mapping attribute="fechaliq3" javaTypeName="java.lang.String" />              
+			 <column-attribute-mapping attribute="fechaliq4" javaTypeName="java.lang.String" />              
+		     <column-attribute-mapping attribute="fechaliq5" javaTypeName="java.lang.String" />               
+  		     <column-attribute-mapping attribute="fechaliq6" javaTypeName="java.lang.String" />               
+  		     <column-attribute-mapping attribute="fechaliq7" javaTypeName="java.lang.String" />               
+   		     <column-attribute-mapping attribute="fechaliq8" javaTypeName="java.lang.String" />
+         	 <column-attribute-mapping attribute="motivo1" javaTypeName="java.lang.String" />              
+			 <column-attribute-mapping attribute="motivo2" javaTypeName="java.lang.String" />              
+			 <column-attribute-mapping attribute="motivo3" javaTypeName="java.lang.String" />              
+			 <column-attribute-mapping attribute="motivo4" javaTypeName="java.lang.String" />              
+		     <column-attribute-mapping attribute="motivo5" javaTypeName="java.lang.String" />               
+  		     <column-attribute-mapping attribute="motivo6" javaTypeName="java.lang.String" />               
+  		     <column-attribute-mapping attribute="motivo7" javaTypeName="java.lang.String" />               
+   		     <column-attribute-mapping attribute="motivo8" javaTypeName="java.lang.String" />   
+         	 <column-attribute-mapping attribute="otroMotivo1" javaTypeName="java.lang.String" />              
+			 <column-attribute-mapping attribute="otroMotivo2" javaTypeName="java.lang.String" />              
+			 <column-attribute-mapping attribute="otroMotivo3" javaTypeName="java.lang.String" />              
+			 <column-attribute-mapping attribute="otroMotivo4" javaTypeName="java.lang.String" />              
+		     <column-attribute-mapping attribute="otroMotivo5" javaTypeName="java.lang.String" />               
+  		     <column-attribute-mapping attribute="otroMotivo6" javaTypeName="java.lang.String" />               
+  		     <column-attribute-mapping attribute="otroMotivo7" javaTypeName="java.lang.String" />               
+   		     <column-attribute-mapping attribute="otroMotivo8" javaTypeName="java.lang.String" />      		        		                    
+	        </output-parameter>
+	        <output-parameter name="saldocupo" oraTypeName="CHAR" />
+	        <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+	       
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_consulta_de_horasextra END-->
+
+<!-- m4pr_consulta_unidades Begin-->
+	<ora-transaction name="m4pr_consulta_unidades" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_WEB_EMPLE.m4pr_consulta_unidades">
+			<input-parameter name="sociedad" oraTypeName="CHAR" />
+			<input-parameter name="usuario" oraTypeName="CHAR" />
+			<output-parameter name="datocur" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="id_unidad" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="n_unidad" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="id_unidad_real" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="areaVista" javaTypeName="java.lang.String" />
+				<!--<column-attribute-mapping attribute="excep" javaTypeName="java.lang.String" />				
+				<column-attribute-mapping attribute="AREA_RV" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_FORMACION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_LIQUIDACION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_OPERADOR_RV" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_COMPETENCIA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_COMPETEN_EVAL" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_COMPETEN_EXP" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_MNL_FIRMA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_MNL_FIRMA_CAMB" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_CUPOS" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_HRS_EXTRAS" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_AUSENTISMOS" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_SUPERVISORES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_SEGURIDAD_INF" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AREA_RIESGO_OPERAC" javaTypeName="java.lang.String" />
+		-->
+	
+				
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_consulta_unidades END-->
+<!-- m4pr_unidades_organigrama - BEGIN-->
+
+            <ora-transaction name="m4pr_unidades_organigrama" dataSourceFactoryName="BDMETA4">
+
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_unidades_organigrama">
+
+                      <input-parameter name="idunidadintr" oraTypeName="CHAR" />
+                        <output-parameter name="datocur" oraTypeName="CURSOR"    javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                        <column-attribute-mapping attribute="detalle"  javaTypeName="java.lang.String"  />                  
+                        </output-parameter>     
+					  <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+					  <input-parameter name="pIdEmpleado" oraTypeName="CHAR" />
+                  </statement-call>
+
+            </ora-transaction>           
+
+      <!--m4pr_unidades_organigrama - END-->
+
+<!-- m4pr_consulta_organigrama- BEGIN-->
+
+            <ora-transaction name="m4pr_consulta_organigrama" dataSourceFactoryName="BDMETA4">
+
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_organigrama">
+
+                      <input-parameter name="idunidadparam" oraTypeName="CHAR" />
+
+                        <output-parameter name="datocur" oraTypeName="CURSOR"       javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+	    				<column-attribute-mapping attribute="fila"               javaTypeName="java.lang.String"  />                  
+    	                <column-attribute-mapping attribute="estructura"               javaTypeName="java.lang.String"  />                  
+                        <column-attribute-mapping attribute="id_estructura"                  javaTypeName="java.lang.String"  />                                               
+						<column-attribute-mapping attribute="nivel"                  javaTypeName="java.lang.String"  />                                               
+						<column-attribute-mapping attribute="estructura_superior"                  javaTypeName="java.lang.String"  />                                               
+                        </output-parameter>     
+					  <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+					  <input-parameter name="pIdEmpleado" oraTypeName="CHAR" />
+                  </statement-call>
+
+            </ora-transaction>           
+
+      <!--m4pr_consulta_organigrama - END-->
+      <!-- m4pr_cons_denominacionestruc- BEGIN-->
+
+            <ora-transaction name="m4pr_cons_denominacionestruc" dataSourceFactoryName="BDMETA4">
+
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_cons_denominacionestruc">
+
+                   <input-parameter name="idunidadparam" oraTypeName="CHAR" />
+
+                    <input-parameter name="idunidadpadre" oraTypeName="CHAR" />
+
+                    <output-parameter name="estructura" oraTypeName="CHAR" />     
+
+                  </statement-call>
+
+            </ora-transaction>           
+
+      <!--m4pr_cons_denominacionestruc - END-->
+
+       <!-- m4pr_actualizar_hsextras- BEGIN-->
+
+            <ora-transaction name="m4pr_actualizar_hsextras" dataSourceFactoryName="BDMETA4">
+
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_actualizar_hsextras">
+                   <input-parameter name="empleado" oraTypeName="CHAR" />
+                   <input-parameter name="fec_hora" oraTypeName="CHAR" />
+                   <input-parameter name="tipo_hora" oraTypeName="CHAR" />
+                   <input-parameter name="canti" oraTypeName="NUMBER" />
+                   <input-parameter name="unidad" oraTypeName="CHAR" />
+                   <input-parameter name="coment" oraTypeName="CHAR" />
+                   <input-parameter name="tipo_riesgo" oraTypeName="CHAR" />
+                   <input-parameter name="fec_liquidacion" oraTypeName="CHAR" />
+                   <input-parameter name="oldcanti" oraTypeName="CHAR" />
+                   <input-parameter name="oldcoment" oraTypeName="CHAR" />
+                   <input-parameter name="oldtipo_riesgo" oraTypeName="CHAR" />     
+                   <input-parameter name="oldMotivo_hs_extra" oraTypeName="CHAR" />
+                   <input-parameter name="oldOtro_motivo" oraTypeName="CHAR" />
+                   <input-parameter name="motivo_hs_extra" oraTypeName="CHAR" />
+                   <input-parameter name="otro_motivo" oraTypeName="CHAR" />                    
+        			<input-parameter name="usuario_m4" oraTypeName="CHAR" />                    
+
+                  </statement-call>
+
+            </ora-transaction>           
+
+      <!--m4pr_actualizar_hsextras - END-->
+      <!-- m4pr_tipo_riesgo - BEGIN-->
+            <ora-transaction name="m4pr_tipo_riesgo" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_tipo_riesgo">
+                        <output-parameter name="datocur" oraTypeName="CURSOR"       javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                             <column-attribute-mapping attribute="id_tipo_riesgo"                   javaTypeName="java.lang.String"  />                  
+                             <column-attribute-mapping attribute="n_tipo_riesgo"               javaTypeName="java.lang.String"  />
+                             <column-attribute-mapping attribute="ck_riego_operacional"                   javaTypeName="java.lang.String"  />                                                            
+                        </output-parameter>     
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_tipo_riesgo - END-->
+
+ 	<!-- m4pr_cons_empleadosheunidad - BEGIN-->
+		<ora-transaction name="m4pr_cons_empleadosheunidad" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_EMPLE.m4pr_cons_empleadosheunidad">
+			<input-parameter name="dunidadparam" oraTypeName="CHAR" />
+			
+				<output-parameter name="datocur" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="id_empleado" 	javaTypeName="java.lang.String"  />
+				</output-parameter>
+				<input-parameter name="PidSociedad" oraTypeName="CHAR" />	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_cons_empleadosheunidad - END-->	
+      
+      
+		<!-- m4pr_consulta_empleadoshe - BEGIN-->
+            <ora-transaction name="m4pr_consulta_empleadoshe" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_empleadoshe">
+                        <input-parameter name="dunidadparam" oraTypeName="CHAR" />
+                        <output-parameter name="datocur" oraTypeName="CURSOR"      javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                             <column-attribute-mapping attribute="id_empleado"     javaTypeName="java.lang.String"  />                  
+                        </output-parameter>     
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_consulta_empleadoshe - END-->
+      
+      <!-- m4pr_consulta_nombreempl - BEGIN-->
+            <ora-transaction name="m4pr_consulta_nombreempl" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_nombreempl"> 
+                        <input-parameter name="idempleado" oraTypeName="CHAR" />
+                        <output-parameter name="nombre" oraTypeName="CHAR" />                                         
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_consulta_nombreempl - END-->
+      
+       <!--m4pr_consulta_ausentismo- BEGIN-->
+       <ora-transaction name="m4pr_consulta_ausentismo" dataSourceFactoryName="BDMETA4">
+             <statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_ausentismo">
+                    <input-parameter name="dunidadparam" oraTypeName="CHAR" />
+                    <input-parameter name="fechainicial" oraTypeName="CHAR" />
+                    <output-parameter name="o_DATOSCUR" oraTypeName="CURSOR"       javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+                          <column-attribute-mapping attribute="nombre"  javaTypeName="java.lang.String"  />
+                          <column-attribute-mapping attribute="id_sociedad"  javaTypeName="java.lang.String"  />
+                          <column-attribute-mapping attribute="id_empleado"  javaTypeName="java.lang.String"  />
+                          <column-attribute-mapping attribute="dia1"  javaTypeName="java.sql.Date"  />
+                          <column-attribute-mapping attribute="dia2"  javaTypeName="java.sql.Date"  />
+                          <column-attribute-mapping attribute="dia3"  javaTypeName="java.sql.Date"  />
+                          <column-attribute-mapping attribute="dia4"  javaTypeName="java.sql.Date"  />
+                          <column-attribute-mapping attribute="dia5"  javaTypeName="java.sql.Date"  />
+                          <column-attribute-mapping attribute="dia6"  javaTypeName="java.sql.Date"  />
+                          <column-attribute-mapping attribute="dia7"  javaTypeName="java.sql.Date"  />
+                          <column-attribute-mapping attribute="tipoaus1"  javaTypeName="java.lang.String"  />
+                          <column-attribute-mapping attribute="tipoaus2"  javaTypeName="java.lang.String"  />
+                          <column-attribute-mapping attribute="tipoaus3"  javaTypeName="java.lang.String"  />
+                          <column-attribute-mapping attribute="tipoaus4"  javaTypeName="java.lang.String"  />
+                          <column-attribute-mapping attribute="tipoaus5"  javaTypeName="java.lang.String"  />
+                          <column-attribute-mapping attribute="tipoaus6"  javaTypeName="java.lang.String"  />
+                          <column-attribute-mapping attribute="tipoaus7"  javaTypeName="java.lang.String"  /> 
+                    </output-parameter> 
+                    <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+					<input-parameter name="pIdEmpleado" oraTypeName="CHAR" />					
+             </statement-call>
+       </ora-transaction>        
+      <!--m4pr_consulta_ausentismo - END-->
+
+       <!-- m4pr_motivos_ausencia- BEGIN-->
+
+           <ora-transaction name="m4pr_motivos_ausencia" dataSourceFactoryName="BDMETA4">
+                 <statement-call statement="M4PQ_WEB_EMPLE.m4pr_motivos_ausencia">
+                 
+                       <output-parameter name="datocur" oraTypeName="CURSOR"       javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                            <column-attribute-mapping attribute="id_tipo_ausentismo"               javaTypeName="java.lang.String"  />                  
+                            <column-attribute-mapping attribute="n_tipo_ausentismo"                javaTypeName="java.lang.String"  />                                               
+                       </output-parameter>  
+                       <input-parameter name="pIdSociedad" oraTypeName="CHAR" />   
+                 </statement-call>
+
+           </ora-transaction>           
+
+      <!--m4pr_motivos_ausencia - END-->
+
+      <!-- m4pr_actualizar_ausentismos- BEGIN-->
+
+            <ora-transaction name="m4pr_actualizar_ausentismos" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_actualizar_ausentismos">
+                   <input-parameter name="empleado" oraTypeName="CHAR" />
+                   <input-parameter name="fec_ausencia" oraTypeName="CHAR" />
+                   <input-parameter name="tipo_aus" oraTypeName="CHAR" />
+                   <input-parameter name="oldtipo_aus" oraTypeName="CHAR" />
+                   <input-parameter name="oldfec_liquidacion" oraTypeName="CHAR" />
+                   <input-parameter name="oldfec_conoc" oraTypeName="CHAR" />              
+		   <input-parameter name="usuario_alta" oraTypeName="CHAR" />
+                  </statement-call>
+            </ora-transaction>           
+
+      <!--m4pr_actualizar_ausentismos - END-->
+      
+
+
+      <!-- m4pr_consulta_cuposult- BEGIN-->
+            <ora-transaction name="m4pr_consulta_cuposult" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_cuposult">
+                   <input-parameter name="vanio" oraTypeName="CHAR" />
+                    <input-parameter name="idunidadparam" oraTypeName="CHAR" />
+                    
+             		 <output-parameter name="datocur" oraTypeName="CURSOR"       javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+                    <column-attribute-mapping attribute="estructura"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="unidad"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="cupo"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="saldo"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="nivel"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="idpadre"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="eshijo"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="carpetaopen"  javaTypeName="java.lang.String"  />
+                    </output-parameter>
+                    <input-parameter name="pIdSociedad" oraTypeName="CHAR" />   
+                  </statement-call>
+            </ora-transaction>           
+
+      <!--m4pr_consulta_cuposult - END-->
+ 	  <!-- m4pr_actualiza_cupos- BEGIN-->
+
+      <ora-transaction name="m4pr_actualiza_cupos" dataSourceFactoryName="BDMETA4">
+
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_actualiza_cupos">
+                    <input-parameter name="sociedad" oraTypeName="CHAR" />
+                    <input-parameter name="aaaa" oraTypeName="NUMBER" />
+                    <input-parameter name="unidad" oraTypeName="CHAR" />
+                    <input-parameter name="cantidad" oraTypeName="NUMBER" />
+                    <input-parameter name="comentario" oraTypeName="CHAR" />
+                    <input-parameter name="ck_llamada" oraTypeName="NUMBER" />
+                    <input-parameter name="nuevo_cupo" oraTypeName="NUMBER" />
+                    <output-parameter name="error" oraTypeName="CHAR" />              
+                  </statement-call>
+
+            </ora-transaction>           
+
+      <!--m4pr_actualiza_cupos - END-->
+
+       <!-- m4pr_consulta_hsextra_zona- BEGIN-->
+            <ora-transaction name="m4pr_consulta_hsextra_zona" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_hsextra_zona">
+                   <input-parameter name="usuario" oraTypeName="CHAR" />
+                    <input-parameter name="idunidadparam" oraTypeName="CHAR" />
+                    <input-parameter name="vanio" oraTypeName="NUMBER" />
+              <output-parameter name="datocur" oraTypeName="CURSOR"       javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+                    <column-attribute-mapping attribute="id_unidad"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="estructura"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilenero"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilfebrero"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilmarzo"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilabril"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilmayo"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utiljunio"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utiljulio"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilagosto"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilsept"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utiloctubre"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilnov"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utildic"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="cupoanual"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="hsrestantes"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="excesoprop"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="totalhsacum"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="tipo"  javaTypeName="java.lang.String"  />
+                   </output-parameter>    
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_consulta_hsextra_zona - END-->
+      
+     <!-- m4pr_consulta_hsExtra_Sucursal- BEGIN-->
+            <ora-transaction name="m4pr_consulta_hsextra_sucursal" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_hsextra_sucursal">
+                   <input-parameter name="usuario" oraTypeName="CHAR" />
+                    <input-parameter name="idunidadparam" oraTypeName="CHAR" />
+                    <input-parameter name="vanio" oraTypeName="NUMBER" />
+                    
+              <output-parameter name="datocur" oraTypeName="CURSOR"       javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	                <column-attribute-mapping attribute="orden"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="id_unidad"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="estructura"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilenero"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilfebrero"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilmarzo"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilabril"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilmayo"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utiljunio"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utiljulio"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilagosto"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilsept"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utiloctubre"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utilnov"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="utildic"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="cupoanual"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="hsrestantes"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="excesoprop"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="totalhsacum"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="tipo"  javaTypeName="java.lang.String"  />
+                   </output-parameter>
+                   <input-parameter name="PidSociedad" oraTypeName="CHAR" />    
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_consulta_hsExtra_Sucursal - END-->
+  
+       <!-- m4pr_consulta_hsextra_empl- BEGIN-->
+
+            <ora-transaction name="m4pr_consulta_hsextra_empl" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_hsextra_empl">
+                    <input-parameter name="idempleado" oraTypeName="CHAR" />
+                    <input-parameter name="vanio" oraTypeName="NUMBER" />
+                    <output-parameter name="cabecera" oraTypeName="CHAR" />
+                    <output-parameter name="suma" oraTypeName="CHAR" />
+              		<output-parameter name="datocur" oraTypeName="CURSOR"   javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+                    <column-attribute-mapping attribute="fec_alta_empleado" javaTypeName="java.sql.Date"  />
+                    <column-attribute-mapping attribute="fec_hora_extra"    javaTypeName="java.sql.Date"  />
+                    <column-attribute-mapping attribute="id_tipo_hora"      javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="cantidad"          javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="n_tipo_riesgo"     javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="ck_riego_operacional"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="coment"  			javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="motivo"  			javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="id_unidad"  		javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="n_unidad"  		javaTypeName="java.lang.String"  />
+                    </output-parameter>   
+                  </statement-call>
+            </ora-transaction>           
+
+      <!--m4pr_consulta_hsextra_empl - END-->
+
+            <!-- m4pr_consulta_hsextra_rope- BEGIN-->
+            <ora-transaction name="m4pr_consulta_hsextra_rope" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_hsextra_rope">
+                   <input-parameter name="fechadesde" oraTypeName="CHAR" />
+                    <input-parameter name="fechahasta" oraTypeName="CHAR" />
+                    <input-parameter name="idunidadparam" oraTypeName="CHAR" />
+                    
+              <output-parameter name="datocur" oraTypeName="CURSOR"       	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+                    <column-attribute-mapping attribute="fec_hora_extra"  	javaTypeName="java.sql.Date"  />
+                    <column-attribute-mapping attribute="id_unidadhe"   	javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="n_unidadhe"      	javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="nombre"  			javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="id_empleado"  		javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="id_tipo_hora"  	javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="cantidad"  		javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="n_tipo_riesgo"  	javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="ck_riego_operacional"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="coment"  			javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="id_unidademp"  	javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="n_unidademp"  		javaTypeName="java.lang.String"  />
+                    </output-parameter>
+                    <output-parameter name="suma" oraTypeName="CHAR" />
+                    <input-parameter name="PidSociedad" oraTypeName="CHAR" />      
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_consulta_hsextra_rope - END-->
+      
+      <!-- [DAMIAN] M4FU_CONSULTO_TERRITORIAL_AREA Begin-->
+      <ora-transaction name="M4FU_CONSULTO_TERRITORIAL_AREA" dataSourceFactoryName="BDMETA4">
+		<function-statement-call statement="M4PQ_WEB_EMPLE.M4FU_CONSULTO_TERRITORIAL_AREA">
+			<output-parameter name="CANTIDAD_AREAS" oraTypeName="NUMBER" />
+			<input-parameter name="TERRITORIAL" oraTypeName="CHAR" />
+			<input-parameter name="AREA" oraTypeName="CHAR" />
+		</function-statement-call>
+	  </ora-transaction>  
+      <!-- [DAMIAN] M4FU_CONSULTO_TERRITORIAL_AREA End-->
+
+      <!-- [DAMIAN] m4pr_consulta_hsextra_ranking Begin-->      
+      <ora-transaction name="m4pr_consulta_hsextra_ranking" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_hsextra_ranking">
+			<input-parameter name="vanio" oraTypeName="CHAR" />
+			<input-parameter name="idunidadparam" oraTypeName="CHAR" />
+			
+			<output-parameter name="datocur" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	            <column-attribute-mapping attribute="id_empleado"  		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="nombre"   			javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="id_unidad"  		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="n_estructura" 	  		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="cantidad"  		javaTypeName="java.lang.String"  />
+            </output-parameter>
+            <input-parameter name="PidSociedad" oraTypeName="CHAR" />
+		</statement-call>
+	  </ora-transaction> 
+      <!-- [DAMIAN] m4pr_consulta_hsextra_ranking End-->
+         
+      <!-- [DAMIAN] m4pr_consulta_hsextra_periodo Begin-->      
+      <ora-transaction name="m4pr_consulta_hsextra_periodo" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_EMPLE.m4pr_consulta_hsextra_periodo">
+			<input-parameter name="idunidadparam" oraTypeName="CHAR" />
+			<input-parameter name="fecha_desde" oraTypeName="CHAR" />
+			<input-parameter name="fecha_hasta" oraTypeName="CHAR" />
+			
+			
+			<output-parameter name="datocur" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	            <column-attribute-mapping attribute="id_unidad"  		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="n_estructura" 	  	javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="cantidad"  		javaTypeName="java.lang.String"  />
+            </output-parameter>
+            <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+		</statement-call>
+	  </ora-transaction> 
+      <!-- [DAMIAN] m4pr_consulta_hsextra_periodo End-->
+      
+      <!-- [DAMIAN] M4PR_CONSULTA_HSEXTRA_PUESTOS Begin-->      
+      <ora-transaction name="M4PR_CONSULTA_HSEXTRA_PUESTOS" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_EMPLE.M4PR_CONSULTA_HSEXTRA_PUESTOS">
+			<input-parameter name="idunidadparam" oraTypeName="CHAR" />
+			<input-parameter name="vanio" oraTypeName="CHAR" />
+			<input-parameter name="codPuesto" oraTypeName="CHAR" />
+			
+			<output-parameter name="datocur" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	            <column-attribute-mapping attribute="n_puesto"  		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="cantidad"   		javaTypeName="java.lang.String"  />
+            </output-parameter>
+            <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+		</statement-call>
+	  </ora-transaction> 
+      <!-- [DAMIAN] M4PR_CONSULTA_HSEXTRA_PUESTOS End-->      
+      
+      <!-- [DAMIAN] M4PR_LISTA_PUESTOS_HS_EXTRAS Begin-->      
+      <ora-transaction name="M4PR_LISTA_PUESTOS_HS_EXTRAS" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_EMPLE.M4PR_LISTA_PUESTOS_HS_EXTRAS">
+			<input-parameter name="idunidadparam" oraTypeName="CHAR" />
+			
+			<output-parameter name="datocur" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	            <column-attribute-mapping attribute="id_puesto"  		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="n_puesto"   		javaTypeName="java.lang.String"  />
+            </output-parameter>
+            <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+		</statement-call>
+	  </ora-transaction> 
+      <!-- [DAMIAN] M4PR_LISTA_PUESTOS_HS_EXTRAS End-->
+  
+       <!-- M4FU_MOTIVOS_HS_EXTRAS Begin-->
+      <ora-transaction name="M4FU_MOTIVOS_HS_EXTRAS" dataSourceFactoryName="BDMETA4">
+		<function-statement-call statement="M4PQ_WEB_EMPLE.M4FU_MOTIVOS_HS_EXTRAS">
+			<output-parameter name="result" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	            <column-attribute-mapping attribute="id_motivo"  		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="n_motivo"   		javaTypeName="java.lang.String"  />
+            </output-parameter>
+            <input-parameter name="activo" oraTypeName="CHAR" />
+		</function-statement-call>
+	</ora-transaction>
+	<!-- M4FU_MOTIVOS_HS_EXTRAS END--> 
+
+      <!-- M4PR_CONSULTA_HSEXTRA_MOTIVO Begin-->
+      <ora-transaction name="M4PR_CONSULTA_HSEXTRA_MOTIVO" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_EMPLE.M4PR_CONSULTA_HSEXTRA_MOTIVO">
+			<input-parameter name="idunidadparam" oraTypeName="CHAR" />
+			<input-parameter name="vanio" oraTypeName="CHAR" />
+			<input-parameter name="codMotivo" oraTypeName="CHAR" />
+			
+			<output-parameter name="datocur" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	            <column-attribute-mapping attribute="N_MOTIVO"  		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="COMENTARIO_MOTIVO" javaTypeName="java.lang.String"  />
+   	            <column-attribute-mapping attribute="CANTIDAD"  		javaTypeName="java.lang.String"  />
+            </output-parameter>
+            <input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- M4PR_CONSULTA_HSEXTRA_MOTIVO END--> 
+            	           
+    <!-- M4FU_HABILITA_OTRO_MOTIVO Begin-->
+    <ora-transaction name="M4FU_HABILITA_OTRO_MOTIVO" dataSourceFactoryName="BDMETA4">
+		<function-statement-call statement="M4PQ_WEB_EMPLE.M4FU_HABILITA_OTRO_MOTIVO">
+			<output-parameter name="HABILITA_OTRO_MOTIVO" oraTypeName="CHAR" />
+			<input-parameter name="ID_MOTIVO" oraTypeName="NUMBER" />
+		</function-statement-call>
+	</ora-transaction>
+	<!-- M4FU_HABILITA_OTRO_MOTIVO END-->
+	
+      <!-- m4pr_consulta_nombreempl - BEGIN-->
+            <ora-transaction name="m4pr_cons_nom_empl_rota" dataSourceFactoryName="BDMETA4">
+                  <statement-call statement="M4PQ_WEB_EMPLE.m4pr_cons_nom_empl_rota"> 
+                        <input-parameter name="idempleado" oraTypeName="CHAR" />
+                        <output-parameter name="nombre" oraTypeName="CHAR" />                                         
+                        <output-parameter name="rota_puesto" oraTypeName="CHAR" />
+                        <input-parameter name="PidSociedad" oraTypeName="CHAR" /> 
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_consulta_nombreempl - END-->	
+      
+      
+      <!-- M4FU_DevuelvePerfilMenu Begin-->
+      <ora-transaction name="M4FU_DevuelvePerfilMenu" dataSourceFactoryName="BDMETA4">
+		<function-statement-call statement="M4PQ_WEB_EMPLE.M4FU_DevuelvePerfilMenu">
+			<output-parameter name="result" oraTypeName="CHAR" />
+			<input-parameter name="ID_PERFIL" oraTypeName="CHAR" />
+			<input-parameter name="VARX" oraTypeName="CHAR" />
+		</function-statement-call>
+	</ora-transaction>
+	<!-- M4FU_DevuelvePerfilMenu END-->
+
+
+
+	<convertion-manager
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

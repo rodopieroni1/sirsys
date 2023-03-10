@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager> 
+	<!-- m4fu_unidades_habilitadas - BEGIN -->
+	<ora-transaction name="m4fu_unidades_habilitadas" dataSourceFactoryName="BDMETA4">
+		<function-statement-call statement="M4PQ_IMP_CRUCES.m4fu_unidades_habilitadas">
+			<output-parameter name="RESULT" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_UNIDAD" oraTypeName="CHAR" />
+		</function-statement-call>
+	</ora-transaction>
+	<!-- m4fu_unidades_habilitadas - END -->
+                                         
+	<!-- m4pr_busqueda_justificacion - BEGIN-->
+	<ora-transaction name="m4pr_busqueda_justificacion" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_busqueda_justificacion">
+			<input-parameter name="P_UNIDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD_SUP" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_SUP" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_SUP" oraTypeName="DATE" />
+			<input-parameter name="P_ID_SOCIEDAD_EMP" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_EMP" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_EMP" oraTypeName="DATE" />
+			<input-parameter name="P_ID_EMPLEADO_LOG" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_DESDE" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_hasta" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_EMPRESA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_SOCIEDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMP_SUP" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRE_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_UNIDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_PUESTO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_PUESTO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FECHA_AUSENTISMO_DESDE" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="FECHA_AUSENTISMO_HASTA" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="JUSTIFICACION" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="COMENTARIO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="USUARIO_ACTUALIZA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FECHA_ACTUALIZACON" javaTypeName="java.sql.Date"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_busqueda_justificacion - END -->                                        
+
+	<!-- m4pr_busq_emp_justi - BEGIN-->
+	<ora-transaction name="m4pr_busq_emp_justi" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_busq_emp_justi">
+			<input-parameter name="P_ID_SOCIEDAD_LOG" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_LOG" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_LOG" oraTypeName="DATE" />
+			<input-parameter name="P_ID_SOCIEDAD_EMP" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_EMP" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_EMP" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_DESDE" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_HASTA" oraTypeName="DATE" />
+
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_EMPRESA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_SOCIEDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMP_SUP" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRE_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_UNIDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_PUESTO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_PUESTO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FECHA_AUSENTISMO_DESDE" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="FECHA_AUSENTISMO_HASTA" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="JUSTIFICACION" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="COMENTARIO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="USUARIO_ACTUALIZA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FECHA_ACTUALIZACON" javaTypeName="java.sql.Date"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_busq_emp_justi - END -->
+                                 
+                                 
+	<!-- m4pr_gen_repo_inicial - BEGIN-->
+	<ora-transaction name="m4pr_gen_repo_inicial" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_gen_repo_inicial">
+			<input-parameter name="P_ID_SOCIEDAD_LOG" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_LOG" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">			
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_EMPRESA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_SOCIEDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMP_SUP" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRE_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_UNIDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_PUESTO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_PUESTO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FECHA_AUSENTISMO_DESDE" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="FECHA_AUSENTISMO_HASTA" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="JUSTIFICACION" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="COMENTARIO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="USUARIO_ACTUALIZA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FECHA_ACTUALIZACON" javaTypeName="java.sql.Date"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_gen_repo_inicial - END -->
+
+	<!-- m4pr_update_justificacion - BEGIN-->
+	<ora-transaction name="m4pr_update_justificacion" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_update_justificacion">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_EMP" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_DESDE" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_HASTA" oraTypeName="DATE" />
+			<input-parameter name="P_JUSTIFICACION" oraTypeName="CHAR" />
+			<input-parameter name="P_COMENTARIO" oraTypeName="CHAR" />
+			<input-parameter name="P_USUARIO" oraTypeName="CHAR" />
+			<output-parameter name="P_ERROR" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_update_justificacion - END -->
+
+
+
+	<!-- m4pr_super_directos - BEGIN-->
+	<ora-transaction name="m4pr_super_directos" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_super_directos">
+			<input-parameter name="P_ID_LEGAJO" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_super_directos - END -->
+
+	<!-- m4pr_justificaciones_cruces - BEGIN-->
+	<ora-transaction name="m4pr_justificaciones_cruces" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_justificaciones_cruces">
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="N_CHECK" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="T_COMPORT" javaTypeName="java.lang.String"  />
+   				<column-attribute-mapping attribute="D_COMPORT" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_justificaciones_cruces - END -->
+
+	<!-- m4pr_unidades_supervisadas - BEGIN-->
+	<ora-transaction name="m4pr_unidades_supervisadas" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_unidades_supervisadas">
+			<input-parameter name="ID_UNIDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD_LOG" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_LOG" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_unidades_supervisadas - END -->
+
+	<!-- m4pr_supervisados - BEGIN -->
+	<ora-transaction name="m4pr_supervisados" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_LICENCIAS.m4pr_supervisados">
+			<input-parameter name="P_ID_LEGAJO" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_supervisados - END -->
+	
+	<!-- m4fu_datos_empleado - BEGIN -->
+	<ora-transaction name="m4fu_datos_empleado" dataSourceFactoryName="BDMETA4">
+		<function-statement-call statement="M4PQ_IMP_CRUCES.m4fu_datos_empleado">
+			<output-parameter name="O_DATOS" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_LEGAJO" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+		</function-statement-call>
+	</ora-transaction>
+	<!-- m4fu_datos_empleado - END -->
+
+	<!-- m4pr_supervisores - BEGIN -->
+	<ora-transaction name="m4pr_supervisores" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_supervisores">
+			<input-parameter name="P_ID_LEGAJO" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_supervisores - END -->
+
+
+	<!-- m4pr_genera_reporte - BEGIN -->
+	<ora-transaction name="m4pr_genera_reporte" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_genera_reporte">
+
+			<input-parameter name="P_UNIDAD_SUPERVISADA" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD_LOG" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_LOG" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_LOG" oraTypeName="DATE" />
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_EMP" oraTypeName="DATE" />
+			<input-parameter name="P_ID_SOCIEDAD_SUP" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_SUP" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_SUP" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_AUSENTISMO_DESDE" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_AUSENTISMO_HASTA" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_SOCIEDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMP_SUP" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_UNIDAD_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_PUESTO_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FECHA_AUSENTISMO_DESDE" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="FECHA_AUSENTISMO_HASTA" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="JUSTIFICACION" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="COMENTARIO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="USUARIO_ACTUALIZA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FECHA_ACTUALIZACON" javaTypeName="java.sql.Date"  />
+			</output-parameter>
+
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_genera_reporte - END -->
+
+	<!-- m4pr_obtengo_responsable - BEGIN-->
+	<ora-transaction name="m4pr_obtengo_responsable" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_obtengo_responsable">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_UNIDAD" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_obtengo_responsable - END -->
+
+	<!-- m4pr_empleado_unidades - BEGIN-->
+	<ora-transaction name="m4pr_empleado_unidades" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_empleado_unidades">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_UNIDAD" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_empleado_unidades - END -->
+
+	<!-- m4pr_supervisados_area - BEGIN-->
+	<ora-transaction name="m4pr_supervisados_area" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.m4pr_supervisados">
+			<input-parameter name="P_ID_LEGAJO" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_supervisados_area - END -->
+
+<!--Inicio Modulo Delegacion de Justificaciones y Ausentismos -->
+<!-- m4pr_empleado_delegados - BEGIN -->
+	<ora-transaction name="m4pr_listado_delegado" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.M4pr_listado_delegado">
+			<input-parameter name="P_ID_SOCIEDAD_DE" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_DE" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_DE" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_empleado_delegados - END -->
+	
+	<!-- m4pr_cargar_delegacion - BEGIN -->
+	<ora-transaction name="m4pr_cargar_delegacion" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_LICENCIAS.M4pr_cargar_delegacion">
+			<input-parameter name="P_ID_SOCIEDAD_DOR" oraTypeName="CHAR" />
+			<input-parameter name="P_LEGADO_DELEGADOR" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SOCIEDAD_DO" oraTypeName="CHAR" />
+			<input-parameter name="P_LEGADO_DELEGADO" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_DESDE" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_HASTA" oraTypeName="DATE" />
+			<input-parameter name="P_ESTADO" oraTypeName="NUMBER" />
+			<input-parameter name="P_FECHA_CANCELACION" oraTypeName="DATE" />
+			<input-parameter name="P_TIPO_DELEGACION" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_cargar_delegacion - END -->
+	<!-- m4pr_listar_delegaciones - BEGIN -->
+	<ora-transaction name="m4pr_listar_delegaciones" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.M4pr_listar_delegaciones">
+			<input-parameter name="P_ID_SOCIEDAD_DOR" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO_DOR" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_DOR" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD_DELEGADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_LEGAJO_DELEGADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FECHA_DESDE" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="FECHA_HASTA" javaTypeName="java.sql.Date"  />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_DELEGACION" javaTypeName="java.lang.String"  />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_listar_delegaciones - END -->	
+
+	 <!-- sirpr_motivos_ajustes - BEGIN -->
+    <ora-transaction name="sirpr_motivos_ajustes" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_motivos_ajustes">
+            <output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                <column-attribute-mapping attribute="MOTIVO" javaTypeName="java.lang.String"  />
+            </output-parameter>
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_motivos_ajustes - END -->	
+
+    <!-- sirpr_supervisados - BEGIN -->
+    <ora-transaction name="sirpr_supervisados" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_supervisados">
+	    <input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />
+            <output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                <column-attribute-mapping attribute="EMPLEADO" javaTypeName="java.lang.String"  />
+            </output-parameter>
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_motivos_ajustes - END -->
+
+
+   <!-- sirpr_datos_emplesup- BEGIN -->
+	<ora-transaction name="sirpr_datos_emplesup" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_datos_emplesup">
+			<input-parameter name="P_USUARIO" oraTypeName="CHAR" />
+			<output-parameter name="USUARIO" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="NOMBRE_APELLIDO" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="PUESTO" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="UNIDAD" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="EMPRESA" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="RTM" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="ADIC_FALLA" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="CONF" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="COMP_POS" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="BT" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="BONOA" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="BONOB" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="BONOC" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="POSICION" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="BONO_SUGERIDO" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="PO_ID_MAPA_TALENTO" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="PO_ID_POTENCIAL" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+			<output-parameter name="PO_ID_PERFORMANCE" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+		</statement-call>
+	</ora-transaction>
+<!-- sirpr_datos_emplesup - END -->	
+
+
+    <!-- sirpr_valida_antes_aumento - BEGIN -->
+    <ora-transaction name="sirpr_valida_antes_aumento" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_valida_antes_aumento">
+	    <input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />
+	    <input-parameter name="P_MOTIVO_AJUSTE" oraTypeName="CHAR" />
+            <output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                <column-attribute-mapping attribute="N_DESCRIPCION" javaTypeName="java.lang.String"  />
+		<column-attribute-mapping attribute="CK_RESULTADO" javaTypeName="java.lang.String"  />
+		<column-attribute-mapping attribute="CK_BLOQUEANTE" javaTypeName="java.lang.String"  />
+		<column-attribute-mapping attribute="ID_SOLICITUD" javaTypeName="java.lang.String"  />
+            </output-parameter>
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_valida_antes_aumento - END -->
+	
+	   <!-- sirpr_valida_post_aumento - BEGIN -->
+    <ora-transaction name="sirpr_valida_post_aumento" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_valida_post_aumento">
+			<input-parameter name="P_ID_SOLICITUD" oraTypeName="CHAR" />
+			<input-parameter name="P_USUARIO" oraTypeName="CHAR" />
+			<input-parameter name="P_NUEVO_JP" oraTypeName="CHAR" />
+			<input-parameter name="P_IMPORTE" oraTypeName="CHAR" />
+			<input-parameter name="P_PORCENTAJE" oraTypeName="CHAR" />
+			<output-parameter name="P_SUELDO_NUEVO" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="X_MENSAJE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="CK_RESULTADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="CK_BLOQUEANTE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_SOLICITUD" javaTypeName="java.lang.String"  />
+			</output-parameter>
+			<input-parameter name="P_ID_MOTIVO" oraTypeName="CHAR" />
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_valida_post_aumento - END -->
+
+	
+	
+    <!-- sirpr_jp - BEGIN -->
+    <ora-transaction name="sirpr_jp" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_jp">
+			<input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />
+            <output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                <column-attribute-mapping attribute="PUESTO" javaTypeName="java.lang.String"  />
+            </output-parameter>
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_jp - END -->
+
+    <!-- sirpr_supervisory - BEGIN -->
+    <ora-transaction name="sirpr_supervisory" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_supervisory">
+            <output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                <column-attribute-mapping attribute="UNIDAD" javaTypeName="java.lang.String"  />
+            </output-parameter>
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_supervisory - END -->
+
+    <!-- sirpr_empresa - BEGIN -->
+    <ora-transaction name="sirpr_empresa" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_empresa">
+            <output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                <column-attribute-mapping attribute="EMPRESA" javaTypeName="java.lang.String"  />
+            </output-parameter>
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_empresa - END -->
+	
+	    <!-- sirpr_posiciona_nuevo - BEGIN -->
+    <ora-transaction name="sirpr_posiciona_nuevo" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_posiciona_nuevo">
+			<input-parameter name="P_USUARIO" oraTypeName="CHAR" />
+			<input-parameter name="P_NUEVO_JP" oraTypeName="CHAR" />
+			<input-parameter name="P_SUELDO_NUEVO" oraTypeName="CHAR" />
+            <output-parameter name="P_NUEVA_POS" oraTypeName="CHAR" javaTypeName="java.lang.String" />
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_posiciona_nuevo - END -->
+	
+	<!-- sirpr_ins_solicitud_aumentos - BEGIN -->
+    <ora-transaction name="sirpr_ins_solicitud_aumentos" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_ins_solicitud_aumentos">
+			<input-parameter name="P_ID_SOLICITUD" oraTypeName="CHAR" />
+			<input-parameter name="P_USUARIO_CORPO_SUPER" oraTypeName="CHAR" />
+			<input-parameter name="P_USUARIO_CORPO_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_MOTIVO_AJUSTE" oraTypeName="CHAR" />
+			<input-parameter name="P_FEC_SIMULACION" oraTypeName="DATE" />
+			<input-parameter name="P_ID_JOB_PROFILE" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SUPERVISORY" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPRESA" oraTypeName="CHAR" />
+			<input-parameter name="P_ZONA_DESFAVORABLE" oraTypeName="CHAR" />
+			<input-parameter name="P_RTM" oraTypeName="CHAR" />
+			<input-parameter name="P_CONFORMADO" oraTypeName="CHAR" />
+			<input-parameter name="P_COMPLEMENTO" oraTypeName="CHAR" />
+			<input-parameter name="P_ADIC_FALLA_CONV" oraTypeName="CHAR" />
+			<input-parameter name="P_REMUNERACION_TOT" oraTypeName="CHAR" />
+			<input-parameter name="P_BT" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_MAPA_TALENTO" oraTypeName="CHAR" />
+			<input-parameter name="P_PERFORMANCE" oraTypeName="CHAR" />
+			<input-parameter name="P_POTENCIAL" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_JOB_PROFILE_NUEVO" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_SUPERVISORY_NUEVA" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPRESA_NUEVA" oraTypeName="CHAR" />
+			<input-parameter name="P_IMPORTE_AJUSTAR" oraTypeName="CHAR" />
+			<input-parameter name="P_PORCENTAJE_AJUSTAR" oraTypeName="CHAR" />
+			<input-parameter name="P_REMUNERACION_TOT_NUEVA" oraTypeName="CHAR" />
+			<input-parameter name="P_BT_PROPUESTO" oraTypeName="CHAR" />
+			<input-parameter name="P_OBSERVACIONES" oraTypeName="CHAR" />
+			<input-parameter name="P_POSICIONAMIENTO" oraTypeName="CHAR" />
+			<input-parameter name="P_BONO_SUGERIDO" oraTypeName="CHAR" />
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_ins_solicitud_aumentos - END -->
+	
+	
+	<!-- sirpr_hist_sol_aumentos - BEGIN -->
+    <ora-transaction name="sirpr_hist_sol_aumentos" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_hist_sol_aumentos">
+			<input-parameter name="P_USUARIO_CORPO_SUPER" oraTypeName="CHAR" />
+			<input-parameter name="P_FEC_SIMULACION_DESDE" oraTypeName="DATE" />
+			<input-parameter name="P_FEC_SIMULACION_HASTA" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                <column-attribute-mapping attribute="ID_SOLICITUD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="USUARIO_CORPO_SUPER" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="AP_NOM_SUP" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="USUARIO_CORPO_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="AP_NOM_EMPLEADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_MOTIVO_AJUSTE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_DESCRIPCION" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="FEC_SIMULACION" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_JOB_PROFILE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_SUPERVISORY" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPRESA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_EMPRESA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="CK_ZONA_DESFAVORABLE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="RTM" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="CONFORMADO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="COMPLEMENTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ADIC_FALLA_CONV" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="REMUNERACION_TOT" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="BT" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_MAPA_TALENTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="PERFORMANCE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="POTENCIAL" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_JOB_PROFILE_NUEVO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_SUPERVISORY_NUEVA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_EMPRESA_NUEVA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="N_EMPRESA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="IMPORTE_AJUSTAR" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="PORCENTAJE_AJUSTAR" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="REMUNERACION_TOT_NUEVA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="BT_PROPUESTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="OBSERVACIONES" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="POSICIONAMIENTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="BONO_SUGERIDO" javaTypeName="java.lang.String"  />
+            </output-parameter>
+
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_hist_sol_aumentos - END -->
+	
+	
+	<!-- sirpr_param_antes_aumentof - BEGIN -->
+    <ora-transaction name="sirpr_param_antes_aumentof" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="SIRPQ_POLITICA_SALARIAL.sirpr_param_antes_aumentof">
+			<input-parameter name="P_ID_MOTIVO" oraTypeName="CHAR" />
+			<input-parameter name="P_FEC_VALIDACION_DESDE" oraTypeName="DATE" />
+			<input-parameter name="P_FEC_VALIDACION_HASTA" oraTypeName="DATE" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+                <column-attribute-mapping attribute="ID_PAR_VALIDA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_MOTIVO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="Descripcion Motivo" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_VALIDACION" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="Descripcion Validacion" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_TABLA_CAMPO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="Tabla" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="Campo" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ID_VALOR" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="Valor" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="CK_BLOQUEANTE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="X_MENSAJE" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="Fecha Inicio" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="Fecha Fin" javaTypeName="java.lang.String"  />
+            </output-parameter>
+        </statement-call>
+    </ora-transaction>
+    <!-- sirpr_param_antes_aumentof - END -->
+
+
+
+
+		<!-- m4pr_borrar_delegaciones - BEGIN -->
+	<ora-transaction name="m4pr_borrar_delegaciones" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_IMP_CRUCES.M4pr_borrar_delegaciones">
+		<input-parameter name="P_ID_DELEGACION" oraTypeName="NUMBER" />
+		</statement-call>
+	</ora-transaction>
+<!--Inicio Modulo Delegacion de Justificaciones y Ausentismos -->
+
+<!---->
+
+
+	<convertion-manager 
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter"/>
+		<converter classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

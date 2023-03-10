@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+
+	<!-- m4pr_datos_prepaga - Begin-->
+	<ora-transaction name="m4pr_datos_prepaga" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_datos_prepaga">
+		<input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />
+		<output-parameter name="P_ID_MED_PREPADA" oraTypeName="CHAR" />
+		<output-parameter name="P_N_PREPAGA" oraTypeName="CHAR" />
+		<output-parameter name="P_X_PLAN" oraTypeName="CHAR" />
+		<output-parameter name="P_ARCHIVO_COBERTURA" oraTypeName="CHAR" />
+		
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_prepaga - END-->
+
+	<!-- m4pr_consulta_sanatorio - Begin-->
+	<ora-transaction name="m4pr_consulta_sanatorio" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_consulta_sanatorio">
+		<input-parameter name="P_ID_MEDICINA_PREPAGA" oraTypeName="CHAR" />
+		<output-parameter name="P_N_MEDICINA_PREPAGA" oraTypeName="CHAR" />
+		<output-parameter name="P_X_SANATORIO" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_consulta_sanatorio - END-->
+
+	<!-- m4pr_consulta_prepaga - Begin-->
+	<ora-transaction name="m4pr_consulta_contacto_prepaga" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_consulta_contacto_prepaga">
+		<input-parameter name="P_ID_MEDICINA_PREPAGA" oraTypeName="CHAR"/>
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_CONTACTO" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="ID_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="VIA_PUBLICA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="POBLACION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_TELEFONO1" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_TELEFONO2" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_MAIL" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_consulta_contacto_prepaga - END-->
+	<!-- m4pr_consulta_prepaga - Begin-->
+	<ora-transaction name="m4pr_consulta_prepaga" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_consulta_prepaga">
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_consulta_prepaga - END-->
+		<!-- m4pr_consulta_tplanes_emp - Begin-->
+	<ora-transaction name="m4pr_consulta_tplanes_emp" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_consulta_tplanes_emp">
+			<input-parameter name="P_ID_MEDICINA_PREPAGA" oraTypeName="CHAR"/>
+			<output-parameter name="o_datoscur" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_PLAN" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_ARCHIVO_COBERTURA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CK_CAL_COSTO" javaTypeName="java.lang.Integer" />
+				
+				
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_consulta_tplanes_emp - END-->
+	<!-- m4pr_consulta_tplanes - Begin-->
+	<ora-transaction name="m4pr_consulta_tplanes" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_consulta_tplanes">
+			<input-parameter name="P_ID_MEDICINA_PREPAGA" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_PLAN" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_ARCHIVO_COBERTURA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CK_CAL_COSTO" javaTypeName="java.lang.Integer" />
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_consulta_tplanes - END-->
+	<!-- m4pr_cons_archivos - Begin-->
+	<ora-transaction name="m4pr_cons_archivos" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_cons_archivos">
+<!-- 			<input-parameter name="P_ID_MEDICINA_PREPAGA" oraTypeName="CHAR" /> -->
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_ARCHIVOS" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="X_DIRECTORIO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_NOMBRE_ARCHIVO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_DESCRIPCION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_MODIF_REGISTRO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_AG_ARCHIVOS" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_cons_archivos - END-->
+	<!-- m4pr_cons_archivos_by_id - Begin-->
+	<ora-transaction name="m4pr_cons_archivos_by_id" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_cons_archivos_by_id">
+			<input-parameter name="P_ID_AG_ARCHIVOS" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_ARCHIVOS" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="X_DIRECTORIO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_NOMBRE_ARCHIVO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_DESCRIPCION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_MODIF_REGISTRO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="ID_AG_ARCHIVOS" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_cons_archivos_by_id - END-->
+	
+	<!-- m4pr_ins_archivos - Begin-->
+	<ora-transaction name="m4pr_ins_archivos" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_ins_archivos">
+			<input-parameter name="P_X_DIRECTORIO" oraTypeName="CHAR" />
+			<input-parameter name="P_X_NOMBRE_ARCHIVO" oraTypeName="CHAR" />
+			<input-parameter name="P_X_DESCRIPCION" oraTypeName="CHAR" />
+			<input-parameter name="P_FEC_MODIF_REGISTRO" oraTypeName="DATE" />
+			<input-parameter name="P_ID_AG_ARCHIVOS" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_ins_archivos - END-->
+	<!-- m4pr_upd_archivos - Begin-->
+	<ora-transaction name="m4pr_upd_archivos" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_upd_archivos">
+			<input-parameter name="P_ID_ARCHIVOS" oraTypeName="NUMBER"/>
+			<input-parameter name="P_X_NOMBRE_ARCHIVO" oraTypeName="CHAR"/>
+			<input-parameter name="P_X_DESCRIPCION" oraTypeName="CHAR"/>
+			<input-parameter name="P_ID_AG_ARCHIVOS" oraTypeName="CHAR"/>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_upd_archivos - END-->
+	<!-- m4pr_del_archivos - Begin-->
+	<ora-transaction name="m4pr_del_archivos" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_del_archivos">
+			<input-parameter name="P_ID_ARCHIVOS" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_del_archivos - END-->
+	<!-- m4pr_datos_cuenta_corriente - Begin-->
+	<ora-transaction name="m4pr_datos_cuenta_corriente" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_datos_cuenta_corriente">
+			<input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_OBRA_SOCIAL" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_OBRA_SOCIAL" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_PLAN" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_TIPO_PLAN" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_SOCIO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="COSTO_PREPAGA" javaTypeName="java.lang.Double" />
+				<column-attribute-mapping attribute="DESC_MED_PREPAG" javaTypeName="java.lang.Double" />
+				<column-attribute-mapping attribute="SALDO_CUEN_PREP" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_PAGO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FEC_INICIO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FEC_FIN" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="TITULAR" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CONYUGUE" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="HIJOS" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="OTROS" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="MES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APORTE" javaTypeName="java.lang.Double" />
+				<column-attribute-mapping attribute="CK_UNIFICA_APORTES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="SALDO_MES" javaTypeName="java.lang.Double" />
+				<column-attribute-mapping attribute="COSTO_FIJO_PREP" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="AJUSTE_DESCRIP" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CUIL" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APORTE_GENERADO" javaTypeName="java.lang.String" />
+							
+				
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_cuenta_corriente - END-->
+	
+	<!-- m4pr_datos_admin - Begin-->
+	<ora-transaction name="m4pr_datos_admin" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_datos_admin">
+			<input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_OBRA_SOCIAL" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_OBRA_SOCIAL" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_MEDICINA_PREPAGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_PLAN" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_TIPO_PLAN" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_SOCIO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="COSTO_PREPAGA" javaTypeName="java.lang.Double" />
+				<column-attribute-mapping attribute="DESC_MED_PREPAG" javaTypeName="java.lang.Double" />
+				<column-attribute-mapping attribute="SALDO_CUEN_PREP" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_PAGO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FEC_INICIO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FEC_FIN" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="TITULAR" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CONYUGUE" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="HIJOS" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="OTROS" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="MES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APORTE" javaTypeName="java.lang.Double" />
+				<column-attribute-mapping attribute="CK_UNIFICA_APORTES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="SALDO_MES" javaTypeName="java.lang.Double" />
+				<column-attribute-mapping attribute="COSTO_FIJO_PREP" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="AJUSTE_DESCRIP" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CUIL" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APORTE_GENERADO" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_admin - END-->
+	
+	<!-- m4pr_datos_familiares - Begin-->
+	<ora-transaction name="m4pr_datos_familiares" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_datos_familiares">
+			<input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR"/>
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="N_PARENTESCO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_FAMILIAR" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_INICIO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FEC_FIN" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="NUM_DOCUMENTO" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_familiares - END-->
+	
+	<!-- m4pr_datos_adherentes - Begin-->
+
+	<ora-transaction name="m4pr_datos_adherentes" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_datos_adherentes">
+			<input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />
+			<input-parameter name="P_FEC_PAGO" oraTypeName="DATE" />
+			<input-parameter name="P_TIPO_FAMILIAR" oraTypeName="CHAR" />
+			<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="N_FAMILIAR" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_INICIO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FEC_FIN" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="NUM_DOCUMENTO" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_adherentes - END-->
+
+	<!-- m4pr_upd_planes - Begin-->
+	<ora-transaction name="m4pr_upd_planes" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_upd_planes">
+			<input-parameter name="P_ID_MEDICINA_PREPAGA" oraTypeName="CHAR" />
+			<input-parameter name="P_X_PLAN" oraTypeName="CHAR" />
+			<input-parameter name="P_X_ARCHIVO" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_upd_planes - END-->
+		
+	<!-- m4pr_ins_planes - Begin-->
+	<ora-transaction name="m4pr_ins_planes" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_ins_planes">
+			<input-parameter name="P_ID_MEDICINA_PREPAGA" oraTypeName="CHAR" />
+			<input-parameter name="P_X_PLAN" oraTypeName="CHAR" />
+			<input-parameter name="P_X_ARCHIVO" oraTypeName="CHAR" />
+			<input-parameter name="P_CK_VISIBLE" oraTypeName="CHAR" />
+			<input-parameter name="P_CK_ORDENAMIENTO" oraTypeName="NUMBER" />
+			<input-parameter name="P_CK_CAL_COSTO" oraTypeName="NUMBER" />
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_ins_planes - END-->
+	
+	<!-- m4pr_ins_planes - Begin-->
+	<ora-transaction name="m4pr_del_planes" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_cc_obra_social.m4pr_del_planes">
+			<input-parameter name="P_ID_MEDICINA_PREPAGA" oraTypeName="CHAR" />
+			<input-parameter name="P_X_PLAN" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_del_planes - END-->
+	<convertion-manager
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

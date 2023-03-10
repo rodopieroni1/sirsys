@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+		
+	<!-- m4pr_findAllParametros - BEGIN-->
+		<ora-transaction name="m4pr_findAllParametros" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllParametros">
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ANIO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MES" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PUNTAJE_MINIMO" javaTypeName="java.lang.Float"  />
+					<column-attribute-mapping attribute="DIAS_MINIMO_AREA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_MOTIVOS_AUS" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="FECH_PUBLICACION" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="FECH_TOPE_CORRECCION" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="FECHA_ARRANQUE" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="MARCA_PUBLICADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MARCA_ARRANCADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FECH_TOPE_ASIGNACION" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />				
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllParametros - END -->
+		<!-- m4pr_findParametrosByPk - BEGIN -->
+		<ora-transaction name="m4pr_findParametrosByPk" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findParametrosByPk">    		
+				<input-parameter name="I_ANIO" oraTypeName="CHAR" />
+				<input-parameter name="I_MES" oraTypeName="CHAR" />		
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ANIO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MES" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PUNTAJE_MINIMO" javaTypeName="java.lang.Float"  />
+					<column-attribute-mapping attribute="DIAS_MINIMO_AREA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_MOTIVOS_AUS" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="FECH_PUBLICACION" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="FECH_TOPE_CORRECCION" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="FECHA_ARRANQUE" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="MARCA_PUBLICADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MARCA_ARRANCADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FECH_TOPE_ASIGNACION" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />				
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findParametrosByPk - END -->
+	<!-- m4pr_insertParametro - BEGIN -->
+		<ora-transaction name="m4pr_insertParametro" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_insertParametro">
+				<input-parameter name="I_ANIO" oraTypeName="CHAR" />
+				<input-parameter name="I_MES" oraTypeName="CHAR" />	
+				<input-parameter name="i_PUNTAJE_MINIMO" oraTypeName="NUMBER" />
+				<input-parameter name="i_DIAS_MINIMO_AREA" oraTypeName="NUMBER" />	
+				<input-parameter name="i_DIAS_MOTIVOS_AUS" oraTypeName="NUMBER" />
+				<input-parameter name="i_FECH_PUBLICACION" oraTypeName="DATE" />	
+				<input-parameter name="i_FECH_TOPE_CORRECCION" oraTypeName="DATE" />
+				<input-parameter name="i_FECHA_ARRANQUE" oraTypeName="DATE" />	
+				<input-parameter name="i_MARCA_PUBLICADO" oraTypeName="CHAR" />
+				<input-parameter name="i_MARCA_ARRANCADO" oraTypeName="CHAR" />	
+				<input-parameter name="i_FECH_TOPE_ASIGNACION" oraTypeName="DATE" />
+				<input-parameter name="i_ACTIVO" oraTypeName="CHAR" />				
+			</statement-call>
+		</ora-transaction>			
+	<!-- m4pr_insertParametro - END-->
+	<!-- m4pr_updateParametro - BEGIN-->
+		<ora-transaction name="m4pr_updateParametro" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_updateParametro">
+				<input-parameter name="I_ANIO" oraTypeName="CHAR" />
+				<input-parameter name="I_MES" oraTypeName="CHAR" />	
+				<input-parameter name="i_PUNTAJE_MINIMO" oraTypeName="NUMBER" />
+				<input-parameter name="i_DIAS_MINIMO_AREA" oraTypeName="NUMBER" />	
+				<input-parameter name="i_DIAS_MOTIVOS_AUS" oraTypeName="NUMBER" />
+				<input-parameter name="i_FECH_PUBLICACION" oraTypeName="DATE" />	
+				<input-parameter name="i_FECH_TOPE_CORRECCION" oraTypeName="DATE" />
+				<input-parameter name="i_FECHA_ARRANQUE" oraTypeName="DATE" />	
+				<input-parameter name="i_MARCA_PUBLICADO" oraTypeName="CHAR" />
+				<input-parameter name="i_MARCA_ARRANCADO" oraTypeName="CHAR" />	
+				<input-parameter name="i_FECH_TOPE_ASIGNACION" oraTypeName="DATE" />
+				<input-parameter name="i_ACTIVO" oraTypeName="CHAR" />				
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_updateParametro - END-->
+	<!-- m4pr_deleteParametro - BEGIN-->
+		<ora-transaction name="m4pr_deleteParametro" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_deleteParametro">
+				<input-parameter name="I_ANIO" oraTypeName="CHAR" />
+				<input-parameter name="I_MES" oraTypeName="CHAR" />					
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_deleteParametro - END-->
+	
+	<!-- m4pr_findAllRuta - BEGIN-->
+		<ora-transaction name="m4pr_findAllRuta" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllRuta">    				
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+					<column-attribute-mapping attribute="RUTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA2" javaTypeName="java.lang.String"  />					
+					<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />							
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllRuta - END-->
+	<!-- m4pr_findARutaByPk - BEGIN -->
+		<ora-transaction name="m4pr_findARutaByPk" dataSourceFactoryName="BDMETA4">				
+				<statement-call statement="M4PQ_WEB_RV.m4pr_findARutaByPk">    				
+					<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+					<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+						<column-attribute-mapping attribute="RUTA" javaTypeName="java.lang.String"  />
+						<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />
+						<column-attribute-mapping attribute="DENOMINA2" javaTypeName="java.lang.String"  />					
+						<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />							
+					</output-parameter>	
+				</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllRuta - END -->	
+	<!-- m4pr_insertRuta - BEGIN -->
+		<ora-transaction name="m4pr_insertRuta" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_insertRuta">
+				<input-parameter name="i_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="i_DENOMINA1" oraTypeName="CHAR" />		
+				<input-parameter name="i_DENOMINA2" oraTypeName="CHAR" />		
+				<input-parameter name="i_ACTIVO" oraTypeName="CHAR" />					
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_insertRuta - END-->
+	<!-- m4pr_updateRuta - BEGIN-->
+		<ora-transaction name="m4pr_updateRuta" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_updateRuta">
+				<input-parameter name="i_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="i_DENOMINA1" oraTypeName="CHAR" />		
+				<input-parameter name="i_DENOMINA2" oraTypeName="CHAR" />		
+				<input-parameter name="i_ACTIVO" oraTypeName="CHAR" />					
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_updateRuta - END-->
+	<!-- m4pr_deleteRuta - BEGIN-->
+		<ora-transaction name="m4pr_deleteRuta" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_deleteRuta">
+				<input-parameter name="i_RUTA" oraTypeName="CHAR" />			
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_deleteRuta - END-->	
+	
+	<!-- m4pr_findAllLugar - BEGIN-->
+		<ora-transaction name="m4pr_findAllLugar" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllLugar">    				
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+					<column-attribute-mapping attribute="LUGAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA2" javaTypeName="java.lang.String"  />					
+					<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />							
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllLugar - END-->
+	<!-- m4pr_findALugarByPk - BEGIN-->
+		<ora-transaction name="m4pr_findALugarByPk" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findALugarByPk">    		
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />		
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+					<column-attribute-mapping attribute="LUGAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA2" javaTypeName="java.lang.String"  />					
+					<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />							
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findALugarByPk - END-->	
+	<!-- m4pr_insertLugar - BEGIN-->
+		<ora-transaction name="m4pr_insertLugar" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_insertLugar">
+				<input-parameter name="i_LUGAR" oraTypeName="CHAR" />
+				<input-parameter name="i_DENOMINA1" oraTypeName="CHAR" />		
+				<input-parameter name="i_DENOMINA2" oraTypeName="CHAR" />		
+				<input-parameter name="i_ACTIVO" oraTypeName="CHAR" />					
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_insertLugar - END-->
+	<!-- m4pr_updateLugar - BEGIN-->
+		<ora-transaction name="m4pr_updateLugar" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_updateLugar">
+				<input-parameter name="i_LUGAR" oraTypeName="CHAR" />
+				<input-parameter name="i_DENOMINA1" oraTypeName="CHAR" />		
+				<input-parameter name="i_DENOMINA2" oraTypeName="CHAR" />		
+				<input-parameter name="i_ACTIVO" oraTypeName="CHAR" />					
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_updateLugar - END-->
+	<!-- m4pr_deleteLugar - BEGIN-->
+		<ora-transaction name="m4pr_deleteLugar" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_deleteLugar">
+				<input-parameter name="i_LUGAR" oraTypeName="CHAR" />			
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_deleteLugar - END-->	
+	<!-- m4pr_findAllAnioMes - BEGIN-->
+		<ora-transaction name="m4pr_findAllAnioMes" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllAnioMes">
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+					<column-attribute-mapping attribute="ANIO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MES" javaTypeName="java.lang.String"  />				
+					<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />							
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllAnioMes - END-->
+	<!-- m4pr_findAllRutaLugar - BEGIN-->
+		<ora-transaction name="m4pr_findAllRutaLugar" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllRutaLugar">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />							
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />										
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+					<column-attribute-mapping attribute="LUGAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />				
+					<column-attribute-mapping attribute="ORDEN" javaTypeName="java.lang.Integer"  />	
+					<column-attribute-mapping attribute="NIVEL_REPORTE" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllRutaLugar - END-->
+	<!-- m4pr_findIzqRutaLugar - BEGIN-->
+		<ora-transaction name="m4pr_findIzqRutaLugar" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findIzqRutaLugar">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />	
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />								
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+					<column-attribute-mapping attribute="LUGAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />				
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findIzqRutaLugar - END-->
+	<!-- m4pr_deleteRutaLugar - BEGIN-->
+		<ora-transaction name="m4pr_deleteRutaLugar" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_deleteRutaLugar">
+			<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />	
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />					
+				<input-parameter name="i_LUGAR" oraTypeName="CHAR" />							
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_deleteRutaLugar - END-->
+	
+	<!-- m4pr_insertRutaLugar - BEGIN-->
+		<ora-transaction name="m4pr_insertRutaLugar" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_insertRutaLugar">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />					
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />					
+				<input-parameter name="i_LUGAR" oraTypeName="CHAR" />	
+				<input-parameter name="i_ORDEN" oraTypeName="NUMBER" />
+				<input-parameter name="i_NIVEL_REPORTE" oraTypeName="NUMBER" />					
+				<input-parameter name="i_ACTIVO" oraTypeName="CHAR" />	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_insertRutaLugar - END-->
+	
+	<!-- m4pr_findAllRutaColLugarLugarA - BEGIN-->
+		<ora-transaction name="m4pr_findAllRutaColLugarLugarA" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllRutaColLugarLugarA">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />					
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />									
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+					<column-attribute-mapping attribute="LUGAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />				
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>	
+	<!-- m4pr_findAllRutaColLugarLugarA - END-->
+	<!-- m4pr_findAllRutaLugarLugarA - BEGIN-->
+		<ora-transaction name="m4pr_findAllRutaLugarLugarA" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllRutaLugarLugarA">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />					
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />											
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+					<column-attribute-mapping attribute="LUGAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />		
+					<column-attribute-mapping attribute="LUGAR_A" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA_A" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="CHECKED" javaTypeName="java.lang.String"  />
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>	
+	<!-- m4pr_findAllRutaColLugarLugarA - END-->
+		
+	<!-- m4pr_GrabaCambiosLugarLugarA - BEGIN-->
+		<ora-transaction name="m4pr_GrabaCambiosLugarLugarA" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_GrabaCambiosLugarLugarA">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />										
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR_A" oraTypeName="CHAR" />
+				<input-parameter name="I_MARCA" oraTypeName="CHAR" />							
+			</statement-call>
+		</ora-transaction>	
+	<!-- m4pr_GrabaCambiosLugarLugarA - END-->
+	<!-- m4pr_deleteLugarLugarA - BEGIN-->
+		<ora-transaction name="m4pr_deleteLugarLugarA" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_deleteLugarLugarA">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />					
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />																		
+			</statement-call>
+		</ora-transaction>	
+	<!-- m4pr_deleteLugarLugarA - END-->
+	
+	<!-- m4pr_findAllQuienCobra- BEGIN-->
+		<ora-transaction name="m4pr_findAllQuienCobra" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllQuienCobra">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="TRAMO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="POBLACION_PORC" javaTypeName="java.lang.Float"  />
+					<column-attribute-mapping attribute="TEORICO_PORC" javaTypeName="java.lang.Float"  />
+					<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllQuienCobra - END -->			
+	<!-- m4pr_insertQuienCobra - BEGIN -->
+		<ora-transaction name="m4pr_insertQuienCobra" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_insertQuienCobra">
+			      <input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_TRAMO" oraTypeName="CHAR" />
+				<input-parameter name="I_POBLAPOCR" oraTypeName="NUMBER" />
+				<input-parameter name="I_TEORICOPORC" oraTypeName="NUMBER" />	
+				<input-parameter name="I_ACTIVO" oraTypeName="CHAR" />				
+			</statement-call>
+		</ora-transaction>			
+	<!-- m4pr_insertQuienCobra - END-->
+	<!-- m4pr_updateQuienCobra - BEGIN -->
+		<ora-transaction name="m4pr_updateQuienCobra" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_updateQuienCobra">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_TRAMO" oraTypeName="CHAR" />
+				<input-parameter name="I_POBLAPOCR" oraTypeName="NUMBER" />
+				<input-parameter name="I_TEORICOPORC" oraTypeName="NUMBER" />	
+				<input-parameter name="I_ACTIVO" oraTypeName="CHAR" />				
+			</statement-call>
+		</ora-transaction>			
+	<!-- m4pr_updateQuienCobra - END-->	
+	<!-- m4pr_deleteQuienCobra - BEGIN-->
+		<ora-transaction name="m4pr_deleteQuienCobra" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_deleteQuienCobra">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_TRAMO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_deleteQuienCobra - END-->	
+		<!-- m4pr_findAllConceptos - BEGIN-->
+		<ora-transaction name="m4pr_findAllConceptos" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllConceptos">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+						
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+					<column-attribute-mapping attribute="ID_CONCEPTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="NOMBRE_CORTO" javaTypeName="java.lang.String"  />
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllConceptos - END-->
+	<!-- m4pr_findAllConceptosRV - BEGIN-->
+	<ora-transaction name="m4pr_findAllConceptosRV" dataSourceFactoryName="BDMETA4">			
+		<statement-call statement="M4PQ_WEB_RV.m4pr_findAllConceptosRV">						
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+			<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">						
+				<column-attribute-mapping attribute="CONCEPTO" javaTypeName="java.lang.Integer"  />
+				<column-attribute-mapping attribute="NOMBRE_CORTO" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="RESTA" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="RTM" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="SAC" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ADIC_TRASL" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="RV" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="AJUSTE_RV" javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="ACUERDO" javaTypeName="java.lang.String"  />
+             	<column-attribute-mapping attribute="ANTICIPO_RV" javaTypeName="java.lang.String"  />
+             	<column-attribute-mapping attribute="DESDE_ANTERIOR" javaTypeName="java.sql.Date"  />
+             	<column-attribute-mapping attribute="HASTA_ANTERIOR" javaTypeName="java.sql.Date"  />
+             	<column-attribute-mapping attribute="DESDE_ACTUAL" javaTypeName="java.sql.Date"  />
+             	<column-attribute-mapping attribute="HASTA_ACTUAL" javaTypeName="java.sql.Date"  />
+             	<column-attribute-mapping attribute="DESDE_ACTUAL_CALCULO" javaTypeName="java.sql.Date"  />
+             	<column-attribute-mapping attribute="HASTA_ACTUAL_CALCULO" javaTypeName="java.sql.Date"  />
+			</output-parameter>	
+		</statement-call>
+	</ora-transaction>		
+	<!-- m4pr_findAllConceptosRV - END-->			
+	<!-- m4pr_InsertConceptosRV - BEGIN -->
+		<ora-transaction name="m4pr_InsertConceptosRV" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_InsertConceptosRV">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CONCEPTO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RESTA" oraTypeName="CHAR" />	
+				<input-parameter name="I_RTM" oraTypeName="CHAR" />
+				<input-parameter name="I_SAC" oraTypeName="CHAR" />
+				<input-parameter name="I_ADIC_TRASL" oraTypeName="CHAR" />
+				<input-parameter name="I_RV" oraTypeName="CHAR" />
+				<input-parameter name="I_AJUSTE_RV" oraTypeName="CHAR" />
+				<input-parameter name="I_ACUERDO" oraTypeName="CHAR" />
+				<input-parameter name="I_ANTICIPO_RV" oraTypeName="CHAR" />
+				<input-parameter name="I_DESDE_ANTERIOR" oraTypeName="DATE" />
+				<input-parameter name="I_HASTA_ANTERIOR" oraTypeName="DATE" />
+				<input-parameter name="I_DESDE_ACTUAL" oraTypeName="DATE" />
+				<input-parameter name="I_HASTA_ACTUAL" oraTypeName="DATE" />
+				<input-parameter name="I_DESDE_ACTUAL_CALCULO" oraTypeName="DATE" />
+				<input-parameter name="I_HASTA_ACTUAL_CALCULO" oraTypeName="DATE" />
+			</statement-call>
+		</ora-transaction>			
+	<!-- m4pr_InsertConceptosRV - END-->
+
+	<!-- m4pr_updateConceptosRV - BEGIN -->
+		<ora-transaction name="m4pr_updateConceptosRV" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_updateConceptosRV">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />	
+				<input-parameter name="I_CONCEPTO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RESTA" oraTypeName="CHAR" />	
+				<input-parameter name="I_RTM" oraTypeName="CHAR" />
+				<input-parameter name="I_SAC" oraTypeName="CHAR" />
+				<input-parameter name="I_ADIC_TRASL" oraTypeName="CHAR" />
+				<input-parameter name="I_RV" oraTypeName="CHAR" />
+				<input-parameter name="I_AJUSTE_RV" oraTypeName="CHAR" />
+				<input-parameter name="I_ACUERDO" oraTypeName="CHAR" />
+				<input-parameter name="I_ANTICIPO_RV" oraTypeName="CHAR" />
+				<input-parameter name="I_DESDE_ANTERIOR" oraTypeName="DATE" />
+				<input-parameter name="I_HASTA_ANTERIOR" oraTypeName="DATE" />
+				<input-parameter name="I_DESDE_ACTUAL" oraTypeName="DATE" />
+				<input-parameter name="I_HASTA_ACTUAL" oraTypeName="DATE" />
+				<input-parameter name="I_DESDE_ACTUAL_CALCULO" oraTypeName="DATE" />
+				<input-parameter name="I_HASTA_ACTUAL_CALCULO" oraTypeName="DATE" />
+			</statement-call>
+		</ora-transaction>			
+	<!-- m4pr_updateConceptosRV - END-->
+
+	<!-- m4pr_deleteConceptosRV - BEGIN-->
+		<ora-transaction name="m4pr_deleteConceptosRV" dataSourceFactoryName="BDMETA4">			
+			<statement-call statement="M4PQ_WEB_RV.m4pr_deleteConceptosRV">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CONCEPTO" oraTypeName="NUMBER" />		
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_deleteConceptosRV - END-->
+
+	<convertion-manager 
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter"/>
+		<converter classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

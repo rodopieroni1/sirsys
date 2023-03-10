@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+
+	<!-- m4fu_perfil_usuario - Begin-->
+      
+	<ora-transaction name="m4pr_perfil_usuario" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_perfil_usuario">
+				<input-parameter name="P_APLICACION" oraTypeName="CHAR" />
+				<input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />
+				<output-parameter name="P_EXISTE" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4fu_perfil_usuario - END-->
+	
+
+	<!-- m4pr_datos_profesores - Begin-->
+      
+	<ora-transaction name="m4pr_datos_profesores" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_datos_profesores">
+				<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_PROFESOR" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="NUM_DOCUMENTO" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="NOMBRE_APELLIDO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="DIRECCION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="TELEFONO" javaTypeName="java.lang.Integer" />
+				
+				
+				
+				
+ 			</output-parameter>
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_tipo - END-->
+	
+	<!-- m4pr_mod_profesor - Begin-->
+
+	<ora-transaction name="m4pr_mod_profesor" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_mod_profesor">
+		<input-parameter name="ID_PROFESOR" oraTypeName="NUMBER" />
+		<input-parameter name="NUM_DOCUMENTO" oraTypeName="NUMBER" />
+		<input-parameter name="NOMBRE_APELLIDO" oraTypeName="CHAR" />
+		<input-parameter name="DIRECCION" oraTypeName="CHAR" />
+		<input-parameter name="TELEFONO" oraTypeName="NUMBER" />
+		</statement-call>
+	</ora-transaction>
+
+	<!-- m4pr_mod_profesor - END-->
+	
+	<!-- m4pr_datos_tipo - Begin-->
+      
+	<ora-transaction name="m4pr_datos_tipo" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_datos_tipo">
+				<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_TIPO" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="X_DESCRIPCION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CANT_CLASES" javaTypeName="java.lang.Integer" />
+ 			</output-parameter>
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_tipo - END-->
+	
+	<!-- m4pr_tipo_clase - Begin-->
+      
+	<ora-transaction name="m4pr_tipo_clase" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_tipo_clase">
+		<input-parameter name="P_X_DESCRIPCION" oraTypeName="CHAR" />
+		<input-parameter name="P_CANT_CLASES" oraTypeName="NUMBER" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_tipo_clase - END-->
+	
+	<!-- m4pr_tipo_clase - Begin-->
+
+	<ora-transaction name="m4pr_mod_tipo_clase" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_mod_tipo_clase">
+		<input-parameter name="P_ID_TIPO" oraTypeName="NUMBER" />
+		<input-parameter name="P_X_DESCRIPCION" oraTypeName="CHAR" />
+		<input-parameter name="P_CANT_CLASES" oraTypeName="NUMBER" />
+		<input-parameter name="P_CK_ACTIVO" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_tipo_clase - END-->
+	
+	<!-- m4pr_datos_disciplina - Begin-->
+      
+	<ora-transaction name="m4pr_datos_disciplina" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_datos_diciplina">
+				<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_CHECK" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_CHECK" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_disciplina - END-->
+	
+		<!-- m4pr_datos_inactivdad - Begin-->
+      
+	<ora-transaction name="m4pr_datos_inactivdad" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_datos_inactivdad">
+				<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_CHECK" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_CHECK" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_inactivdad - END-->
+	
+
+	<!-- m4pr_alta_clases - Begin-->
+      
+	<ora-transaction name="m4pr_alta_profesor" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_alta_profesor">
+		
+			<input-parameter name="P_NUM_DOCUMENTO" oraTypeName="NUMBER" />
+			<input-parameter name="P_NOMBRE_APELLIDO" oraTypeName="CHAR" />
+			<input-parameter name="P_DIRECCION" oraTypeName="CHAR" />
+			<input-parameter name="P_TELEFONO" oraTypeName="NUMBER" />
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_alta_profesor - END-->
+	
+	<!-- m4pr_del_profesor - Begin-->
+
+	<ora-transaction name="m4pr_del_profesor" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_del_profesor">
+				<input-parameter name="P_ID_PROFESOR" oraTypeName="NUMBER" />
+		</statement-call>
+	</ora-transaction>
+	
+	<!-- m4pr_del_profesor - END-->
+	
+	<!-- m4pr_alta_clases - Begin-->
+      
+	<ora-transaction name="m4pr_alta_clases" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_alta_clases">
+		
+			<input-parameter name="P_ID_DISCIPLINA" oraTypeName="NUMBER" />
+			<input-parameter name="P_DIA" oraTypeName="CHAR" />
+			<input-parameter name="P_HORARIO_DESDE" oraTypeName="CHAR" />
+			<input-parameter name="P_HORARIO_HASTA" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_DESDE" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_HASTA" oraTypeName="DATE" />
+			<input-parameter name="P_DESCRIPCION" oraTypeName="CHAR" />
+			<input-parameter name="P_CUPO" oraTypeName="NUMBER" />
+			<input-parameter name="P_ID_PROFESOR" oraTypeName="NUMBER" />
+			<input-parameter name="P_ID_TIPO" oraTypeName="NUMBER" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_alta_clases - END-->
+	
+	<!-- m4pr_modif_clases - Begin-->
+    	<ora-transaction name="m4pr_modif_clases" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_modif_clases">
+				<input-parameter name="P_ID_DISCIPLINA" oraTypeName="NUMBER" />
+				<input-parameter name="P_CLASE" oraTypeName="CHAR" />
+				<input-parameter name="P_DIA" oraTypeName="NUMBER" />
+				<input-parameter name="P_HORARIO_DESDE" oraTypeName="CHAR" />
+				<input-parameter name="P_HORARIO_HASTA" oraTypeName="CHAR" />
+				<input-parameter name="P_FECHA_DESDE" oraTypeName="DATE" />
+				<input-parameter name="P_FECHA_HASTA" oraTypeName="DATE" />
+				<input-parameter name="P_DESCRIPCION" oraTypeName="CHAR" />
+				<input-parameter name="P_CUPO" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_PROFESOR" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_TIPO" oraTypeName="NUMBER" />
+				<input-parameter name="CK_BORRADO" oraTypeName="CHAR" />		
+		</statement-call>
+		</ora-transaction>
+	<!-- m4pr_modif_clases - END-->
+	
+	<!-- m4pr_datos_clases - Begin-->
+	<ora-transaction name="m4pr_datos_clases" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_datos_clases">
+			<input-parameter name="P_FECHA_AUSENCIA" oraTypeName="DATE" />
+			<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_DISCIPLINA" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="N_CHECK" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_CLASE" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="DESCRIPCION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="DIADESC" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="DIA" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="HORARIO_DESDE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="HORARIO_HASTA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_DESDE" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_HASTA" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="CUPO" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="DISPONIBLE" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="ID_PROFESOR" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="NOMBRE_APELLIDO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_TIPO" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="X_DESCRIPCION" javaTypeName="java.lang.String" />
+				
+		
+				
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_clases - END-->
+	
+	
+	<!-- m4pr_alta_diciplina - Begin-->
+    <ora-transaction name="m4pr_alta_diciplina" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_alta_diciplina">
+		
+			<input-parameter name="P_N_CHECK" oraTypeName="CHAR" />
+
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_alta_diciplina - END-->
+	
+	<!-- m4pr_datos_personales - Begin-->
+      
+
+	<ora-transaction name="m4pr_datos_personales" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_datos_personales">
+			<input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />
+			<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+			
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_NACIMIENTO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="NUM_DOCUMENTO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="VIA_PUBLICA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="NUM_VIA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="DEPARTAMENTO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="PISO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="POBLACION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="TELEFONO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CELULAR" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="TEL_MENSAJE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="CK_ACTIVO" javaTypeName="java.lang.String" />
+				
+				
+ 			</output-parameter>
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_personales - END-->
+	
+    <!-- m4pr_reporte_ausencias - Begin-->
+	<ora-transaction name="m4pr_reporte_ausencias" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_reporte_ausencias">
+		<!--	<input-parameter name="P_USUARIO_CORPO" oraTypeName="CHAR" />-->
+			<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_AUSENCIA" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="CLASE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="DIA_DESC" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="HORARIO_DESDE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="HORARIO_HASTA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="USUARIO_CORPO" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_reporte_ausencias - END-->
+										
+	<!-- m4pr_inscripcion_clases - Begin-->
+    	<ora-transaction name="m4pr_inscripcion_clases" dataSourceFactoryName="BDMETA4">
+	
+		<statement-call	statement="m4pq_gimnasio.m4pr_inscripcion_clases">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_EMPLEADO" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_INICIO" oraTypeName="DATE" />
+			<input-parameter name="P_FECHA_FIN" oraTypeName="DATE" />
+			<input-parameter name="P_ID_DISCIPLINA" oraTypeName="NUMBER" />
+			<input-parameter name="P_ID_CLASE" oraTypeName="NUMBER" />
+			<input-parameter name="P_TIPO_CLASE" oraTypeName="NUMBER" />
+		</statement-call>
+		
+	</ora-transaction>
+	<!-- m4pr_inscripcion_clases - END-->
+	
+	
+	<!-- m4pr_alta_empleado - Begin-->
+    
+
+	<ora-transaction name="m4pr_alta_empleado" dataSourceFactoryName="BDMETA4">
+	
+		<statement-call	statement="m4pq_gimnasio.m4pr_gym_alta_empleado">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_EMPLEADO" oraTypeName="DATE" />
+			<input-parameter name="P_PESO" oraTypeName="NUMBER" />
+			<input-parameter name="P_ALTURA" oraTypeName="NUMBER" />
+			<input-parameter name="P_ID_CONTEXTURA" oraTypeName="NUMBER" />
+			<input-parameter name="P_TELEFONO_EMERGENCIA" oraTypeName="CHAR" />
+			<input-parameter name="P_APTO_FISICO" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_INICIO_APTO_FISICO" oraTypeName="DATE" />
+			<input-parameter name="P_X_NOM_APELLIDO_MED" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_APTO_MEDICO" oraTypeName="DATE" />
+			<input-parameter name="P_X_NUM_MATRICULA" oraTypeName="CHAR" />
+			
+			<input-parameter name="P_X_DEPORTE_PREF" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_NO_EJERCICIO" oraTypeName="NUMBER" />
+			<input-parameter name="P_CK_FUMA" oraTypeName="CHAR" />
+			<input-parameter name="P_X_LESIONES" oraTypeName="CHAR" />
+			<input-parameter name="P_X_PARENTESCO" oraTypeName="CHAR" />
+			<input-parameter name="P_CK_DEBITO" oraTypeName="CHAR" />
+			
+		</statement-call>
+		
+	</ora-transaction>
+	<!-- m4pr_alta_empleado - END-->
+	
+	<!-- m4pr_gym_del_empleado - Begin-->
+
+	<ora-transaction name="m4pr_gym_del_empleado" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_gym_del_empleado">
+				<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="P_FECHA_ALTA_EMPLEADO" oraTypeName="DATE" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_gym_del_empleado - END-->
+	
+	<!-- m4pr_gym_datos_empleado - Begin-->
+    
+
+	<ora-transaction name="m4pr_gym_datos_empleado" dataSourceFactoryName="BDMETA4">
+	
+		<statement-call	statement="m4pq_gimnasio.m4pr_gym_datos_empleado">
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+		
+			<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_ALTA_EMPLEADO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="PESO" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="ALTURA" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="ID_CONTEXTURA" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="TELEFONO_EMERGENCIA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APTO_FISICO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_INICIO_APTO_FISICO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="ID_USUARIO_ALTA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_ALTA_REGISTRO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="X_NOM_APELLIDO_MED" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_APTO_MEDICO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="X_NUM_MATRICULA" javaTypeName="java.lang.String" />
+		
+				<column-attribute-mapping attribute="X_DEPORTE_PREF" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_NO_EJERCICIO" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="CK_FUMA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_LESIONES" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="X_PARENTESCO_EME" javaTypeName="java.lang.String" />
+				
+				
+ 			</output-parameter>
+		</statement-call>
+		
+	</ora-transaction>
+	<!-- m4pr_gym_datos_empleado - END-->
+	
+	<!-- m4pr_clases_reservadas - Begin-->
+      
+
+	<ora-transaction name="m4pr_clases_reservadas" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_clases_reservadas">
+	
+<!--				<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />-->
+				<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+<!--				<input-parameter name="P_FECHA_ALTA_EMPLEADO" oraTypeName="DATE" />-->
+						
+			<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+							
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_ALTA_EMPLEADO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_INICIO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_FIN" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="ID_DISCIPLINA" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="N_CHECK" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_CLASE" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="DIA_DESC" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="DESCRIPCION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CK_ACTIVO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="HORARIO_DESDE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="HORARIO_HASTA" javaTypeName="java.lang.String" />
+				
+				
+ 			</output-parameter>
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_clases_reservadas - END-->	
+	
+	<!-- m4pr_borrar_reserva - Begin-->
+      
+
+	<ora-transaction name="m4pr_borrar_reserva" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_borrar_reserva">
+	
+				<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="P_FECHA_ALTA_EMPLEADO" oraTypeName="DATE" />
+				<input-parameter name="P_FECHA_INICIO" oraTypeName="DATE" />
+				<input-parameter name="P_ID_DISCIPLINA" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_CLASE" oraTypeName="NUMBER" />		
+			
+	</statement-call>
+	</ora-transaction>
+	<!-- m4pr_borrar_reserva - END-->
+	
+	<!-- m4pr_datos_inscriptos - Begin-->
+      
+
+	<ora-transaction name="m4pr_datos_inscriptos" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_datos_inscriptos">
+				<input-parameter name="P_ID_DISCIPLINA" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_CLASE" oraTypeName="NUMBER" />
+				<input-parameter name="P_FECHA_AUSENCIA" oraTypeName="DATE" />	
+<!--				<input-parameter name="P_HORARIO_DESDE" oraTypeName="DATE" />-->
+<!--				<input-parameter name="P_FECHA_AUSENCIA" oraTypeName="DATE" />-->
+			<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+			
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="NOMBRE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APELLIDO_1" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_ALTA_EMPLEADO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_INICIO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_FIN" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="APTO_FISICO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_DISCIPLINA" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="N_CHECK" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_CLASE" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="DIA_DESC" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="DESCRIPCION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_DESDE" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_HASTA" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="CK_ACTIVO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AUSENTE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_EMISION_APTO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_INSCRIP_APTO" javaTypeName="java.sql.Date" />
+				
+				
+ 			</output-parameter>
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_inscriptos - END-->
+	
+	<!-- m4pr_reporte_inscriptos - Begin-->
+      
+
+	<ora-transaction name="m4pr_reporte_inscriptos" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_reporte_inscriptos">
+				<input-parameter name="P_ID_DISCIPLINA" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_CLASE" oraTypeName="NUMBER" />
+				<input-parameter name="P_FECHA_AUSENCIA" oraTypeName="DATE" />	
+<!--				<input-parameter name="P_HORARIO_DESDE" oraTypeName="DATE" />-->
+<!--				<input-parameter name="P_FECHA_AUSENCIA" oraTypeName="DATE" />-->
+			<output-parameter name="PO_DATOCUR" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="NOMBRE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APELLIDO_1" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_ALTA_EMPLEADO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_INICIO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_FIN" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="APTO_FISICO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_DISCIPLINA" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="N_CHECK" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_CLASE" javaTypeName="java.lang.Integer" />
+				<column-attribute-mapping attribute="DIA_DESC" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="DESCRIPCION" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_DESDE" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_HASTA" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="CK_ACTIVO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="AUSENTE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_EMISION_APTO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_INSCRIP_APTO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="USUARIO_CORPO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_CENTRO_TRABAJO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_CENTRO_TRABAJO" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+			<output-parameter name="PO_SRESERVA" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="NOMBRE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="APELLIDO_1" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_ALTA_EMPLEADO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="APTO_FISICO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FECHA_EMISION_APTO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="FECHA_INSCRIP_APTO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="USUARIO_CORPO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_CENTRO_TRABAJO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_CENTRO_TRABAJO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="MAIL" javaTypeName="java.lang.String" />
+				
+ 			</output-parameter>		
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_reporte_inscriptos - END-->
+	
+	<!-- m4pr_insert_ausencias - Begin-->
+    <ora-transaction name="m4pr_insert_ausencias" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_insert_ausencias">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_EMPLEADO" oraTypeName="DATE" />
+			<input-parameter name="P_ID_DISCIPLINA" oraTypeName="NUMBER" />
+			<input-parameter name="P_ID_CLASE" oraTypeName="NUMBER" />
+			<input-parameter name="P_FECHA_AUSENCIA" oraTypeName="DATE" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_insert_ausencias - END-->
+	
+		<!-- m4pr_delete_ausencias - Begin-->
+    <ora-transaction name="m4pr_delete_ausencias" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="m4pq_gimnasio.m4pr_delete_ausencias">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_FECHA_ALTA_EMPLEADO" oraTypeName="DATE" />
+			<input-parameter name="P_ID_DISCIPLINA" oraTypeName="NUMBER" />
+			<input-parameter name="P_ID_CLASE" oraTypeName="NUMBER" />
+			<input-parameter name="P_FECHA_AUSENCIA" oraTypeName="DATE" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_delete_ausencias - END-->
+			
+	<convertion-manager
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

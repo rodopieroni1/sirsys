@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+    <!-- m4pr_tipos_anticipos - Begin-->
+      
+	<ora-transaction name="m4pr_tipos_anticipos" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_WEB_ANTICIPOS.m4pr_tipos_anticipos">
+			<input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+			<input-parameter name="PidEmpleado" oraTypeName="CHAR" />
+			<output-parameter name="pTipAntCursor" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+			
+				<column-attribute-mapping attribute="ID_ANTICIPO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_ANTICIPO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="IMPORTE" javaTypeName="java.lang.String" />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_tipos_anticipos - END-->
+	<!-- m4pr_ins_solicitud - Begin-->
+      
+	<ora-transaction name="m4pr_ins_solicitud" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_WEB_ANTICIPOS.m4pr_ins_solicitud">
+			<input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+			<input-parameter name="PidEmpleado" oraTypeName="CHAR" />
+			<input-parameter name="pIdAnticipo" oraTypeName="CHAR" />
+			<input-parameter name="pvalor" oraTypeName="NUMBER" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_ins_solicitud - END-->
+	<!-- m4pr_upd_solicitud - Begin-->
+      
+	<ora-transaction name="m4pr_upd_solicitud" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_WEB_ANTICIPOS.m4pr_upd_solicitud">
+			<input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+			<input-parameter name="PidEmpleado" oraTypeName="CHAR" />
+			<input-parameter name="pIdAnticipo" oraTypeName="CHAR" />
+			<input-parameter name="pvalor" oraTypeName="NUMBER" />
+			<input-parameter name="PfecSoli" oraTypeName="DATE" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_upd_solicitud - END-->
+		<!-- m4pr_lista_anticipos - Begin-->
+      
+	<ora-transaction name="m4pr_lista_anticipos" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_WEB_ANTICIPOS.m4pr_lista_anticipos">
+			<input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+			<input-parameter name="PidEmpleado" oraTypeName="CHAR" />
+			<output-parameter name="pAnticiposCursor" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_ANTICIPO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_ANTICIPO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_SOLICITUD" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="VALOR" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_ESTADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_ESTADO" javaTypeName="java.lang.String" />
+ 			</output-parameter>
+			
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_lista_anticipos - END-->
+	
+		<!-- m4pr_DEL_solicitud - Begin-->
+      
+	<ora-transaction name="m4pr_DEL_solicitud" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_WEB_ANTICIPOS.m4pr_DEL_solicitud">
+			<input-parameter name="pIdSociedad" oraTypeName="CHAR" />
+			<input-parameter name="PidEmpleado" oraTypeName="CHAR" />
+			<input-parameter name="pIdAnticipo" oraTypeName="CHAR" />
+			<input-parameter name="PfecSoli" oraTypeName="DATE" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_DEL_solicitud - END-->
+		
+	<convertion-manager
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

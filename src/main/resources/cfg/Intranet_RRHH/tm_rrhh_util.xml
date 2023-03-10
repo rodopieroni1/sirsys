@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+		<!-- m4pr_esdiahabil - BEGIN -->
+		<ora-transaction name="m4pr_esdiahabil" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_UTIL.m4pr_esdiahabil">
+				<input-parameter name="fecha" oraTypeName="DATE" />
+				<input-parameter name="controla_feriado" oraTypeName="CHAR" />
+				<input-parameter name="controla_finde" oraTypeName="CHAR" />     
+				<output-parameter name="diahabil" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_esdiahabil - END -->
+
+	<convertion-manager 
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter"/>
+		<converter classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

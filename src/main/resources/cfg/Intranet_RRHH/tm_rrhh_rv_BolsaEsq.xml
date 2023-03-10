@@ -1,0 +1,1914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+	<!-- m4pr_findAllRuta - BEGIN-->
+		<ora-transaction name="m4pr_findAllRuta" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RV.m4pr_findAllRuta">
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="RUTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA2" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ACTIVO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllRuta - END-->
+
+	<!-- m4pr_findAllSociedades - BEGIN-->
+		<ora-transaction name="m4pr_findAllSociedades" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAllSociedades">
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_SOCIEDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllSociedades - END-->
+
+	<!-- m4pr_findAllBolsas - BEGIN-->
+		<ora-transaction name="m4pr_findAllBolsas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAllBolsas">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_BOLSA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_BOLSA_CALC_RV" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllBolsas - END-->
+
+	<!-- m4pr_findAllEsquemas - BEGIN-->
+		<ora-transaction name="m4pr_findAllEsquemas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAllEsquemas">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_ESQUEMA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_ESQUEMA_CALC_RV" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllEsquemas - END-->
+
+	<!-- m4pr_findAllPeriodos - BEGIN-->
+		<ora-transaction name="m4pr_findAllPeriodos" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAllPeriodos">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="PERIODICIDAD" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PERIODO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ELPERIODO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllPeriodos - END-->
+
+	<!-- m4pr_AltaPeriodos - BEGIN-->
+		<ora-transaction name="m4pr_AltaPeriodos" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_AltaPeriodos">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="PERIODICIDAD" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PERIODO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ELPERIODO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_AltaPeriodos - END-->
+
+    <!-- m4pr_findAllAusenBolsaEsquema - BEGIN-->
+		<ora-transaction name="m4pr_findAllAusenBolsaEsquema" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAllAusenBolsaEsquema">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="MOTIVO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_TIPO_AUSENTISMO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MARCA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllAusenBolsaEsquema - END-->
+
+    <!-- m4pr_BorrarRVTipoAusBolsaEsq - BEGIN-->
+		<ora-transaction name="m4pr_BorrarRVTipoAusBolsaEsq" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_BorrarRVTipoAusBolsaEsq">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_BorrarRVTipoAusBolsaEsq - END-->
+
+    <!-- m4pr_insertRVTipoAusBolsaEsq - BEGIN-->
+		<ora-transaction name="m4pr_insertRVTipoAusBolsaEsq" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_insertRVTipoAusBolsaEsq">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_MOTIVO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_insertRVTipoAusBolsaEsq - END-->
+
+	<!-- m4pr_findAllRelacionBolsaEsq - BEGIN-->
+		<ora-transaction name="m4pr_findAllRelacionBolsaEsq" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAllRelacionBolsaEsq">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="RELACION" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_TIPO_SALARIO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MARCA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllRelacionBolsaEsq - END-->
+
+	<!-- m4pr_BorraRVRelLabBolsaEsq  - BEGIN-->
+		<ora-transaction name="m4pr_BorraRVRelLabBolsaEsq" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_BorraRVRelLabBolsaEsq">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_BorraRVRelLabBolsaEsq  - END-->
+
+	<!-- m4pr_insertRVRelLabBolsaEsq   - BEGIN-->
+		<ora-transaction name="m4pr_insertRVRelLabBolsaEsq" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_insertRVRelLabBolsaEsq">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RELACION" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_insertRVRelLabBolsaEsq - END-->
+
+	<!-- m4pr_findParamGenPlaniBolsaEsq - BEGIN-->
+		<ora-transaction name="m4pr_findParamGenPlaniBolsaEsq" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findParamGenPlaniBolsaEsq">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="TOPE_MINIMO_AUSENCIA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PROCESO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="LIQUIDADA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="COMUNICADA" javaTypeName="java.lang.Integer"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findParamGenPlaniBolsaEsq - END-->
+	
+	<!-- m4pr_findAllProcePlanBolsaEsq - BEGIN-->
+		<ora-transaction name="m4pr_findAllProcePlanBolsaEsq" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAllProcePlanBolsaEsq">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ETAPA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINACION" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="COMIENZO" javaTypeName="java.util.Date"  />
+					<column-attribute-mapping attribute="FINALIZO" javaTypeName="java.util.Date"  />
+					<column-attribute-mapping attribute="ESTADO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAllProcePlanBolsaEsq   - END-->
+
+	<!-- m4pr_GeneraPlaniBolsaEsquema   - BEGIN-->
+		<ora-transaction name="m4pr_GeneraPlaniBolsaEsquema" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_GeneraPlaniBolsaEsquema">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_OPCIONGENERA" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_GeneraPlaniBolsaEsquema   - END-->
+
+	<!-- m4pr_findTopeAusBolsaEsq   - BEGIN-->
+		<ora-transaction name="m4pr_findTopeAusBolsaEsq" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findTopeAusBolsaEsq">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="TOPE_MINIMO_AUSENCIA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findTopeAusBolsaEsq   - END-->
+
+	<!-- m4pr_MostrarAllParametros   - BEGIN-->
+		<ora-transaction name="m4pr_MostrarAllParametros" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MostrarAllParametros">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_BOLSA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_BOLSA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_ESQUEMA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_ESQUEMA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PERIODICIDAD" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PERIODO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ELPERIODO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PROCESO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="NOTA_AREA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="CONFORMADO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="LIQUIDADA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="COMUNICADA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TOPE_MINIMO_AUSENCIA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="FECHADESDE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FECHAHASTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ANIO_NOTA_DOR" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PORCENTAJE_PRESUPUESTO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="MARCA_PUBLICADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FECH_PUBLICACION" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="FECH_TOPE_CORRECCION" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="ASIGNA_POR_RUTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MARCA_ARRANCADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FECHA_ARRANQUE" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="FECH_TOPE_ASIGNACION" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="COMPACTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ENVIA_MAIL" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="PORC_DIAS_NORMALIZA" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="ID_NIVEL_REPORTE_MIN" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ID_NIVEL_REPORTE_MAX" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PORCENTAJE_PRESUPUESTO_ANUAL" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="PORC_NUEVO_FAT" javaTypeName="java.lang.Double"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MostrarAllParametros   - END-->
+
+	<!-- m4pr_GrabarNewPeriodo   - BEGIN-->
+		<ora-transaction name="m4pr_GrabarNewPeriodo" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_GrabarNewPeriodo">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_GrabarNewPeriodo   - END-->
+
+	<!-- m4pr_GrabarPeriodoEdita   - BEGIN-->
+		<ora-transaction name="m4pr_GrabarPeriodoEdita" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_GrabarPeriodoEdita">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_TOPE_MINIMO" oraTypeName="NUMBER" />
+				<input-parameter name="I_LIQUIDADA" oraTypeName="CHAR" />
+				<input-parameter name="I_COMUNICADA" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO_NOTA" oraTypeName="NUMBER" />
+				<input-parameter name="I_PORC_PRESUPUESTO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CONFORMADO" oraTypeName="NUMBER" />
+				<input-parameter name="I_NOTA_AREA" oraTypeName="CHAR" />
+				<input-parameter name="I_PUBLICADA" oraTypeName="CHAR" />
+				<input-parameter name="I_FEC_TOPE_CORRECCION" oraTypeName="CHAR" />
+				<input-parameter name="I_ARRANQUE" oraTypeName="CHAR" />
+				<input-parameter name="I_COMPACTA" oraTypeName="CHAR" />
+				<input-parameter name="I_FEC_TOPE_ASIG" oraTypeName="CHAR" />
+				<input-parameter name="I_ENVIA_MAIL" oraTypeName="CHAR" />
+				<input-parameter name="I_PORC_DIAS_NORMALIZA" oraTypeName="NUMBER" />
+				<input-parameter name="I_MIN_NIVEL" oraTypeName="NUMBER" />
+				<input-parameter name="I_MAX_NIVEL" oraTypeName="NUMBER" />
+				<input-parameter name="I_PORC_PRESUPUESTO_ANUAL" oraTypeName="NUMBER" />
+				<input-parameter name="I_PORC_NUEVO_FAT" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_GrabarPeriodoEdita   - END-->
+
+	<!-- m4pr_PuestosPorEsquemas - BEGIN-->
+		<ora-transaction name="m4pr_PuestosPorEsquemas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_PuestosPorEsquemas">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_PuestosPorEsquemas - END-->
+
+	<!-- m4pr_PuestosPorEsquemasFecha - BEGIN DAMIAN-->
+		<ora-transaction name="m4pr_PuestosPorEsquemas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_PuestosPorEsquemasFecha">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="BONOREFE" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_PuestosPorEsquemasFecha - END-->
+
+	<!-- m4pr_AreasPorBolsas - BEGIN-->
+		<ora-transaction name="m4pr_AreasPorBolsas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_AreasPorBolsas">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_AreasPorBolsas - END-->
+
+	<!-- m4pr_PuestosPorNombre - BEGIN-->
+		<ora-transaction name="m4pr_PuestosPorNombre" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_PuestosPorNombre">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PUESTO" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_PuestosPorNombre - END-->
+
+	<!-- m4pr_PuestosPorNombreFecha - BEGIN DAMIAN-->
+		<ora-transaction name="m4pr_PuestosPorNombreFecha" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_PuestosPorNombreFecha">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PUESTO" oraTypeName="CHAR" />
+				<input-parameter name="I_UNIDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="BONOREFE" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_PuestosPorNombreFecha - END-->
+
+	<!-- m4pr_AreasPorNombre - BEGIN-->
+		<ora-transaction name="m4pr_AreasPorNombre" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_AreasPorNombre">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_UNIDAD" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_AreasPorNombre - END-->	
+
+	<!-- m4pr_MuestraExcepPorcentaje - BEGIN-->
+		<ora-transaction name="m4pr_MuestraExcepPorcentaje" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MuestraExcepPorcentaje">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PUESTO" oraTypeName="CHAR" />
+				<input-parameter name="I_AREA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ROWNUM" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ORDEN" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PORCENTAJE" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MuestraExcepPorcentaje - END-->
+
+	<!-- m4pr_GrabaExcepPorcentaje - BEGIN-->
+		<ora-transaction name="m4pr_GrabaExcepPorcentaje" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_GrabaExcepPorcentaje">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PUESTO" oraTypeName="CHAR" />
+				<input-parameter name="I_ORDEN" oraTypeName="NUMBER" />
+				<input-parameter name="I_UNIDAD" oraTypeName="NUMBER" />
+				<input-parameter name="I_PORCENTAJE" oraTypeName="NUMBER" />
+				<input-parameter name="I_OPCION" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_GrabaExcepPorcentaje - END-->
+
+	<!-- m4pr_MuestraLegExcepcion - BEGIN-->
+		<ora-transaction name="m4pr_MuestraLegExcepcion" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MuestraLegExcepcion">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PUESTO" oraTypeName="CHAR" />
+				<input-parameter name="I_AREA" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSAFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMAFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_EMPLEFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_OPCION" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ROWNUM" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ANIO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="BOLSA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESQUEMA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PERIODO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="CANT_PERIODO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FECHA_DESDE" javaTypeName="java.util.Date"  />
+					<column-attribute-mapping attribute="FECHA_HASTA" javaTypeName="java.util.Date"  />
+					<column-attribute-mapping attribute="DIAS_TOTAL" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_CARENCIA_C" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_AUS" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="OBSERV_AUS" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIAS_AUS_C" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_SANCION_C" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PORCENTAJE_PRESUPUESTO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="PORCENTAJE_PRESUPUESTO_C" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="BONO_REFERENCIA" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="BONO_REFERENCIA_C" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="FECHA_INGRESO" javaTypeName="java.util.Date"  />
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_PUESTO_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_BOLSA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_BOLSA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_BOLSA_CALC_RV_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_BOLSA_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_ESQUEMA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_ESQUEMA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_ESQUEMA_CALC_RV_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_ESQUEMA_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="NOTA_REAL" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_REAL_C" javaTypeName="java.lang.Double"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MuestraLegExcepcion - END-->
+
+	<!-- m4pr_GuardarExcepcionLeg - BEGIN-->
+		<ora-transaction name="m4pr_GuardarExcepcionLeg" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_GuardarExcepcionLeg">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="I_DESDE" oraTypeName="DATE" />
+				<input-parameter name="I_HASTA" oraTypeName="DATE" />
+				<input-parameter name="I_BOLSA1" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA1" oraTypeName="CHAR" />
+				<input-parameter name="I_PUESTO1" oraTypeName="CHAR" />
+				<input-parameter name="I_UNIDAD1" oraTypeName="CHAR" />
+				<input-parameter name="I_NOTA1" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA_C" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA_C" oraTypeName="CHAR" />
+				<input-parameter name="I_PUESTO_C" oraTypeName="CHAR" />
+				<input-parameter name="I_UNIDAD_C" oraTypeName="CHAR" />
+				<input-parameter name="I_NOTA_C" oraTypeName="NUMBER" />
+				<input-parameter name="I_CARENCIA" oraTypeName="NUMBER" />
+				<input-parameter name="I_AUSENCIA" oraTypeName="NUMBER" />
+				<input-parameter name="I_SANCION" oraTypeName="NUMBER" />
+				<input-parameter name="I_PORC_PRESUPUESTO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BONO_REFERENCIA" oraTypeName="NUMBER" />
+				<input-parameter name="I_OPCION" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_GuardarExcepcionLeg - END-->
+	
+	<!-- m4pr_ExportaPlanillaRRHH - BEGIN-->
+		<ora-transaction name="m4pr_ExportaPlanillaRRHH" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_ExportaPlanillaRRHH">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PUESTO" oraTypeName="CHAR" />
+				<input-parameter name="I_AREA" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSAFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMAFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_EMPLEFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_MODIF_RRHH" oraTypeName="CHAR" />
+				<input-parameter name="I_OPCION" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="SALIDA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_ExportaPlanillaRRHH - END-->
+
+	<!-- m4pr_MuestraPlanillaRRHH - BEGIN-->
+		<ora-transaction name="m4pr_MuestraPlanillaRRHH" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MuestraPlanillaRRHH">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PUESTO" oraTypeName="CHAR" />
+				<input-parameter name="I_AREA" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSAFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMAFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_EMPLEFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_MODIF_RRHH" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ROWNUM" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ID_BOLSA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_BOLSA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_ESQUEMA_CALC_RV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_ESQUEMA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_BOLSA_CALC_RV_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_BOLSA_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_ESQUEMA_CALC_RV_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_ESQUEMA_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_PUESTO_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FECHA_DESDE" javaTypeName="java.util.Date"  />
+					<column-attribute-mapping attribute="FECHA_HASTA" javaTypeName="java.util.Date"  />
+					<column-attribute-mapping attribute="FECHA_INGRESO" javaTypeName="java.util.Date"  />
+					<column-attribute-mapping attribute="SUELDO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_NO_DOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_REAL" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_RESULTANTE" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_BOLSA" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_BOLSA_OTRA" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="FAT" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DIAS_TOTALES" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_AUSENCIA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="OBSERVACION_AUSENCIA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_NETO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_TOTALES_C" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_CARENCIA_C" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_AUSENCIA_C" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_SANCION_C" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_NETO_C" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="INCLUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERVACION_NO_INCLUIDO_MOTIVO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="BONO_REFERENCIA" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="PERIODICIDAD" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PERIODICIDAD_C" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="BONO_REFERENCIA_PERIODO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="PORCENTAJE_PARRILLA" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="BONO_BOLSA_PERIODO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="BONO_BOLSA_NETO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="BONO_MIRAS" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="BONO_BOLSA_CALCULADO" javaTypeName="java.lang.String"  />
+
+
+
+					<column-attribute-mapping attribute="CONFORMADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ABSORBE_CONFORMADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_RRHH" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="A_LIQUIDAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FEC_A_LIQUIDAR" javaTypeName="java.util.Date"  />
+					
+					<column-attribute-mapping attribute="BONO_REFER_TRIM_CORREGIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PORC_PARRILLA_TRIM_CORREGIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="NOTA_RESULT_TRIM_CORREGIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="BONO_BOLSA_COBRAR_CORREGIDO" javaTypeName="java.lang.String"  />
+					
+					<column-attribute-mapping attribute="BREF_ANUAL_AJUSTADO" javaTypeName="java.lang.Double"  />
+					
+					<column-attribute-mapping attribute="BREF_ANUAL_AJUSTADO_CORREG" javaTypeName="java.lang.String"  />
+					
+					<column-attribute-mapping attribute="NOTA_REAL_ANUAL" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_DE_PAGO_ANUAL" javaTypeName="java.lang.Double"  />
+
+					<column-attribute-mapping attribute="PORC_PARRILLA_ANUAL" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="MONTO_COBRAR_PARRILLA_ANUAL" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="AJ_MONTO_COBRADO_EN_PERIODO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="AJ_MONTO_COBRADO_PARRI_ANUAL" javaTypeName="java.lang.Double"  />
+					
+					<column-attribute-mapping attribute="RECUPERADOR_PERIODO" javaTypeName="java.lang.String"  />
+					
+					<column-attribute-mapping attribute="MONTO_POR_RECUPERADOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="PORC_NUEVO_FAT" javaTypeName="java.lang.Double"  />
+					
+					<column-attribute-mapping attribute="FAA_CORREGIDO" javaTypeName="java.lang.String"  />
+					
+					<column-attribute-mapping attribute="ID_SOCIEDAD_ACTUAL_EMP" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_ACTUAL_EMP" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_SOCIEDAD_ACTUAL_COM" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_COMUNICADOR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRE_COM" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_ACTUAL_COM" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_FONDEO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_FONDEO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_ORG_MODIF" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_ORG_MODIF" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="STANDARD" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="TEORICO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="BASE_FONDEO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO_T" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_T" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO_M" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_M" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="TRAMO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TOTAL_ANTICIPO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="PROPORCIONAL_ANTICIPO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="RTM_TOTAL_ACTUAL" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="RTM_TOTAL_ANTERIOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="RV_ANTERIOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="ACUERDO_ACTUAL" javaTypeName="java.lang.Double"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MuestraPlanillaRRHH - END-->
+
+	<!-- m4pr_GuardarPlanilla	- BEGIN-->
+		<ora-transaction name="m4pr_GuardarPlanilla" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_GuardarPlanilla">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="I_DESDE" oraTypeName="DATE" />
+				<input-parameter name="I_OBSERVA_RRHH" oraTypeName="CHAR" />
+				<input-parameter name="I_LIQUIDACION" oraTypeName="CHAR" />
+				<input-parameter name="I_BONO_REFERENCIA_CORREGIDO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BONO_BOLSA_COBRAR_CORREGIDO" oraTypeName="NUMBER" />
+				
+				<input-parameter name="I_PORC_PARRILLA_CORREGIDO" oraTypeName="NUMBER" />
+				<input-parameter name="I_NOTA_RESULTANTE_CORREGIDO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BONO_REFERENCIA_ANUAL_C" oraTypeName="NUMBER" />
+				<input-parameter name="I_RECUPERADOR" oraTypeName="NUMBER" />
+				<input-parameter name="I_FAA_CORREGIDO" oraTypeName="NUMBER" />
+				
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<!--
+					<column-attribute-mapping attribute="INCLUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MOTIVO_NO_INCLUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIAS_PROP" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="BONO_BOLSA_NETO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="BONO_BOLSA_COBRAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIAS_AUS" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"  />
+					-->
+					<column-attribute-mapping attribute="OBSERV_RRHH" javaTypeName="java.lang.String"  />
+					<!--
+					<column-attribute-mapping attribute="PORCENTAJE_PRESUPUESTO" javaTypeName="java.lang.Double"  />
+					-->
+					<column-attribute-mapping attribute="A_LIQUIDAR" javaTypeName="java.lang.String"  />
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_GuardarPlanilla	- END-->
+	<!-- m4pr_MuestraPlanillaSUP	- BEGIN-->
+		<ora-transaction name="m4pr_MuestraPlanillaSUP" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MuestraPlanillaSUP">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SUPERVISOR" oraTypeName="CHAR" />
+				<input-parameter name="I_OPCION" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="TIPO_REG" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FECHA_DESDE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FECHA_HASTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO_C" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ABSORBE_CONFORMADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="NOTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIAS_TRABAJADOS" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIAS_PROP" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIAS_AUS" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FAT" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="BONO_REFERENCIA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PORCENTAJE_PARRILLA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="CONFORMADO_ACUMULADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="BONO_MIRAS" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_RRHH" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="CANTIDAD" javaTypeName="java.lang.Integer"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MuestraPlanillaSUP	- END-->
+	<!-- m4pr_MuestraComboSUP	- BEGIN-->
+		<ora-transaction name="m4pr_MuestraComboSUP" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MuestraComboSUP">
+				<input-parameter name="I_SUPERVISOR" oraTypeName="CHAR" />
+				<input-parameter name="I_OPCION" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="PERIODO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ELPERIODO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="AJUSTA_ANUAL" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MuestraComboSUP	- END-->
+	<!-- m4pr_SupervisorIntranet	- BEGIN-->
+		<ora-transaction name="m4pr_SupervisorIntranet" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_SupervisorIntranet">
+				<input-parameter name="I_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="I_APELLIDO" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_USUARIO_INTRANET" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_SupervisorIntranet	- END-->
+	<!-- m4pr_ApellidoNombrePorLeg	- BEGIN-->
+		<ora-transaction name="m4pr_ApellidoNombrePorLeg" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_ApellidoNombrePorLeg">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_EMPLEADO" oraTypeName="CHAR" />
+				<output-parameter name="APELLIDONOMBRE" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_ApellidoNombrePorLeg - END-->
+	<!-- m4pr_MostrarEquivalencias	- BEGIN-->
+		<ora-transaction name="m4pr_MostrarEquivalencias" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MostrarEquivalencias">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_MARCA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="CUMPLIMIENTO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_RESULTANTE" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="CONSIDERA_NOTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="CONSIDERA_TOPE" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MostrarEquivalencias	- END-->
+
+	<!-- m4pr_GuardarEquivalencias	- BEGIN-->
+		<ora-transaction name="m4pr_GuardarEquivalencias" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_GuardarEquivalencias">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CUMPLIMIENTO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RESULTANTE" oraTypeName="NUMBER" />
+				<input-parameter name="I_NOTA" oraTypeName="CHAR" />
+				<input-parameter name="I_TOPE" oraTypeName="CHAR" />
+				<input-parameter name="I_OPCION" oraTypeName="NUMBER" />
+				<input-parameter name="I_MARCA" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MostrarEquivalencias	- END-->
+
+	<!-- m4pr_BorraPeriodoBolsaEsquema - BEGIN-->
+		<ora-transaction name="m4pr_BorraPeriodoBolsaEsquema" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_BorraPeriodoBolsaEsquema">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="I_RESULTADO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_BorraPeriodoBolsaEsquema - END-->
+
+	<!-- m4pr_CopiaPeriodoBolsaEsquema- BEGIN-->
+		<ora-transaction name="m4pr_CopiaPeriodoBolsaEsquema" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_CopiaPeriodoBolsaEsquema">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="I_RESULTADO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_CopiaExcPorc- END-->
+	
+		<!-- m4pr_CopiaPeriodoBolsaEsquema- BEGIN-->
+		<ora-transaction name="m4pr_CopiaExcPorc" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_CopiaExcPorc">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="I_RESULTADO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_CopiaExcPorc- END-->
+
+	<!-- m4pr_PeriodoAnterior- BEGIN-->
+		<ora-transaction name="m4pr_PeriodoAnterior" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_PeriodoAnterior">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="I_RESULTADO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_PeriodoAnterior- END-->
+	
+		<!-- m4pr_PeriodoAntExcPorc- BEGIN-->
+		<ora-transaction name="m4pr_PeriodoAntExcPorc" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_PeriodoAntExcPorc">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="I_RESULTADO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_PeriodoAntExcPorc- END-->
+
+	<!-- m4pr_ExportaExcepPorcentaje- BEGIN-->
+		<ora-transaction name="m4pr_ExportaExcepPorcentaje" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_ExportaExcepPorcentaje">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PUESTO" oraTypeName="CHAR" />
+				<input-parameter name="I_AREA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="SALIDA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_ExportaExcepPorcentaje- END-->
+
+	<!-- m4pr_ExportaExcepcionesLeg- BEGIN-->
+		<ora-transaction name="m4pr_ExportaExcepcionesLeg" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_ExportaExcepcionesLeg">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PUESTO" oraTypeName="CHAR" />
+				<input-parameter name="I_AREA" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSAFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMAFILTRO" oraTypeName="CHAR" />
+				<input-parameter name="I_EMPLEFILTRO" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="SALIDA" javaTypeName="java.lang.String" />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_ExportaExcepcionesLeg- END-->
+
+ 	<!-- m4pr_EmpleadosExc- BEGIN-->
+		<ora-transaction name="m4pr_EmpleadosExc" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_EmpleadosExc">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="I_APELLIDO" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String" />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+ 	<!-- m4pr_EmpleadosExc- END-->
+
+	<!-- m4pr_GuardarExcepLegFondeo	- BEGIN-->
+		<ora-transaction name="m4pr_GuardarExcepLegFondeo" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_GuardarExcepLegFondeo">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA1" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA1" oraTypeName="CHAR" />
+				<input-parameter name="I_PUESTO1" oraTypeName="CHAR" />
+				<input-parameter name="I_UNIDAD1" oraTypeName="CHAR" />
+				<input-parameter name="I_UNIDAD_C" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_GuardarExcepLegFondeo	- END-->
+
+	<!-- m4pr_RefrescaBonos	- BEGIN-->
+		<ora-transaction name="m4pr_RefrescaBonos" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_RefrescaBonos">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_ANUAL" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_RefrescaBonos	- END-->
+
+	<!-- m4pr_RefrescaNotas	- BEGIN-->
+		<ora-transaction name="m4pr_RefrescaNotas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_RefrescaNotas">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_RefrescaNotas	- END-->
+
+	<!-- m4pr_PuestosSinBonos - BEGIN-->
+		<ora-transaction name="m4pr_PuestosSinBonos" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_PuestosSinBonos">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_ANUAL" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String" />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_PuestosSinBonos - END-->
+	
+	<!-- m4pr_findAreasSinRuta	- BEGIN-->
+		<ora-transaction name="m4pr_findAreasSinRuta" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasSinRuta">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasSinRuta - END-->
+
+	<!-- m4pr_findAreasConRutaSinLugar - BEGIN-->
+		<ora-transaction name="m4pr_findAreasConRutaSinLugar" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasConRutaSinLugar">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="RUTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_RUTA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasConRutaSinLugar	- END-->
+
+	<!-- m4pr_findAreasRutLugSinPermiso	- BEGIN-->
+		<ora-transaction name="m4pr_findAreasRutLugSinPermiso" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasRutLugSinPermiso">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="RUTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_RUTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="LUGAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_LUGAR" javaTypeName="java.lang.String"  />
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasRutLugSinPermiso	- END-->
+
+	<!-- m4pr_HabilitaAltaPeriodos - BEGIN-->
+		<ora-transaction name="m4pr_HabilitaAltaPeriodos" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_HabilitaAltaPeriodos">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<output-parameter name="HABILITA" oraTypeName="CHAR" javaTypeName="java.lang.String"  />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_HabilitaAltaPeriodos - END-->
+
+	<!-- m4pr_MuestraArranqueAreas	- BEGIN-->
+		<ora-transaction name="m4pr_MuestraArranqueAreas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MuestraArranqueAreas">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="RUTA" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_RUTA" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="ORIGEN" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_ORIGEN" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="LUGARO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_LUGAR_ORIGEN" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="DESTINO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_DESTINO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="LUGARA" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_LUGAR_DESTINO" javaTypeName="java.lang.String" />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MuestraArranqueAreas - END-->
+
+	<!-- m4pr_MuestraRechazoComunica - BEGIN-->
+		<ora-transaction name="m4pr_MuestraRechazoComunica" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MuestraRechazoComunica">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="FONDEO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="RUTA" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="DENO_RUTA" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="ORIGEN" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="DENO_ORIGEN" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="LUGAR" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="LUGAR_ORIGEN" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="MAIL_ORIGEN" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="DESTINO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="DENO_DESTINO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="LUGAR_A" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="LUGAR_DESTINO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="ID_UNIDAD_D" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="QUE_PARTE" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="MAIL_DESTINO" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="FECHAHORA" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="A_DISTRIBUIR" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="DISTRIBUIDO" javaTypeName="java.lang.String" />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MuestraRechazoComunica - END-->
+
+	<!-- m4pr_InsertaArranqueFila - BEGIN-->
+		<ora-transaction name="m4pr_InsertaArranqueFila" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_InsertaArranqueFila">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_OPERADOR" oraTypeName="CHAR" />
+				<input-parameter name="MINRUTA" oraTypeName="CHAR" />
+				<input-parameter name="MINLUGARO" oraTypeName="CHAR" />
+				<input-parameter name="MINUNIDADO" oraTypeName="CHAR" />
+				<input-parameter name="MINLUGARD" oraTypeName="CHAR" />
+				<input-parameter name="MINUNIDADD" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_InsertaArranqueFila - END-->
+
+	<!-- m4pr_AreasSinBolsa - BEGIN-->
+		<ora-transaction name="m4pr_AreasSinBolsa" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_AreasSinBolsa">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_AreasSinBolsa	- END-->
+
+	<!-- m4pr_PuestosSinEsquemas - BEGIN-->
+		<ora-transaction name="m4pr_PuestosSinEsquemas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_PuestosSinEsquemas">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_PuestosSinEsquemas - END-->
+
+	<!-- m4pr_HabilitaMailPendientes - BEGIN-->
+		<ora-transaction name="m4pr_HabilitaMailPendientes" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_HabilitaMailPendientes">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="HABILITA" oraTypeName="CHAR" javaTypeName="java.lang.String"  />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_HabilitaMailPendientes - END-->
+
+	<!-- m4pr_EnviaMailPendientes - BEGIN-->
+		<ora-transaction name="m4pr_EnviaMailPendientes" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_EnviaMailPendientes">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_EnviaMailPendientes - END-->
+
+	<!-- m4pr_RechazoRutaPaso - BEGIN-->
+		<ora-transaction name="m4pr_RechazoRutaPaso" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_RechazoRutaPaso">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+	            <input-parameter name="I_ESTADO" oraTypeName="CHAR" />
+	            <input-parameter name="I_LUGAR" oraTypeName="CHAR" />
+	            <input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" />
+	            <input-parameter name="I_LUGAR_A" oraTypeName="CHAR" />
+	            <input-parameter name="I_ID_UNIDAD_A" oraTypeName="CHAR" />
+	            <input-parameter name="I_ID_UNIDAD_D" oraTypeName="CHAR" />
+	            <input-parameter name="I_OPERADOR" oraTypeName="CHAR" />
+	            <input-parameter name="I_OBSERVACION" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_RechazoRutaPaso - END-->
+
+	<!-- m4pr_ComunicaRutaPaso - BEGIN-->
+		<ora-transaction name="m4pr_ComunicaRutaPaso" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_ComunicaRutaPaso">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+	            <input-parameter name="I_ESTADO" oraTypeName="CHAR" />
+	            <input-parameter name="I_LUGAR" oraTypeName="CHAR" />
+	            <input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" />
+	            <input-parameter name="I_LUGAR_A" oraTypeName="CHAR" />
+	            <input-parameter name="I_ID_UNIDAD_A" oraTypeName="CHAR" />
+	            <input-parameter name="I_ID_UNIDAD_D" oraTypeName="CHAR" />
+	            <input-parameter name="I_OPERADOR" oraTypeName="CHAR" />
+	            <input-parameter name="I_OBSERVACION" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_ComunicaRutaPaso - END-->
+
+	<!-- m4pr_MuestraAvisoPublicacion - BEGIN-->
+		<ora-transaction name="m4pr_MuestraAvisoPublicacion" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_MuestraAvisoPublicacion">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="TIPO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_EMPLE_SUPERV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DIREC_INT" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_SOCIEDAD_SUPERV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_SUPERV" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MuestraAvisoPublicacion - END-->
+
+	<!-- m4pr_findAreasSinTramos - BEGIN-->
+		<ora-transaction name="m4pr_findAreasSinTramos" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasSinTramos">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_MuestraAvisoPublicacion - END-->
+
+	<!-- m4pr_findAreasPublicadas - BEGIN-->
+		<ora-transaction name="m4pr_findAreasPublicadas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasPublicadas">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasPublicadas - END-->
+
+	<!-- m4pr_GuardaAreaPubicadaFila - BEGIN-->
+		<ora-transaction name="m4pr_GuardaAreaPubicadaFila" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_GuardaAreaPubicadaFila">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="ID_UNIDAD" oraTypeName="CHAR" />
+				<input-parameter name="ID_EMPLEADO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_GuardaAreaPubicadaFila - END-->
+
+	<!-- m4pr_HabilitaPublicacion - BEGIN-->
+		<ora-transaction name="m4pr_HabilitaPublicacion" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_HabilitaPublicacion">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="HABILITA" oraTypeName="CHAR" javaTypeName="java.lang.String"  />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_HabilitaPublicacion - END-->
+
+	<!-- m4pr_SeguimientoPlanilla - BEGIN-->
+		<ora-transaction name="m4pr_SeguimientoPlanilla" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_SeguimientoPlanilla">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ANIO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="BOLSA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESQUEMA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="CANT_PERIODO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PERIODO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_FONDEO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_FONDEO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="LUGAR_FONDEO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_LUGAR_FONDEO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FONDO_A_DISTRIBUIR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="FONDO_DISTRIBUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MONTO_INCREMENTADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="SITUACION" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="RUTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_RUTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="LUGAR_DESTINO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_LUGAR_DESTINO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="UNIDAD_DESTINO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD_DESTINO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_SeguimientoPlanilla - END-->
+
+	<!-- m4pr_findAreasConVariosSuperv - BEGIN-->
+		<ora-transaction name="m4pr_findAreasConVariosSuperv" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasConVariosSuperv">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasConVariosSuperv	- END-->
+
+	<!-- m4pr_findAreasIncompletas - BEGIN-->
+		<ora-transaction name="m4pr_findAreasIncompletas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasIncompletas">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasIncompletas	- END-->
+
+	<!-- m4pr_findAreasActivaNoRV - BEGIN-->
+		<ora-transaction name="m4pr_findAreasActivaNoRV" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasActivaNoRV">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasActivaNoRV - END-->
+
+	<!-- m4pr_findAreasSinSuperv - BEGIN-->
+		<ora-transaction name="m4pr_findAreasSinSuperv" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasSinSuperv">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="CANTIDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasSinSuperv - END-->
+
+	<!-- m4pr_findAreasSNotaPer - BEGIN-->
+		<ora-transaction name="m4pr_findAreasSNotaPer" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasSNotaPer">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasSNotaPer	- END-->
+
+	<!-- m4pr_findAreasSinDotacionSP - BEGIN-->
+		<ora-transaction name="m4pr_findAreasSinDotacionSP" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasSinDotacionSP">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasSinDotacionSP - END-->
+
+	<!-- m4pr_findAreasSinDotacionCP - BEGIN-->
+		<ora-transaction name="m4pr_findAreasSinDotacionCP" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findAreasSinDotacionCP">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findAreasSinDotacionCP - END-->
+
+	<!-- m4pr_findEmpleadosSNotaPer - BEGIN-->
+		<ora-transaction name="m4pr_findEmpleadosSNotaPer" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findEmpleadosSNotaPer">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findEmpleadosSNotaPer	- END-->
+
+	<!-- m4pr_ValidaCumplimientos - BEGIN-->
+		<ora-transaction name="m4pr_ValidaCumplimientos" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_ValidaCumplimientos">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_MARCA" oraTypeName="CHAR" />
+				<output-parameter name="ERROR" oraTypeName="CHAR" javaTypeName="java.lang.String"  />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_ValidaCumplimientos - END-->
+
+	<!-- m4pr_ConsultaEquivalencias - BEGIN-->
+		<ora-transaction name="m4pr_ConsultaEquivalencias" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_ConsultaEquivalencias">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_MARCA" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="CUMPLIMIENTO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_RESULTANTE" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="CONSIDERA_NOTA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="CONSIDERA_TOPE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERVACION" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_ConsultaEquivalencias	- END-->
+	
+	<!-- m4pr_findRVEstructura - BEGIN-->
+		<ora-transaction name="m4pr_findRVEstructura" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_findRVEstructura">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_SELECCION" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="NIVEL" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA_SUPERIOR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ORDEN" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PADRE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="AREA_FONDEO" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_findRVEstructura	- END-->
+	
+	<!-- m4pr_Genera_Estruc_RV - BEGIN-->
+		<ora-transaction name="m4pr_Genera_Estruc_RV" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_Genera_Estruc_RV">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_OPCION" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_Genera_Estruc_RV	- END-->
+	
+	<!-- m4pr_Ins_Estruc_RV - BEGIN-->
+		<ora-transaction name="m4pr_Ins_Estruc_RV" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_Ins_Estruc_RV">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="UNIDAD_C" oraTypeName="CHAR" />
+				<input-parameter name="UNIDAD_P" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_Ins_Estruc_RV	- END-->
+	
+	<!-- m4pr_Def_AreaFondeo_RV - BEGIN-->
+		<ora-transaction name="m4pr_Def_AreaFondeo_RV" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_Def_AreaFondeo_RV">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_UNIDAD_F" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_Def_AreaFondeo_RV	- END-->
+
+	<!-- m4pr_Find_AreaFondeo_RV - BEGIN-->
+		<ora-transaction name="m4pr_Find_AreaFondeo_RV" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_Find_AreaFondeo_RV">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_ESTRUCTURA" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ESTRUCTURA" javaTypeName="java.lang.String"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_Find_AreaFondeo_RV	- END-->
+
+	<!-- m4pr_Hab_Ins_Estruc_RV - BEGIN-->
+		<ora-transaction name="m4pr_Hab_Ins_Estruc_RV" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_Hab_Ins_Estruc_RV">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="UNIDAD_C" oraTypeName="CHAR" />
+				<input-parameter name="UNIDAD_P" oraTypeName="CHAR" />
+				<output-parameter name="I_VERDE" oraTypeName="CHAR" javaTypeName="java.lang.String"  />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_Hab_Ins_Estruc_RV	- END-->
+	
+	<!-- m4pr_Crea_Estruc_RV - BEGIN-->
+		<ora-transaction name="m4pr_Crea_Estruc_RV" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_Crea_Estruc_RV">
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="UNIDAD_P" oraTypeName="CHAR" />
+				<input-parameter name="N_NOMBRE" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_Crea_Estruc_RV	- END-->
+	
+      <!-- [DAMIAN] m4pr_cons_total_bono_conform Begin-->      
+      <ora-transaction name="m4pr_cons_total_bono_conform" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_cons_total_bono_conform">
+			<input-parameter name="I_SOC_SUPERVISOR" oraTypeName="CHAR" />
+			<input-parameter name="I_ID_SUPERVISOR" oraTypeName="CHAR" />
+			<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+			<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+			<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+			<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+			<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+
+			<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	            <column-attribute-mapping attribute="ID_EMPLEADO"				javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="APELLIDO_NOMBRES"			javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="DIAS_NETOS"				javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="TOTAL_COBRADO_X_TRIM_ANTERIOR"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="A_COBRAR_X_PARRILLA_4TRIM"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="A_COBRAR_PARRILLA_ANUAL"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="A_COBRAR_X_AJUS_PARRILLA_ANUAL" javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="A_COBRAR_X_AJUS_PARRILLA_TRIM"		javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="MONTO_POR_RECUPERADOR"		javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="ID_UNIDAD"					javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="CONFORMADO"				javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="AUDITORIA_DEFICIENTE"		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="N_ESTRUCTURA"				javaTypeName="java.lang.String"  />
+            </output-parameter>
+
+		</statement-call>
+	  </ora-transaction> 
+      <!-- [DAMIAN] m4pr_cons_total_bono_conform End-->
+
+      <!-- [DAMIAN] m4pr_cons_detalle_bono_anual Begin-->      
+      <ora-transaction name="m4pr_cons_detalle_bono_anual" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_cons_detalle_bono_anual">
+
+			<input-parameter name="I_SOC_SUPERVISOR" oraTypeName="CHAR" />
+			<input-parameter name="I_ID_SUPERVISOR" oraTypeName="CHAR" />
+			<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+			<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+			<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+			<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+			<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+			<input-parameter name="I_EMPLEADO" oraTypeName="CHAR" />
+
+			<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+
+	            <column-attribute-mapping attribute="ID_EMPLEADO"					javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="APELLIDO_NOMBRES"				javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="FECHA_DESDE"					javaTypeName="java.util.Date"  />
+	            <column-attribute-mapping attribute="FECHA_HASTA"					javaTypeName="java.util.Date"  />
+	            <column-attribute-mapping attribute="ID_PUESTO_C"					javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="ID_UNIDAD_C"					javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="DIAS_TOTALES"					javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="DIAS_AUS"						javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="DIAS_SANCION"					javaTypeName="java.lang.String"  />
+				<column-attribute-mapping attribute="DIAS_CARENCIA"					javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="DIAS_NETOS"					javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="BONO_REFERENCIA"				javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="BONO_REFERENCIA_ANUAL"			javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="NOTA_REAL"						javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="NOTA_RESULTANTE"				javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="NOTA_REAL_ANUAL"				javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="NOTA_ANUAL_RESULTANTE"			javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="PORC_PARRILA_PERIODO"			javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="PORC_PARRILLA_PENDIENTE"		javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="BONO_BOLSA_COBRAR"				javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="BONO_BOLSA_COBRAR_CORREGIDO"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="BONO_PARRILLA_PENDIENTE"		javaTypeName="java.lang.Double"  />
+				<column-attribute-mapping attribute="AJUSTE_BONO_PARRILLA_PENDIENTE" javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="AJUSTE_BONO_PERIODO"			javaTypeName="java.lang.Double"  />
+
+	            <column-attribute-mapping attribute="PORCENTAJE_PRESUPUESTO"		javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="PORCENTAJE_PRESUPUESTO_ANUAL"	javaTypeName="java.lang.Double"  />
+	            
+	            <column-attribute-mapping attribute="PORC_NUEVO_FAT"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="FAA_CORREGIDO"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="RECUPERADOR_PERIODO"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="MONTO_POR_RECUPERADOR"	javaTypeName="java.lang.Double"  />
+	            
+	            <column-attribute-mapping attribute="CONFORMADO"					javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="AUDITORIA_DEFICIENTE"			javaTypeName="java.lang.String"  />
+            </output-parameter>
+		</statement-call>
+	  </ora-transaction>
+      <!-- [DAMIAN] m4pr_cons_detalle_bono_anual End-->
+
+	  <!-- [DAMIAN] m4pr_CalculoAnualSociedad Begin-->
+      <ora-transaction name="m4pr_CalculoAnualSociedad" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_CalculoAnualSociedad">
+			<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+	            <column-attribute-mapping attribute="ID_SOCIEDAD"	javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="N_SOCIEDAD"	javaTypeName="java.lang.String"  />
+            </output-parameter>
+		</statement-call>
+	  </ora-transaction>
+      <!-- [DAMIAN] m4pr_CalculoAnualSociedad End-->
+
+      <!-- [DAMIAN] m4pr_CalculoAnualAnio Begin-->
+      <ora-transaction name="m4pr_CalculoAnualAnio" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_CalculoAnualAnio">
+
+			<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+
+			<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+	            <column-attribute-mapping attribute="ANIO"		javaTypeName="java.lang.String"  />
+            </output-parameter>
+		</statement-call>
+	  </ora-transaction>
+      <!-- [DAMIAN] m4pr_CalculoAnualAnio End-->
+
+      <!-- [DAMIAN] m4pr_CalculoAnual Begin-->
+      <ora-transaction name="m4pr_CalculoAnual" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_CalculoAnual">
+			<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+			<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="I_PROCESO" oraTypeName="NUMBER" />
+		</statement-call>
+	  </ora-transaction>
+      <!-- [DAMIAN] m4pr_CalculoAnual End-->
+
+      <!-- [DAMIAN] m4pr_cons_total_bono_rrhh Begin-->      
+      <ora-transaction name="m4pr_cons_total_bono_rrhh" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_cons_total_bono_rrhh">
+			<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+			<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+			<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+			<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+			<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+                                                                                                                    
+			<output-parameter name="o_DATOSParametros" oraTypeName="CURSOR"    	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	            <column-attribute-mapping attribute="ID_EMPLEADO"				javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="APELLIDO_NOMBRES"			javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="DIAS_NETOS"				javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="TOTAL_COBRADO_X_TRIM_ANTERIOR"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="A_COBRAR_X_PARRILLA_4TRIM"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="A_COBRAR_PARRILLA_ANUAL"	javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="A_COBRAR_X_AJUS_PARRILLA_ANUAL" javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="A_COBRAR_X_AJUS_PARRILLA_TRIM"		javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="MONTO_POR_RECUPERADOR"		javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="ID_UNIDAD"					javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="CONFORMADO"				javaTypeName="java.lang.Double"  />
+	            <column-attribute-mapping attribute="AUDITORIA_DEFICIENTE"		javaTypeName="java.lang.String"  />
+	            <column-attribute-mapping attribute="N_ESTRUCTURA"				javaTypeName="java.lang.String"  />
+            </output-parameter>
+
+		</statement-call>
+	  </ora-transaction> 
+      <!-- [DAMIAN] m4pr_cons_total_bono_rrhh End-->
+
+      <!-- [DAMIAN] m4pr_ControlCalculoAnual Begin-->
+      <ora-transaction name="m4pr_ControlCalculoAnual" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_ControlCalculoAnual">
+			<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+			<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="I_PROCESO" oraTypeName="NUMBER" />
+			<output-parameter name="I_RESULTADO" oraTypeName="NUMBER" javaTypeName="java.lang.Integer"  />
+		</statement-call>
+	  </ora-transaction>
+      <!-- [DAMIAN] m4pr_ControlCalculoAnual End-->
+      
+      <!-- [DAMIAN] m4pr_HabilitaAjusteAnual Begin-->
+      <ora-transaction name="m4pr_HabilitaAjusteAnual" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_HabilitaAjusteAnual">
+			<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+			<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="I_PROCESO" oraTypeName="NUMBER" />
+			<output-parameter name="I_RESULTADO" oraTypeName="NUMBER" javaTypeName="java.lang.Integer"  />
+		</statement-call>
+	  </ora-transaction>
+      <!-- [DAMIAN] m4pr_HabilitaAjusteAnual End-->
+
+      <!-- [DAMIAN] m4pr_RefrescaBonoAnual Begin-->
+      <ora-transaction name="m4pr_RefrescaBonoAnual" dataSourceFactoryName="BDMETA4">
+		<statement-call statement="M4PQ_WEB_RVBOLSAESQUEMA.m4pr_RefrescaBonoAnual">
+			<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+			<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+		</statement-call>
+	  </ora-transaction>
+      <!-- [DAMIAN] m4pr_RefrescaBonoAnual End-->
+      
+
+	<convertion-manager classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

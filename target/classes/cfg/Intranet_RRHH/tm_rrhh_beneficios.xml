@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+      <!-- m4pr_benef_familiares - Begin-->
+      
+	<ora-transaction name="m4pr_benef_familiares" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_BENEF_BENEFICIOS.M4PR_BENEF_FAMILIARES">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_BENEFICIO" oraTypeName="CHAR" />
+            <output-parameter name="datocur" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+			
+				<column-attribute-mapping attribute="N_FAMILIAR" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="EDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="TIPO_EDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_PARENTESCO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_TIPO_BENEFICIO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_SEXO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_BENEFICIO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_BENEFICIO" javaTypeName="java.lang.String" />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_benef_familiares - END-->
+	 <!-- m4pr_datos_empleado - Begin-->
+      
+	<ora-transaction name="m4pr_datos_empleado" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_BENEF_BENEFICIOS.M4PR_DATOS_EMPLEADO">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<output-parameter name="datocur" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="FEC_ALTA_EMPLEADO" javaTypeName="java.sql.Date" />
+				<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ID_CENTRO_TRABAJO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_EDIFICIO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CALLE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ALTURA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="PISO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="LOCALIDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="PROVINCIA" javaTypeName="java.lang.String" />
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_datos_empleado - END-->
+	<!-- m4pr_envio_empleado - Begin-->
+      
+	<ora-transaction name="m4pr_envio_empleado" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_BENEF_BENEFICIOS.M4PR_ENVIO_EMPLEADO">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_BENEFICIO" oraTypeName="CHAR" />
+			<output-parameter name="datocur" oraTypeName="CURSOR" javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+				<column-attribute-mapping attribute="ID_EDIFICIO_ENTREGA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="N_EDIFICIO" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="CALLE" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="ALTURA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="LOCALIDAD" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="PROVINCIA" javaTypeName="java.lang.String" />
+				<column-attribute-mapping attribute="DISTRITO_POSTAL" javaTypeName="java.lang.String" />
+
+			</output-parameter>
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_envio_empleado - END-->
+	
+	<!-- m4pr_envio_mail - Begin-->
+      
+	<ora-transaction name="m4pr_envio_mail" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_BENEF_BENEFICIOS.M4PR_ENVIO_MAIL">
+			<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+			<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+			<input-parameter name="P_ASUNTO" oraTypeName="CHAR" />
+			<input-parameter name="P_TEXTO_MAIL" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- m4pr_envio_mail - END-->
+	      <!-- m4pr_benef_familiares - Begin-->
+      
+	<ora-transaction name="pr_legajo_de_un_usuario" dataSourceFactoryName="BDMETA4">
+		<statement-call	statement="M4PQ_UTIL.PR_LEGAJO_DE_UN_USUARIO">
+						<input-parameter name="PI_USUARIO_CORPO" oraTypeName="CHAR" />
+						<output-parameter name="po_id_sociedad" oraTypeName="CHAR" />
+						<output-parameter name="po_id_empleado" oraTypeName="CHAR" />
+						<output-parameter name="po_id_empleado_corp" oraTypeName="CHAR" />
+						<output-parameter name="po_fec_alta_empleado" oraTypeName="DATE" />
+						<output-parameter name="po_fec_baja" oraTypeName="DATE" />
+						<output-parameter name="po_c_error" oraTypeName="NUMBER" />
+						<output-parameter name="po_error" oraTypeName="CHAR" />
+		</statement-call>
+	</ora-transaction>
+	<!-- pr_legajo_de_un_usuario - END-->
+	<convertion-manager
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

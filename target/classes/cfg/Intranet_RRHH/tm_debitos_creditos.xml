@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+  
+  <!--m4t_hist_desc_prepaga_baja -Begin-->
+  <transaction-manager>
+  	<ora-transation name="M4T_HIST_DESC_PREPAGA_BAJA" dataSourceFactoryName="BDMETA4">
+  		<statement-call statement="M4T_HIST_DESC_PREPAGA_BAJA">
+  			<input-parameter name="LEGAJO" oraTypeName="CHAR"/>
+  			<input-parameter name="NOMBRE_APELLIDO" oraTypeName="CHAR"/>
+  			<input-parameter name="FEC_IMPUTACION" oraTypeName="DATE"/>
+  			<input-parameter name="VALOR" oraTypeName="NUMBER"/>
+  			<input-parameter name="TIPO_MOV" oraTypeName="CHAR"/>
+  			<input-parameter name="PREPAGA" oraTypeName="CHAR"/>
+  			<input-parameter name="NRO_CUENTA" oraTypeName="CHAR"/>
+  			<input-parameter name="FEC_INICIO" oraTypeName="DATE"/>
+  			<input-parameter name="FEC_FIN" oraTypeName="DATE"/>
+  			<input-parameter name="NOM_BANCO" oraTypeName="CHAR"/>
+  			<input-parameter name="N_EMPRESA" oraTypeName="CHAR"/>
+  			<input-parameter name="OBSERVACIONES" oraTypeName="CHAR"/>
+  			<input-parameter name="FEC_ACTUALIZACION" oraTypeName="DATE"/>
+  			<input-parameter name="USUARIO" oraTypeName="CHAR"/>
+  			<input-parameter name="CK_PROCESADO" oraTypeName="CHAR"/>
+  		</statement-call>
+  	</ora-transation>
+    <!--m4t_hist_desc_prepaga_baja END-->  	
+  	<!-- m4pr_ins_hist_desc_prep_baja Begin-->
+  	<ora-transation name="M4PR_INS_HIST_DESC_PREP_BAJA" dataSourceFactoryName="BDMETA4">
+  		<statement-call statement="M4PR_INS_HIST_DESC_PREP_BAJA"></statement-call>
+  			<input-parameter name="P_LEGAJO" oraTypeName="CHAR"/>
+  			<input-parameter name="P_NOMBRE_APELLIDO" oraTypeName="CHAR"/>
+  			<input-parameter name="P_FEC_IMPUTACION" oraTypeName="DATE"/>
+  			<input-parameter name="P_VALOR" oraTypeName="NUMBER"/>
+  			<input-parameter name="P_TIPO_MOV" oraTypeName="CHAR"/>
+  			<input-parameter name="P_PREPAGA" oraTypeName="CHAR"/>
+  			<input-parameter name="P_NRO_CUENTA" oraTypeName="CHAR"/>
+  			<input-parameter name="P_FEC_INI" oraTypeName="DATE"/>
+  			<input-parameter name="P_FEC_FIN" oraTypeName="DATE"/>
+  			<input-parameter name="P_NOM_BANCO" oraTypeName="CHAR"/>
+  			<input-parameter name="P_N_EMPRESA" oraTypeName="CHAR"/>
+  			<input-parameter name="P_OBSERVACIONES" oraTypeName="CHAR"/>
+  	</ora-transation>
+  	<!-- m4pr_ins_hist_desc_prep_baja END-->
+  	<convertion-manager
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter
+			classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+</transaction-manager>

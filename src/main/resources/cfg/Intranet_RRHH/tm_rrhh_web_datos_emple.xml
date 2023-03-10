@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+	<!-- m4pr_findDatosPersonales - BEGIN-->
+		<ora-transaction name="m4pr_findDatosPersonales" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findDatosPersonales">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_SEXO" 		 	javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_ESTADO_CIVIL" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="nacionalidad1" 		javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="nacionalidad2" 		javaTypeName="java.lang.String" />	
+					<column-attribute-mapping attribute="FEC_CASAMIENTO" 		javaTypeName="java.sql.Date" />
+					<column-attribute-mapping attribute="FEC_NACIMIENTO" 		javaTypeName="java.sql.Date" />				
+					<column-attribute-mapping attribute="N_NACION" 		javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="POBLACION_NACIMIENTO" 	javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="militar_estado" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="militar_vence"  javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="tipoDoc1" 		javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="NUM_DOCUMENTO" 		javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="N_EMISOR_DOCUMENTO" 		javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="N_TIPO_DOCUMENTO" 	javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="NUM_DOCUMENTO_2" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_EMISOR_DOCUMENTO2"  javaTypeName="java.lang.String" />				
+					<column-attribute-mapping attribute="estCivil1" javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="estCivil2"  javaTypeName="java.lang.String" />				
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findDatosPersonales - END-->
+
+	<!-- m4pr_findDatosHeaderEmpleado - BEGIN-->
+		<ora-transaction name="m4pr_findDatosHeaderEmpleado" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findDatosHeaderEmpleado">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />
+				<input-parameter name="i_EMPRESA" oraTypeName="CHAR" />
+				<output-parameter name="o_apellidoNombre" oraTypeName="CHAR" />
+				<output-parameter name="o_apellidoCasada" oraTypeName="CHAR" />
+				<output-parameter name="o_nombreUsual" oraTypeName="CHAR" />
+				<output-parameter name="o_empresa" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findDatosHeaderEmpleado - END-->
+	
+	<!-- m4pr_findAllCompensaciones - BEGIN-->
+		<ora-transaction name="m4pr_findAllCompensaciones" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findAllCompensaciones">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />			
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="Activo" 			javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="NOMBRE_LARGO" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="FEC_INICIO" 			javaTypeName="java.sql.Date" />
+					<column-attribute-mapping attribute="VALOR" 				javaTypeName="java.lang.Double" />	
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllCompensaciones - END-->
+	<!-- m4pr_findByPKDomicilio - BEGIN-->
+		<ora-transaction name="m4pr_findByPKDomicilio" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findByPKDomicilio">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />			
+				<input-parameter name="i_FECHADESDE" oraTypeName="DATE" />	
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="FEC_DESDE" 		javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="VIA_PUBLICA" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="NUM_VIA" 			javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="PISO" 				javaTypeName="java.lang.String" />	
+					<column-attribute-mapping attribute="CUERPO" 			javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DEPARTAMENTO" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="POBLACION" 		javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="DISTRITO_POSTAL" 		javaTypeName="java.lang.String" />	
+					<column-attribute-mapping attribute="N_SUBDIV_GEOGRAFICA" 	javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TELEFONO" 	 			javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="CELULAR" 				javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="TEL_MENSAJE" 			javaTypeName="java.lang.String" />	
+					<column-attribute-mapping attribute="ENTRE_CALLE_1" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="ENTRE_CALLE_2" 		javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_NACION" 				javaTypeName="java.lang.String" />						
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findByPKDomicilio - END-->			
+	<!-- m4pr_findAllDomicilios - BEGIN-->
+		<ora-transaction name="m4pr_findAllDomicilios" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findAllDomicilios">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />							
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="FEC_DESDE" 		javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="VIA_PUBLICA" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="NUM_VIA" 			javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="PISO" 				javaTypeName="java.lang.String" />						
+					<column-attribute-mapping attribute="DEPARTAMENTO" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="POBLACION" 		javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_SUBDIV_GEOGRAFICA" 	javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="estado" 	 			javaTypeName="java.lang.String" />
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllDomicilios - END-->
+	<!-- m4pr_findDatosDetalleFamiliar - BEGIN-->
+		<ora-transaction name="m4pr_findDatosDetalleFamiliar" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findDatosDetalleFamiliar">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />							
+				<input-parameter name="i_NROFAMILIAR" oraTypeName="CHAR" />	
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="N_FAMILIAR" 		javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PARENTESCO" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_SEXO" 			javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_ESTADO_CIVIL"	javaTypeName="java.lang.String" />						
+					<column-attribute-mapping attribute="nacMasc" 			javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="nacFem" 	 		javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="FEC_INICIO" 		javaTypeName="java.sql.Date" />	
+					<column-attribute-mapping attribute="FEC_FIN" 			javaTypeName="java.sql.Date" />	
+					<column-attribute-mapping attribute="FEC_NAC_FAMI" 		javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="FEC_CASAMIENTO" 	javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="paisNacimiento" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="ID_TIPO_DOC" 			javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="NUM_DOCUMENTO"		javaTypeName="java.lang.String" />	
+					<column-attribute-mapping attribute="N_EMISOR_DOCUMENTO" 		javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="subs_escolaridad" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="tipoEscolaridad" 			javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="escolaridadesdesde"	javaTypeName="java.sql.Date" />																
+					<column-attribute-mapping attribute="escolaridadeshasta"	javaTypeName="java.sql.Date" />					
+					<column-attribute-mapping attribute="cobOSocial"	javaTypeName="java.lang.String" />					
+					<column-attribute-mapping attribute="FEC_ALTA_OBRA_SOCIAL"	javaTypeName="java.sql.Date" />		
+					<column-attribute-mapping attribute="FEC_BAJA_OBRA_SOCIAL"	javaTypeName="java.sql.Date" />													
+					<column-attribute-mapping attribute="INCAPAC_FAM"	javaTypeName="java.lang.String" />					
+					<column-attribute-mapping attribute="CK_Documentacion"	javaTypeName="java.lang.String" />					
+					<column-attribute-mapping attribute="vciaDesde"	javaTypeName="java.sql.Date" />					
+					<column-attribute-mapping attribute="vciahasta"	javaTypeName="java.sql.Date" />					
+					<column-attribute-mapping attribute="deduccion"	javaTypeName="java.lang.String" />					
+					<column-attribute-mapping attribute="FEC_ALTA_IMP"	javaTypeName="java.sql.Date" />					
+					<column-attribute-mapping attribute="FEC_BAJA_IMP"	javaTypeName="java.sql.Date" />					
+					<column-attribute-mapping attribute="estCivil1"	javaTypeName="java.lang.String" />					
+					<column-attribute-mapping attribute="estCivil2"	javaTypeName="java.lang.String" />									
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findDatosDetalleFamiliar - END-->	
+	<!-- m4pr_findAllFamiliares - BEGIN-->
+		<ora-transaction name="m4pr_findAllFamiliares" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findAllFamiliares">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />							
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="N_FAMILIAR" 		javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="NroFamiliar" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_PARENTESCO" 			javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="FEC_NAC_FAMI"	javaTypeName="java.lang.String" />	
+					<column-attribute-mapping attribute="EDAD" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="ID_SOCIEDAD" 			javaTypeName="java.lang.String"  />
+				</output-parameter>	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllFamiliares - END-->
+	<!-- m4pr_findIngGrupo - BEGIN-->
+		<ora-transaction name="m4pr_findIngGrupo" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findIngGrupo">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />							
+				<output-parameter name="o_FECINGGRUPO" oraTypeName="DATE" />	
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findIngGrupo - END-->				
+	<!-- m4pr_findAllPuestos - BEGIN-->
+		<ora-transaction name="m4pr_findAllPuestos" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findAllPuestos">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />							
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="FEC_INICIO" 		javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="N_PUESTO" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_CENTRO_TRABAJO" 			javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="activo" 		javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_EMPRESA" 	 	javaTypeName="java.lang.String" />
+					<column-attribute-mapping attribute="N_EMPRESA" 			javaTypeName="java.lang.String" />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAllPuestos - END-->		
+	<!-- m4pr_findSaldosVacaciones - BEGIN-->
+		<ora-transaction name="m4pr_findSaldosVacaciones" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findSaldosVacaciones">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />							
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ANIO" 		javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="teoricos1" 	 	javaTypeName="java.lang.Integer" />
+					<column-attribute-mapping attribute="teoricos2" 			javaTypeName="java.lang.Integer" />
+					<column-attribute-mapping attribute="TOMADOS" 		javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PENDIENTES" 	 	javaTypeName="java.lang.Integer" />
+				    <column-attribute-mapping attribute="PERDIDAS" 	 	javaTypeName="java.lang.Integer" />
+					<column-attribute-mapping attribute="DISP_DIAS_HABILES" 	 	javaTypeName="java.lang.Integer" />
+					<column-attribute-mapping attribute="PEND_DIAS_HABILES" 	 	javaTypeName="java.lang.Integer" />
+					<column-attribute-mapping attribute="TOMA_DIAS_HABILES" 	 	javaTypeName="java.lang.Integer" />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findSaldosVacaciones - END-->	
+	<!-- m4pr_findVacacionesReales - BEGIN-->
+		<ora-transaction name="m4pr_findVacacionesReales" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findVacacionesReales">
+				<input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="i_LEGAJO" oraTypeName="CHAR" />							
+				<output-parameter name="o_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="anio" 		javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="dias" 	 	javaTypeName="java.lang.Integer" />
+					<column-attribute-mapping attribute="FEC_INICIO" 			javaTypeName="java.sql.Date" />
+					<column-attribute-mapping attribute="FEC_FIN" 		javaTypeName="java.sql.Date"  />		
+					<column-attribute-mapping attribute="CK_DIAS_VACACIONES" 		javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DESC_TIPO_DIA" 		javaTypeName="java.lang.String"  />
+
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findVacacionesReales - END-->			
+	<ora-transaction name="m4pr_findDatosDetalleLiq" dataSourceFactoryName="BDMETA4">
+        <statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findDatosDetalleLiq">
+              <input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+              <input-parameter name="i_LEGAJO" oraTypeName="CHAR" />
+              <input-parameter name="i_FECHAINGRESO" oraTypeName="DATE" />
+              <output-parameter name="o_DATOSCUR" oraTypeName="CURSOR"       javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+                    <column-attribute-mapping attribute="fecha_Alta_Empleado"  javaTypeName="java.sql.Date"  />
+                    <column-attribute-mapping attribute="grupo_Liq"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="relacion_Laboral"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="estado"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="convenio"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="categoria_Convenio"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="convenio_funcion"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="fecAntig"  javaTypeName="java.sql.Date"  />
+                    <column-attribute-mapping attribute="fecAntigGrupo"  javaTypeName="java.sql.Date"  />
+                    <column-attribute-mapping attribute="nro_Contrato"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="fec_inicio_contrato"  javaTypeName="java.lang.Date"  />
+                    <column-attribute-mapping attribute="fec_fin_contrato"  javaTypeName="java.sql.Date"  />
+                    <column-attribute-mapping attribute="convenio_Vac"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="dias_Vac"  javaTypeName="java.lang.Number"  />
+                    <column-attribute-mapping attribute="dias_Vac_Corridos"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="entidad_Jubilacion"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="cuil"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="obra_Social"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="n_obra_Social"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="prepaga"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="nro_afiliado"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="seguro1"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="sindicato"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="nro_sindicato"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="forma_Pago"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="entidad_Pago"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="suc_Pago"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="tipo_cuenta"  javaTypeName="java.lang.String"  />
+                    <column-attribute-mapping attribute="nroCuenta"  javaTypeName="java.lang.String"  />
+                    </output-parameter>   
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_findDatosDetalleLiq - END-->
+      <!-- m4pr_findAllLiquidacion- BEGIN-->
+            <ora-transaction name="m4pr_findAllLiquidacion" dataSourceFactoryName="BDMETA4">
+	            <statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_findAllLiquidacion">
+                   <input-parameter name="i_SOCIEDAD" oraTypeName="CHAR" />
+                   <input-parameter name="i_LEGAJO" oraTypeName="CHAR" />
+                   <output-parameter name="o_DATOSCUR" oraTypeName="CURSOR"       javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean"> 
+	                   <column-attribute-mapping attribute="FEC_ALTA_EMPLEADO"  javaTypeName="java.sql.Date"  />
+	                   <column-attribute-mapping attribute="Estado"  javaTypeName="java.lang.String"  />
+	                   <column-attribute-mapping attribute="N_ESTADO_PLANTILLA"  javaTypeName="java.lang.String"  />
+	                   <column-attribute-mapping attribute="FEC_BAJA"  javaTypeName="java.sql.Date"  />
+	                   <column-attribute-mapping attribute="Activo"  javaTypeName="java.lang.String"  />
+	                   <column-attribute-mapping attribute="ID_EMPRESA"  javaTypeName="java.lang.String"  />
+	                   <column-attribute-mapping attribute="N_EMPRESA"  javaTypeName="java.lang.String"  />
+	                   <column-attribute-mapping attribute="ID_SOCIEDAD"  javaTypeName="java.lang.String"  />
+                   </output-parameter>                           
+                  </statement-call>
+            </ora-transaction>           
+      <!--m4pr_findAllLiquidacion - END-->
+
+
+      
+      <!-- m4pr_consulta_sueldoneto Begin-->
+      <ora-transaction name="m4pr_consulta_sueldoneto" dataSourceFactoryName="BDMETA4">
+		   <statement-call statement="M4PQ_WEB_DATOS_EMPLE.m4pr_consulta_sueldoneto">
+			<input-parameter name="i_sociedad" oraTypeName="CHAR" />
+			<input-parameter name="i_legajo" oraTypeName="CHAR" />
+			<output-parameter name="sueldoneto" oraTypeName="CHAR" /> 
+		 </statement-call>
+	</ora-transaction>
+
+	<!-- m4pr_consulta_sueldoneto END-->
+      
+      
+	
+				
+	<convertion-manager 
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter"/>
+		<converter classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

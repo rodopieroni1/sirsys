@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+	<!-- m4pr_simula_usuario  - BEGIN -->
+		<ora-transaction name="m4pr_simula_usuario" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4pr_simula_usuario">    		
+				<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="P_FECHA_ALTA" oraTypeName="DATE" />
+				<input-parameter name="P_ID_TIPO_PROC" oraTypeName="CHAR" />
+				<input-parameter name="P_FILTRO" oraTypeName="CHAR" />
+				<output-parameter name="D_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_SOCIEDAD_sup" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_EMPLEADO_SUP" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="FEC_ALTA_SUP" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="USUARIO_CORPO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="orden" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="TIPO_USER" javaTypeName="java.lang.String"/>
+				</output-parameter>			
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_simula_usuario - END -->
+
+
+	<!-- m4prw_cbo_empleados_xsup - BEGIN -->
+		<ora-transaction name="m4prw_cbo_empleados_xsup" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4prw_cbo_empleados_xsup">  
+			<input-parameter name="pAnioRv" oraTypeName="NUMBER" />
+			<input-parameter name="pIdMetLiq" oraTypeName="CHAR" />
+			<input-parameter name="pIdPeriodo" oraTypeName="NUMBER" />
+			<input-parameter name="pIdSimulacion" oraTypeName="NUMBER" />
+			<input-parameter name="pEmpleado" oraTypeName="CHAR" />
+			<input-parameter name="pUsuarioWeb" oraTypeName="CHAR" />
+			<input-parameter name="pSocSup" oraTypeName="CHAR" />
+			<input-parameter name="pIdEmpleSup" oraTypeName="CHAR" />
+			<input-parameter name="pFecAltaSup" oraTypeName="DATE" />
+			<input-parameter name="pid_unidad" oraTypeName="CHAR" />
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_SOCIEDAD" javaTypeName="java.lang.String"/>
+					
+				</output-parameter>			
+			</statement-call>
+		</ora-transaction>
+	<!-- m4prw_cbo_empleados_xsup - END -->
+
+
+	<!-- m4prw_cbo_select_rva - BEGIN -->
+		<ora-transaction name="m4prw_cbo_select_rva" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4prw_cbo_select_rva">   
+			<input-parameter name="PdiSocSup" oraTypeName="CHAR" />
+			<input-parameter name="pIdEmplSup" oraTypeName="CHAR" /> 		
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ANIO_RV" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="ID_METODO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_PERIODO" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="ID_SIMULACION" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="N_PERIODO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="TIPO_RV" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="TIPO_PAGO" javaTypeName="java.lang.String"/>
+				</output-parameter>			
+			</statement-call>
+		</ora-transaction>
+	<!-- m4prw_cbo_select_rva - END -->
+	<!-- m4prw_cbo_select_rva_ind - BEGIN -->
+		<ora-transaction name="m4prw_cbo_select_rva_ind" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4prw_cbo_select_rva_ind">   
+			<input-parameter name="PdiSoc" oraTypeName="CHAR" />
+			<input-parameter name="pIdEmpl" oraTypeName="CHAR" /> 		
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ANIO_RV" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="ID_METODO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_PERIODO" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="ID_SIMULACION" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="N_PERIODO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="TIPO_RV" javaTypeName="java.lang.String"/>
+				</output-parameter>			
+			</statement-call>
+		</ora-transaction>
+	<!-- m4prw_cbo_select_rva_ind - END -->
+	
+	
+	<!-- m4prw_revisar_miras - BEGIN -->
+		<ora-transaction name="m4prw_revisar_miras" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4prw_revisar_miras">    		
+				<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="P_FECHA_ALTA" oraTypeName="DATE" />
+				<input-parameter name="P_ID_ESTRUCTURA" oraTypeName="CHAR" />
+				<input-parameter name="P_ANIO_RV" oraTypeName="NUMBER" />
+				<input-parameter name="P_MET_LIQUIDACION" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_SIMULACION" oraTypeName="NUMBER" />
+				<input-parameter name="pIdEmplFiltro" oraTypeName="CHAR" />
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="PERIODO_DESDE" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="PERIODO_HASTA" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="dias_total" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_AUSENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_NETOS" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="CUMPLIMIENTO_TRIM" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="NOTA_PAGO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="bono_target" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="porc_parrilla" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="VALOR_RV" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="conformado_absorbido" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="total_a_cobrar" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="premio_cajero" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_PREMIO_PAGO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="X_COMENTARIO" javaTypeName="java.lang.String"/>
+
+
+					
+				</output-parameter>			
+			</statement-call>
+		</ora-transaction>
+	<!-- m4prw_revisar_miras - END -->
+	
+	<!-- m4prw_comunicar_miras - BEGIN -->  <!-- GRILLA MIRAS ANUAL  solapa "A Comunicar"  -->  
+		<ora-transaction name="m4prw_comunicar_miras" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4prw_comunicar_miras">    		
+				<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="P_FECHA_ALTA" oraTypeName="DATE" />
+				<input-parameter name="P_ID_ESTRUCTURA" oraTypeName="CHAR" />
+				<input-parameter name="P_ANIO_RV" oraTypeName="NUMBER" />
+				<input-parameter name="P_MET_LIQUIDACION" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_SIMULACION" oraTypeName="NUMBER" />
+				<input-parameter name="pIdEmplFiltro" oraTypeName="CHAR" />
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="PERIODO_DESDE" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="PERIODO_HASTA" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="dias_total" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_AUSENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_NETOS" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="NOTA_PAGO_CUMPLIMIENTO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="NOTA_VAL_PERF" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="bono_target" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="porc_parrilla" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="VALOR_RV" javaTypeName="java.lang.Double"/>
+					<column-attribute-mapping attribute="conformado_absorbido" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="total_a_cobrar" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="premio_cajero" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_PREMIO_PAGO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="X_COMENTARIO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_GRUPO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_AREA" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_IND" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_T" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="CONFORMADO_ABSORBIDO_T" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="RV_PAGO_T" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="PREMIO_PAGO_T" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="REG_DESCRIPCION" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_TRI" javaTypeName="java.lang.Double"/>
+					<column-attribute-mapping attribute="NOMBRE_CONCEPTO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_TOT" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="nota_media" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="NOTA_PAGO_AJUSTADA" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_CUMPLIMIENTO" javaTypeName="java.lang.String"/> <!-- 6/2/2020 -->
+					
+					
+
+					               
+                                                                    
+					
+					
+					
+					
+				</output-parameter>			
+			</statement-call>
+		</ora-transaction>
+	<!-- m4prw_comunicar_miras - END -->
+		<!-- m4prw_comunicar_miras - BEGIN --> <!-- GRILLA MIRAS TRIMESTRAL  solapa "A Comunicar"  -->  
+		<ora-transaction name="m4prw_comunicar_miras_trimestral" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4prw_comunicar_miras">    		
+				<input-parameter name="P_ID_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="P_FECHA_ALTA" oraTypeName="DATE" />
+				<input-parameter name="P_ID_ESTRUCTURA" oraTypeName="CHAR" />
+				<input-parameter name="P_ANIO_RV" oraTypeName="NUMBER" />
+				<input-parameter name="P_MET_LIQUIDACION" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_SIMULACION" oraTypeName="NUMBER" />
+				<input-parameter name="pIdEmplFiltro" oraTypeName="CHAR" />
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="PERIODO_DESDE" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="PERIODO_HASTA" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="dias_total" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_AUSENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_NETOS" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="NOTA_PAGO_CUMPLIMIENTO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="NOTA_PAGO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="bono_target" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="porc_parrilla" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="VALOR_RV" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="conformado_absorbido" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="total_a_cobrar" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="premio_cajero" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_PREMIO_PAGO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="X_COMENTARIO" javaTypeName="java.lang.String"/>
+<!-- 					<column-attribute-mapping attribute="VALOR_RV_GRUPO" javaTypeName="java.lang.Integer"/> -->
+<!-- 					<column-attribute-mapping attribute="VALOR_RV_AREA" javaTypeName="java.lang.Integer"/> -->
+<!-- 					<column-attribute-mapping attribute="VALOR_RV_IND" javaTypeName="java.lang.Integer"/> -->
+<!-- 					<column-attribute-mapping attribute="VALOR_RV_T" javaTypeName="java.lang.Integer"/> -->
+<!-- 					<column-attribute-mapping attribute="CONFORMADO_ABSORBIDO_T" javaTypeName="java.lang.Integer"/> -->
+<!-- 					<column-attribute-mapping attribute="RV_PAGO_T" javaTypeName="java.lang.Integer"/> -->
+<!-- 					<column-attribute-mapping attribute="PREMIO_PAGO_T" javaTypeName="java.lang.Integer"/> -->
+<!-- 					<column-attribute-mapping attribute="REG_DESCRIPCION" javaTypeName="java.lang.String"/> -->
+				</output-parameter>			
+			</statement-call>
+		</ora-transaction>
+	<!-- m4prw_comunicar_miras - END -->
+
+	<!-- m4prw_comunicar_miras_det - BEGIN -->
+		<ora-transaction name="m4prw_comunicar_miras_det" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4prw_comunicar_miras_det">    		
+				<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="P_ANIO_RV" oraTypeName="NUMBER" />
+				<input-parameter name="P_MET_LIQUIDACION" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_SIMULACION" oraTypeName="NUMBER" />
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="PERIODO_DESDE" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="PERIODO_HASTA" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="dias_total" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_AUSENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_NETOS" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="NOTA_PAGO_CUMPLIMIENTO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="NOTA_VAL_PERF" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="bono_target" javaTypeName="java.lang.Double"/>
+					<column-attribute-mapping attribute="porc_parrilla" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="VALOR_RV" javaTypeName="java.lang.Double"/>
+					<column-attribute-mapping attribute="conformado_absorbido" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="total_a_cobrar" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="premio_cajero" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_PREMIO_PAGO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="X_COMENTARIO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_GRUPO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_AREA" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_IND" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_T" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="CONFORMADO_ABSORBIDO_T" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="RV_PAGO_T" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="PREMIO_PAGO_T" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="REG_DESCRIPCION" javaTypeName="java.lang.String"/>
+					
+					<column-attribute-mapping attribute="VALOR_RV_TRI" javaTypeName="java.lang.Double"/>
+					<column-attribute-mapping attribute="NOMBRE_CONCEPTO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_TOT" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="CK_MIRAS_ANUAL" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="nota_media" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="NOTA_PAGO_AJUSTADA" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_RV_CUMPLIMIENTO" javaTypeName="java.lang.String"/> <!-- 6/2/2020 -->
+					
+					
+				</output-parameter>			
+			</statement-call>
+		</ora-transaction>
+	<!-- m4prw_comunicar_miras_det - END -->
+
+	<!-- m4prw_comunicar_miras_det_tri - BEGIN -->
+		<ora-transaction name="m4prw_comunicar_miras_det_tri" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4prw_comunicar_miras_det">    		
+				<input-parameter name="P_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="P_ANIO_RV" oraTypeName="NUMBER" />
+				<input-parameter name="P_MET_LIQUIDACION" oraTypeName="CHAR" />
+				<input-parameter name="P_ID_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="P_ID_SIMULACION" oraTypeName="NUMBER" />
+				<output-parameter name="O_DATOSCUR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_GERENCIA_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_UNIDAD_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ID_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="N_PUESTO_PER" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="PERIODO_DESDE" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="PERIODO_HASTA" javaTypeName="java.sql.Date"/>
+					<column-attribute-mapping attribute="dias_total" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_AUSENCIA" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="DIAS_NETOS" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="CUMPLIMIENTO_TRIM" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="NOTA_PAGO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="bono_target" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="porc_parrilla" javaTypeName="java.lang.Integer"/>
+					<column-attribute-mapping attribute="VALOR_RV" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="conformado_absorbido" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="total_a_cobrar" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="premio_cajero" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="VALOR_PREMIO_PAGO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="X_COMENTARIO" javaTypeName="java.lang.String"/>
+				</output-parameter>			
+			</statement-call>
+		</ora-transaction>
+	<!-- m4prw_comunicar_miras_det_tri - END -->
+	
+	<!-- m4pr_miras_val_anual  - BEGIN -->
+		<ora-transaction name="m4pr_miras_val_anual" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RVA.m4pr_miras_val_anual">    		
+				<input-parameter name="P_ANIORV" oraTypeName="NUMBER" />
+				<input-parameter name="P_IDPERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="P_IDSIMULACION" oraTypeName="NUMBER" />
+				<output-parameter name="PO_NOTA_DIRECCION" oraTypeName="NUMBER" javaTypeName="java.lang.Integer"/>
+				<output-parameter name="PO_NOTA_GRUPO" oraTypeName="NUMBER" javaTypeName="java.lang.Integer"/>
+				<output-parameter name="PO_NOTA_AREA" oraTypeName="NUMBER" javaTypeName="java.lang.Integer"/>
+				<output-parameter name="PO_PORC_GRUPO" oraTypeName="NUMBER" javaTypeName="java.lang.Integer"/>
+				<output-parameter name="PO_PORC_AREA" oraTypeName="NUMBER" javaTypeName="java.lang.Integer"/>
+				<output-parameter name="PO_PORC_INDIVIDUAL" oraTypeName="NUMBER" javaTypeName="java.lang.Integer"/>
+				<output-parameter name="PO_NOTA_DIRE_PROM" oraTypeName="NUMBER" javaTypeName="java.lang.Integer"/>		
+			</statement-call>
+		</ora-transaction>
+	<!-- m4pr_miras_val_anual - END -->
+
+	<convertion-manager 
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter"/>
+		<converter classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

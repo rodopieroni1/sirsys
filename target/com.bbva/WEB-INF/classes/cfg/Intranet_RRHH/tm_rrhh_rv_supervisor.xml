@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE transaction-manager PUBLIC
+  "-//Service Access Manager//DTD Transaction Manager Configuration//EN" 
+  "tm-config.dtd">
+
+<transaction-manager>
+
+<!-- m4pr_findAreasGestor - BEGIN-->
+		<ora-transaction name="m4pr_findAreasGestor" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreasGestor">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />   
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />  
+				<output-parameter name="O_DATOSCURSOR" oraTypeName="CURSOR"	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD_FONDEO" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="DENOM_AREA_FONDEO" javaTypeName="java.lang.String"/>					
+					<column-attribute-mapping attribute="ORDEN1" javaTypeName="java.lang.String"/>		
+					<column-attribute-mapping attribute="ID_UNIDAD_ORG_MODIF" javaTypeName="java.lang.String"/>		
+					<column-attribute-mapping attribute="DENOM_AREA_ORG_MODIF" javaTypeName="java.lang.String"/>
+					<column-attribute-mapping attribute="ORDEN2" javaTypeName="java.lang.Integer"/>					
+					<column-attribute-mapping attribute="BASE_FONDEO" javaTypeName="java.lang.Double"/>					
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_M" javaTypeName="java.lang.Double"/>
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_T" javaTypeName="java.lang.Double"/>
+					<column-attribute-mapping attribute="MONTO_INCREMENTADO" javaTypeName="java.lang.Double"/>
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreasGestor - END-->	
+
+<!-- m4pr_findGestoresAreas - BEGIN-->
+		<ora-transaction name="m4pr_findGestoresAreas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findGestoresAreas">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />   
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />  
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />  
+				<output-parameter name="O_DATOSCURSOR" oraTypeName="CURSOR"	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"/>					
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"/>		
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />		
+					<column-attribute-mapping attribute="DIREC_INT" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_NIVEL_REPORTE" javaTypeName="java.lang.Integer"  />
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findGestoresAreas - END-->	
+
+	<!-- m4pr_findTextoMail - BEGIN-->
+		<ora-transaction name="m4pr_findTextoMail" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findTextoMail">
+				<input-parameter name="I_APLICACION" oraTypeName="CHAR" />  
+				<input-parameter name="I_MAIL" oraTypeName="CHAR" />  
+				<output-parameter name="O_DATOSCURSOR" oraTypeName="CURSOR"	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ASUNTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TEXTO_MAIL" javaTypeName="java.lang.String"/>					
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findTextoMail - END-->		
+
+<!-- m4pr_findAreaHabilita - BEGIN-->
+		<ora-transaction name="m4pr_findAreaHabilita" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreaHabilita">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />   
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />  
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />  
+				<input-parameter name="I_SOC_SUPERV" oraTypeName="CHAR" />  
+				<input-parameter name="I_EMPLE_SUPERV" oraTypeName="CHAR" />  
+				<input-parameter name="I_UNIDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_OPCION" oraTypeName="CHAR" />
+				<output-parameter name="O_DATOSCURSOR" oraTypeName="CURSOR"	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"/>					
+					<column-attribute-mapping attribute="ORDEN" javaTypeName="java.lang.Integer"/>					
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreaHabilita - END-->	
+	
+	
+
+<!-- m4pr_Sp_RV_AreasSuperv - BEGIN-->
+		<ora-transaction name="m4pr_Sp_RV_AreasSuperv" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_Sp_RV_AreasSuperv">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />   
+				<input-parameter name="I_SOC_SUPERV" oraTypeName="CHAR" />  
+				<input-parameter name="I_LEG_AREA_SUPERV" oraTypeName="CHAR" />  
+				<input-parameter name="I_AREA" oraTypeName="CHAR" />  
+				<input-parameter name="I_NIVEL_REPORTE" oraTypeName="NUMBER" />  
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />  
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR"	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="TIPO_AREA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="AREA_FONDEO" javaTypeName="java.lang.String"/>					
+					<column-attribute-mapping attribute="AREA_FONDEO_DESC" javaTypeName="java.lang.String"/>		 					
+					<column-attribute-mapping attribute="ORDEN1" javaTypeName="java.lang.Integer"/>						
+					<column-attribute-mapping attribute="AREA" javaTypeName="java.lang.String"/>	
+					<column-attribute-mapping attribute="DESC" javaTypeName="java.lang.String"/>	
+					<column-attribute-mapping attribute="ORDEN2" javaTypeName="java.lang.Integer"/>					
+					<column-attribute-mapping attribute="IMPORTE_BASE_FONDEO" javaTypeName="java.lang.Double" />	
+					<column-attribute-mapping attribute="IMPORTE_DISCRE_MODIF" javaTypeName="java.lang.Double" />	
+					<column-attribute-mapping attribute="IMPORTE_DISCRE_TEMP" javaTypeName="java.lang.Double" />	
+					<column-attribute-mapping attribute="IMPORTE_MONTO_INCR" javaTypeName="java.lang.Double" />						
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_Sp_RV_AreasSuperv - END-->	
+	
+	
+<!-- m4pr_findSupervisorAreaNivel - BEGIN-->
+		<ora-transaction name="m4pr_findSupervisorAreaNivel" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findSupervisorAreaNivel">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />   
+				<input-parameter name="I_AREA_SUPERV" oraTypeName="CHAR" />  
+				<input-parameter name="I_NIVEL" oraTypeName="NUMBER" />
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR"	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="TIPO_REGISTRO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="LEGAJO_SUPERVISOR" javaTypeName="java.lang.String"  />					
+					<column-attribute-mapping attribute="NOMBRE_SUPERVISOR" javaTypeName="java.lang.String"  />		 					
+					<column-attribute-mapping attribute="NIVEL_REPORTE_SUPERVISOR" javaTypeName="java.lang.Integer"  />						
+					<column-attribute-mapping attribute="EMAIL_SUPERVISOR" javaTypeName="java.lang.String"  />		
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findSupervisorAreaNivel - END-->	
+	
+<!-- m4pr_findSupervisorArea - BEGIN-->
+		<ora-transaction name="m4pr_findSupervisorArea" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findSupervisorArea">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />   
+				<input-parameter name="I_AREA_SUPERV" oraTypeName="CHAR" />
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR"	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="TIPO_REGISTRO" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="LEGAJO_SUPERVISOR" javaTypeName="java.lang.String"  />					
+					<column-attribute-mapping attribute="NOMBRE_SUPERVISOR" javaTypeName="java.lang.String"  />		 					
+					<column-attribute-mapping attribute="NIVEL_REPORTE_SUPERVISOR" javaTypeName="java.lang.Integer"  />						
+					<column-attribute-mapping attribute="EMAIL_SUPERVISOR" javaTypeName="java.lang.String"  />		
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findSupervisorArea - END-->	
+	<!-- m4pr_FindGestorIntranet - BEGIN-->
+		<ora-transaction name="m4pr_FindGestorIntranet" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_FindGestorIntranet">
+				<input-parameter name="I_USUARIO" oraTypeName="CHAR" />  
+				<output-parameter name="O_GESTOR" oraTypeName="CHAR"/> 
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_FindGestorIntranet - END-->	
+	<!-- m4pr_findAreaSuperiorEnLugar - BEGIN-->
+		<ora-transaction name="m4pr_findAreaSuperiorEnLugar" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreaSuperiorEnLugar">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />    
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />       
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" /> 
+				<input-parameter name="I_UNIDADSUBOR" oraTypeName="CHAR" />		
+				<output-parameter name="O_UNIDADSUPERIOR" oraTypeName="CHAR"/> 
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreaSuperiorEnLugar - END-->	
+	<!-- m4pr_findLugaresAEnviar - BEGIN-->
+		<ora-transaction name="m4pr_findLugaresAEnviar" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findLugaresAEnviar">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />    
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />       
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />     				
+				<output-parameter name="O_DATOSCURSOR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="lugar_a" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="denomina1" javaTypeName="java.lang.String"  />								
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findLugaresAEnviar - END-->
+	<!-- m4pr_findMinMaxLugarRuta - BEGIN-->
+		<ora-transaction name="m4pr_findMinMaxLugarRuta" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findMinMaxLugarRuta">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />    
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" /> 
+				<input-parameter name="I_MAXIMO" oraTypeName="CHAR" /> 				
+				<output-parameter name="O_LUGAR" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findMinMaxLugarRuta - END-->
+	<!-- m4pr_findSegundoLugarRuta - BEGIN-->
+		<ora-transaction name="m4pr_findSegundoLugarRuta" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findSegundoLugarRuta">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />    
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" /> 			
+				<output-parameter name="O_LUGAR" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findSegundoLugarRuta - END-->	
+	<!-- m4pr_findLugarArea - BEGIN-->
+		<ora-transaction name="m4pr_findLugarArea" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findLugarArea">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />    
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" />  			
+				<output-parameter name="O_DATOSCURSOR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="lugar" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="denomina1" javaTypeName="java.lang.String"  />								
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findLugarArea - END-->
+	<!-- m4pr_findNivelReporteMaximo - BEGIN-->
+		<ora-transaction name="m4pr_findNivelReporteMaximo" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findNivelReporteMaximo">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />    
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />    
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />				
+				<output-parameter name="O_NIVEL_REPORTE" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findNivelReporteMaximo - END-->
+	<!-- m4pr_findExisteAreaEnLugar - BEGIN-->
+		<ora-transaction name="m4pr_findExisteAreaEnLugar" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findExisteAreaEnLugar">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />    
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />    
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />	   
+				<input-parameter name="I_UNIDAD" oraTypeName="CHAR" />				
+				<output-parameter name="O_EXISTE" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findExisteAreaEnLugar - END-->
+	<!-- m4pr_findExcepcionesByPK - BEGIN-->
+		<ora-transaction name="m4pr_findExcepcionesByPK" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findExcepcionesByPK">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" /> 
+				<input-parameter name="I_SOC_SUPERV" oraTypeName="CHAR" />				
+				<input-parameter name="I_LEGAJO_SUPERV" oraTypeName="CHAR" />
+				<output-parameter name="O_EXISTE" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findExcepcionesByPK - END-->	
+	<!-- m4pr_findSupervAreaPorExc - BEGIN-->
+		<ora-transaction name="m4pr_findSupervAreaPorExc" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findSupervAreaPorExc">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_AREA_SUPERV" oraTypeName="CHAR" />  
+				<output-parameter name="O_SOC_AREA_SUPERV" oraTypeName="CHAR" /> 
+				<output-parameter name="O_LEG_AREA_SUPERV" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findSupervAreaPorExc - END-->		
+	<!-- m4pr_findAreasSupervPorExc - BEGIN-->
+		<ora-transaction name="m4pr_findAreasSupervPorExc" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreasSupervPorExc">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />  
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />  
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />  
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />  
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_SOC_SUPERV" oraTypeName="CHAR" />
+				<input-parameter name="I_LEG_AREA_SUPERV" oraTypeName="CHAR" />
+				<input-parameter name="I_AREA_SUPERV" oraTypeName="CHAR" />   
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="AREA_SUPERV" javaTypeName="java.lang.String"  />													
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreasSupervPorExc - END-->												
+	<!-- m4pr_findAreaEnvio - BEGIN-->
+		<ora-transaction name="m4pr_findAreaEnvio" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreaEnvio">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />				
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR_A" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ID_UNIDAD_D" oraTypeName="CHAR" />    
+				<output-parameter name="O_DATOSCURSOR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="LUGAR" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DENOMINA1" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_A" javaTypeName="java.lang.String"  />																		
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreaEnvio - END-->
+	<!-- m4pr_findEnviaronAreaAprobada - BEGIN-->
+		<ora-transaction name="m4pr_findEnviaronAreaAprobada" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findEnviaronAreaAprobada">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />				
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD_D" oraTypeName="CHAR" /> 				
+				<output-parameter name="O_EXISTE" oraTypeName="NUMBER"/>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findEnviaronAreaAprobada - END-->	
+	<!-- m4pr_findLugarEnvio - BEGIN-->
+		<ora-transaction name="m4pr_findLugarEnvio" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findLugarEnvio">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD_D" oraTypeName="CHAR" /> 				
+				<output-parameter name="O_DATOSCURSOR" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="lugar_a" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="denomina1" javaTypeName="java.lang.String"  />																							
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findLugarEnvio - END-->	
+	<!-- m4pr_validExisteEnvio - BEGIN-->
+		<ora-transaction name="m4pr_validExisteEnvio" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_validExisteEnvio">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR_A" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD_A" oraTypeName="CHAR" /> 						
+				<input-parameter name="I_SOC_SUPERV" oraTypeName="CHAR" /> 
+				<input-parameter name="I_LEGAJO_SUPERV" oraTypeName="CHAR" /> 	 				
+				<output-parameter name="O_EXISTE" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_validExisteEnvio - END-->							
+	<!-- m4pr_guardarRutaPaso - BEGIN-->
+		<ora-transaction name="m4pr_guardarRutaPaso" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_guardarRutaPaso">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />    
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />    
+				<input-parameter name="I_ESTADO" oraTypeName="CHAR" />     				
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR_A" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD_A" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD_D" oraTypeName="CHAR" />
+				<input-parameter name="I_MAIL_TO" oraTypeName="CHAR" />
+				<input-parameter name="I_OPERADOR" oraTypeName="CHAR" />
+				<input-parameter name="I_OBSERVACION" oraTypeName="CHAR" />
+				
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_guardarRutaPaso - END-->
+	<!-- m4pr_findAreaHabilitada - BEGIN-->
+		<ora-transaction name="m4pr_findAreaHabilitada" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreaHabilitada">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR_A" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD_D" oraTypeName="CHAR" /> 	
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD_A" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />																							
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreaHabilitada - END-->		
+	<!-- m4pr_findPermisoArea - BEGIN-->
+		<ora-transaction name="m4pr_findPermisoArea" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findPermisoArea">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_UNIDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" /> 	
+				<output-parameter name="O_PERMISO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findPermisoArea - END-->
+	<!-- m4pr_findAreaSuperior - BEGIN-->
+		<ora-transaction name="m4pr_findAreaSuperior" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreaSuperior">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR_A" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />
+				<input-parameter name="I_AREAS" oraTypeName="CHAR" /> 	
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />																							
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreaSuperior - END-->	
+	<!-- m4pr_findAreasDepLugar - BEGIN-->
+		<ora-transaction name="m4pr_findAreasDepLugar" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreasDepLugar">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />			
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" />			
+				<input-parameter name="I_SOC_SUP" oraTypeName="CHAR" />
+				<input-parameter name="I_LEGAJO_SUP" oraTypeName="CHAR" /> 	
+				<output-parameter name="O_EXISTE" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreasDepLugar - END-->
+
+	<!-- m4pr_findRutaLugarDelArea - BEGIN-->
+		<ora-transaction name="m4pr_findRutaLugarDelArea" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findRutaLugarDelArea">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />	
+				<input-parameter name="I_AREAS" oraTypeName="CHAR" />
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ruta" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="rutaDenomina" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="lugar" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="lugarDenomina" javaTypeName="java.lang.String"  />																								
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findRutaLugarDelArea - END-->	
+	<!-- m4pr_findAreaRRHH - BEGIN-->
+		<ora-transaction name="m4pr_findAreaRRHH" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreaRRHH">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />																													
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreaRRHH - END-->	
+	<!-- m4pr_findEstadoArea - BEGIN-->
+		<ora-transaction name="m4pr_findEstadoArea" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findEstadoArea">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" />
+				<output-parameter name="O_ESTADO" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findEstadoArea - END-->	
+	<!-- m4pr_insertORupdateEstado - BEGIN-->
+		<ora-transaction name="m4pr_insertORupdateEstado" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_insertORupdateEstado">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_RUTA_ESTADO" oraTypeName="CHAR" /> 
+				<input-parameter name="I_LUGAR" oraTypeName="CHAR" />
+				<input-parameter name="I_ESTADO" oraTypeName="CHAR" />
+				<input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_RUTA" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_insertORupdateEstado - END-->	
+	<!-- m4pr_findAreaSupInmediata - BEGIN-->
+		<ora-transaction name="m4pr_findAreaSupInmediata" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findAreaSupInmediata">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" /> 
+				<output-parameter name="O_ID_UNIDAD_DEP" oraTypeName="CHAR" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findAreaSupInmediata - END-->	
+	<!-- findCumplimientoArea - BEGIN-->
+		<ora-transaction name="findCumplimientoArea" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.findCumplimientoArea">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_ID_UNIDAD" oraTypeName="CHAR" />				
+				<output-parameter name="O_CUMPLIMIENTO" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- findCumplimientoArea - END-->	
+	<!-- findPorcentajePremioArea2 - BEGIN-->
+		<ora-transaction name="findPorcentajePremioArea2" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.findPorcentajePremioArea2">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_ID_UNIDAD_FONDEO" oraTypeName="CHAR" />
+				<input-parameter name="I_NIVEL_REPORTE" oraTypeName="NUMBER" />
+				<input-parameter name="I_ESGESTOR" oraTypeName="NUMBER" />				
+				<output-parameter name="O_DISCRE_PORC" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- findPorcentajePremioArea2 - END-->	
+	<!-- m4pr_findLegajo - BEGIN-->
+		<ora-transaction name="m4pr_findLegajo" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findLegajo">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="I_FECHA_DDE" oraTypeName="DATE" />				
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_M" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="INCLUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO_M" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_NO_DOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TARGET" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="RTM" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="STANDARD" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="TEORICO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DIAS_TRABAJA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_AUS" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_RRHH" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_SUPE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MOTIVO_NO_INCLUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TRAMO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_T" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO_T" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="BASE_FONDEO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_AUS" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PROPORCIONAL_ANTICIPO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="CUMPLIMIENTO" javaTypeName="java.lang.Double"  />																														
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findLegajo - END-->	
+	<!-- m4pr_findDatosLegajoPeriodoAnt - BEGIN-->
+		<ora-transaction name="m4pr_findDatosLegajoPeriodoAnt" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findDatosLegajoPeriodoAnt">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_ID_EMPLEADO" oraTypeName="CHAR" />			
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_M" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="INCLUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO_M" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_NO_DOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TARGET" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="RTM" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="STANDARD" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="TEORICO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DIAS_TRABAJA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_AUS" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_RRHH" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_SUPE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MOTIVO_NO_INCLUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TRAMO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_T" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO_T" javaTypeName="java.lang.Double"  />					
+					<column-attribute-mapping attribute="BASE_FONDEO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DIAS_CARENCIA" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_AUS" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="DIAS_SANCION" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="PROPORCIONAL_ANTICIPO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="FECHA_DESDE" javaTypeName="java.util.Date" />
+					<column-attribute-mapping attribute="FECHA_HASTA" javaTypeName="java.util.Date" />
+					<column-attribute-mapping attribute="ANIO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="CUMPLIMIENTO" javaTypeName="java.lang.Double"  />																														
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findDatosLegajoPeriodoAnt - END-->			
+		<!-- m4pr_findLegajosAreas - BEGIN-->
+		<ora-transaction name="m4pr_findLegajosAreas" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findLegajosAreas">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_UNIDAD_FONDEO" oraTypeName="CHAR" />
+				<input-parameter name="I_AREAS" oraTypeName="CHAR" />
+				<input-parameter name="I_ESGESTOR" oraTypeName="NUMBER" />
+				<input-parameter name="I_NIVEL_REP" oraTypeName="NUMBER" />				
+				<output-parameter name="O_DatosCursor" oraTypeName="CURSOR" 	javaTypeName="java.util.ArrayList" elemJavaTypeName="DynaBean">
+					<column-attribute-mapping attribute="ID_EMPLEADO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="APELLIDO_NOMBRES" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_M" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="INCLUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO_M" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="NOTA_NO_DOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="ID_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_UNIDAD" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TARGET" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="RTM" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="STANDARD" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="TEORICO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DIAS_TRABAJA_REAL" javaTypeName="java.lang.Integer"  />
+					<column-attribute-mapping attribute="ID_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_AUS" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_RRHH" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="OBSERV_SUPE" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="N_PUESTO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="MOTIVO_NO_INCLUIDO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="TRAMO" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="DISCRE_IMPORTE_T" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="DISCRE_PORCIENTO_T" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="BASE_FONDEO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="FECHA_DESDE" javaTypeName="java.sql.Date"  />
+					<column-attribute-mapping attribute="ID_UNIDAD_ORG_MODIF" javaTypeName="java.lang.String"  />
+					<column-attribute-mapping attribute="PROPORCIONAL_ANTICIPO" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="RTM_TOTAL_ACTUAL" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="RTM_TOTAL_ANTERIOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="ACUERDO_ACTUAL" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="RV_ANTERIOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="AJUSTE_RV_ANTERIOR" javaTypeName="java.lang.Double"  />
+					<column-attribute-mapping attribute="SUMTEORICO" javaTypeName="java.lang.Double"  />																														
+				</output-parameter>
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findLegajosAreas - END-->	
+	<!-- m4pr_updateImpTemporal - BEGIN-->
+		<ora-transaction name="m4pr_updateImpTemporal" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_updateImpTemporal">			
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />		
+				<input-parameter name="I_UNIDAD_ORG_MODIF" oraTypeName="CHAR" />
+				<input-parameter name="I_NIVEL_REP" oraTypeName="NUMBER" />				
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_updateImpTemporal - END-->
+	<!-- m4pr_updateImporteLegajo - BEGIN-->
+		<ora-transaction name="m4pr_updateImporteLegajo" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_updateImporteLegajo">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" />
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" />
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" />	
+				<input-parameter name="I_OBS_SUP" oraTypeName="CHAR" />
+				<input-parameter name="I_IMP_DISCRE_T" oraTypeName="NUMBER" />
+				<input-parameter name="I_PORC_DISCRE_T" oraTypeName="NUMBER" />
+				<input-parameter name="I_FECHA_DESDE" oraTypeName="DATE" />
+				<input-parameter name="I_ID_EMPLEADO" oraTypeName="CHAR" />
+				<input-parameter name="I_INCLUIDO" 	oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_updateImporteLegajo - END-->						
+	<!-- m4pr_findParamGralByPrimaryKey - BEGIN-->
+		<ora-transaction name="m4pr_findParamGralByPrimaryKey" dataSourceFactoryName="BDMETA4">
+			<statement-call statement="M4PQ_RV_SUPERVISOR.m4pr_findParamGralByPrimaryKey">
+				<input-parameter name="I_SOCIEDAD" oraTypeName="CHAR" /> 
+				<input-parameter name="I_ANIO" oraTypeName="NUMBER" />
+				<input-parameter name="I_BOLSA" oraTypeName="CHAR" />
+				<input-parameter name="I_ESQUEMA" oraTypeName="CHAR" />
+				<input-parameter name="I_PERIODO" oraTypeName="NUMBER" /> 				
+				<input-parameter name="I_CANT_PERIODO" oraTypeName="NUMBER" /> 
+				<input-parameter name="I_LEGAJO_SUPERV" oraTypeName="CHAR" />
+				<output-parameter name="O_EXISTE" oraTypeName="NUMBER" />
+			</statement-call>
+		</ora-transaction>		
+	<!-- m4pr_findParamGralByPrimaryKey - END-->	
+					
+	<convertion-manager 
+		classname="ar.com.itrsa.sam.converter.ConverterManagerImpl">
+		<converter classname="ar.com.itrsa.sam.ora.converters.CHARConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.NUMBERConverter"/>
+		<converter classname="ar.com.itrsa.sam.ora.converters.DATEConverter" />
+		<converter classname="ar.com.itrsa.sam.ora.converters.ARRAYConverter" />
+	</convertion-manager>
+
+</transaction-manager>

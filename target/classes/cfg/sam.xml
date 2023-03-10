@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE service-access-manager PUBLIC
+  "-//Service Access Manager//DTD Service Access Manager Configuration//EN"
+  "jar:file:/D:/temp/itr-sam-3.4.jar!/ar/com/itrsa/sam/factory/sam-config.dtd">
+
+<service-access-manager name="rrhh">
+
+	<context-manager classname="ar.com.itrsa.sam.impl.ContextManagerImpl">
+		<context-factory classname="ar.com.itrsa.sam.impl.ContextFactoryImpl" />
+	</context-manager>
+
+	<datasource-factory-manager classname="ar.com.itrsa.sam.ds.DataSourceFactoryManagerImpl" >
+		<global-factory>
+		</global-factory>
+		<user-specific-factory>
+		</user-specific-factory>
+	</datasource-factory-manager>
+
+	<transaction-manager name="TM_RRHH_consulta_superv" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_consulta_superv.xml" />
+	<transaction-manager name="TM_RRHH_estudios_emple" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_estudios_emple.xml" />
+	<transaction-manager name="TM_RRHH_haberes_emple" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_haberes_emple.xml" />
+	<transaction-manager name="TM_RRHH_web_datos_emple" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_web_datos_emple.xml" />	
+	<transaction-manager name="TM_RRHH_web_emple" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_web_emple.xml" />
+	<transaction-manager name="TM_RRHH_param_rv" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_param_rv.xml" />
+	<transaction-manager name="TM_RRHH_rv_areas" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_rv_areas.xml" />
+	<transaction-manager name="TM_RRHH_rv_procesos" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_rv_procesos.xml" />
+	<transaction-manager name="TM_RRHH_rv_supervisor" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_rv_supervisor.xml" />
+	<transaction-manager name="TM_RRHH_rv_BolsaEsq" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_rv_BolsaEsq.xml" />	
+	<transaction-manager name="TM_RRHH_util" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_util.xml" />
+	<transaction-manager name="TM_RRHH_imp_cruces" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_imp_cruces.xml" />
+	<transaction-manager name="TM_RRHH_web_lic_gremial" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_web_lic_gremial.xml" />
+	<transaction-manager name="TM_RRHH_beneficios" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_beneficios.xml" />
+	<transaction-manager name="TM_RRHH_web_anticipos" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_web_anticipos.xml" />
+	<transaction-manager name="TM_GYM_clases" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_gym_clases.xml" />
+	<transaction-manager name="TM_RRHH_rva" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_rva.xml" />
+	<transaction-manager name="TM_RRHH_miras" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_rrhh_miras.xml" />
+	<transaction-manager name="TM_RRHH_cc_obra_social" url="${syscfgpath}/../cfg/Intranet_RRHH/tm_cc_obra_social.xml" />
+		
+</service-access-manager>
