@@ -1,6 +1,6 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="../css/ValidacionSueldo.css" />
+	<link rel="stylesheet" type="text/css" href="ValidacionSueldo.css" />
 	<script type="text/javascript" src="../js/jquery-1.6.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

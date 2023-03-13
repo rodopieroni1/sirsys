@@ -31,7 +31,6 @@
 		IServiceAccessManager	sam = getSam();
 		IContext		samctx = (IContext) getApplication().getAttribute(ar.com.bbva.utils.IConstants.SAM_CONTEXT);
 		Map 			cxtParams = null;
-	
 		log.info("getSamContext para id=" + szId + " sam:" + sam);
 		if (sam != null && samctx == null) {
 			log.info("Creando un contexto SAM para: " + szId);	
@@ -44,7 +43,6 @@
 	}
 %>
 <%
-
 	log = LogFactory.getLog(LOG_CATEGORY_PREFIX + request.getRequestURI());
 
 	IServiceAccessManager	samAux = getSam();
@@ -89,16 +87,12 @@
 		asc.setLegajo (  session, legajo );
 		asc.setLogin ( session );
 		asc.setEmpresaDefault ( session, legajo.getIdEmpresa() );
-		asc.setEmpresaEstructura ( session, "00" );
-				
-				
+		asc.setEmpresaEstructura ( session, "00" );				
 		asc.setGrupoLiquidacion ( session, legajo.getGrupoLiquidacion() );
-		System.out.println(" legajo.getGrupoLiquidacion(); "+ legajo.getGrupoLiquidacion());
-				
-	
+		System.out.println(" legajo.getGrupoLiquidacion(); "+ legajo.getGrupoLiquidacion());	
 	}
 	catch ( Exception me ) {
-		out.println ( "Error al establecer la sesion del usuario - " +
+		System.out.println ( "Error al establecer la sesion del usuario - " +
 		me.getMessage() );
 		return;
 	}
@@ -747,7 +741,7 @@ const handleClickOption = (event) =>  {
 
 
         const handleClickAceptar = () => {
-            if(confirm("El empleado no cumple los requisitos. ¿Desea continuar?")){
+            if(confirm("El empleado no cumple los requisitos.  Desea continuar?")){
                 esElegible = true;
                 validar()
             }else{
@@ -1017,13 +1011,13 @@ const handleClickOption = (event) =>  {
 		var finalHtml = "";
 		if(actualConformado !== 0 || actualComplemento !== 0 || actualFalla !== 0){
 			if(actualConformado !== 0){
-				finalHtml = finalHtml + "<h2 style='margin-top:15px'>Conformado teórico: " +  setFormatValue(actualConformado) + "</h2>"
+				finalHtml = finalHtml + "<h2 style='margin-top:15px'>Conformado teorico: " +  setFormatValue(actualConformado) + "</h2>"
 			}
 			if(actualComplemento !== 0){
-				finalHtml = finalHtml + "<h2 style='margin-top:15px'>Complemento posición: " +  setFormatValue(actualComplemento) + "</h2>"
+				finalHtml = finalHtml + "<h2 style='margin-top:15px'>Complemento posicion: " +  setFormatValue(actualComplemento) + "</h2>"
 			}
 			if(actualFalla !== 0){
-				finalHtml = finalHtml + "<h2 style='margin-top:15px'>Falla y función: " +  setFormatValue(actualFalla) + "</h2>"
+				finalHtml = finalHtml + "<h2 style='margin-top:15px'>Falla y funcion: " +  setFormatValue(actualFalla) + "</h2>"
 			}
 			return finalHtml;	
 		}else{
@@ -1045,7 +1039,7 @@ const handleClickOption = (event) =>  {
 		var arrayResult = [];
 		
 		
-		// Está checkeado el "importe"? entonces se debe sacar el formato al porcentaje
+		// Esta checkeado el "importe"? entonces se debe sacar el formato al porcentaje
 		if(chk === "importe"){
 			var porcentajeSinFormato = porcentaje.substring(0,porcentaje.length-1);
 			arrayResult.push(importe);
@@ -1053,7 +1047,7 @@ const handleClickOption = (event) =>  {
 			return arrayResult;
 			//return '&importe=' + importe + "&porcentaje=" + porcentajeSinFormato; 
 			
-		// Está checkeado el "porcentaje"? entonces se debe sacar el formato al importe
+		// Esta checkeado el "porcentaje"? entonces se debe sacar el formato al importe
 		}else{
 				// Verifico cuantos separadores de miles tiene importe
 				posicion= importe.indexOf(".");
@@ -1183,7 +1177,7 @@ const handleClickOption = (event) =>  {
 			}),
 			dataType: 'json',
 			success: function(){
-				alert("Solicitud registrada con éxito");
+				alert("Solicitud registrada con Exito");
 			},
 			error: function(){
 				alert("Ha ocurrido un error al registrar la solicitud");
@@ -1192,13 +1186,7 @@ const handleClickOption = (event) =>  {
 			url: "<%=request.getContextPath()%>/crucesPresentismo?action=registrar"
 		});
 		
-		
-		
-		
-		
-		
 			// Validacion post-aumento
-		
 			$.ajax({
 			contentType: 'application/json',
 			data: JSON.stringify({"idSolicitud":idSolicitud,"pusuario":reporteLegajo[0].trim(),"nuevojp":nuevoJPid,"importe":importePorcentajeArray[0],"porcentaje":importePorcentajeArray[1],"motivoAjuste":idMotivoAjuste}),
@@ -1290,14 +1278,12 @@ const handleClickOption = (event) =>  {
 		});
 
 
-		//Generación del PDF
+		//Generacion del PDF
 		window.jsPDF = window.jspdf.jsPDF;	
 		var reporte = new jsPDF({format: [400,210]}); 
 
-		var reportHTML = "<div style='background-color:#004481;height:100px;width:1200px'><div style='height:100%;display:flex;align-items:center'><img style='margin-left: 25px;height: 45px;width: 150px' src='../images/logobanco.png'><span style='color: white;font-size:25px;margin-top:10px;margin-left:20px'>SIRSYS</span></div><div style='width:1025px;padding-left:20px;padding-top:20px;padding-bottom:20px;border: 2px solid black'><h2>Fecha simulación: " + today + "</h2><h2 style='margin-top:15px'>Número solicitud: " + idSolicitud + "</h2><h2 style='margin-top:15px'>Solicitante: " + legajoSupervisor + " - " + nombreSupervisor + "</h2><h1 style='text-decoration:underline;margin-left:400px;margin-top:35px'>Datos actuales</h1><h2 style='margin-top:30px'>Empleado: " + nombre + "</h2><h2 style='margin-top:15px'>Motivo del ajuste: "+ motivoAjuste +"</h2><h2 style='margin-top:15px'>Job profile: " + codigoJP + " - " + actualJP + "</h2><h2 style='margin-top:15px'>Supervisory: " + codigoSupervisory + " - " + actualSupervisory+"</h2><h2 style='margin-top:15px'>Empresa: " + codigoEmpresaActual + " - " + actualEmpresa + "</h2><h2 style='margin-top:15px'>Mapa de Talento: " +actualMapaTalento + "</h2><h2 style='margin-top:15px'>Potencial: " + actualPotencial +  "</h2><h2 style='margin-top:15px'>Performance: "+ actualPerformance+"</h2><h2 style='margin-top:15px'>RTM: " + $("#rtm").html() +"</h2>" + getHtmlValoresAdicionales() +"<h2 style='margin-top:15px'>Sueldo: " + $("#sueldo").html() + "</h2><h2 style='margin-top:15px'>BT: " + $("#bt").html() +"</h2><h1 style='text-decoration:underline;margin-left:400px;margin-top:35px'>Datos nuevos</h1><h2 style='margin-top:30px'>Nuevo supervisory: " + $("#supervisory").val() + "</h2><h2 style='margin-top:15px'>Nuevo JP: " + $("#nuevoJP").val() + "</h2><h2 style='margin-top:15px'>Nueva empresa:  " + codigoEmpresaFutura + " - " + $("#empresa").val() + "</h2><h2 style='margin-top:15px'>Sueldo actual: " + $("#sueldo").html() + "</h2><h2 style='margin-top:15px'>Importe a ajustar: " + importe + "<h2 style='margin-top:15px'>Porcentaje a ajustar: " + porcentaje + "<h2 style='margin-top:15px'>Sueldo nuevo: " + $("#sueldo_propuesto").html() + "<h2 style='margin-top:15px'>BT sugerido: " + $("#input_rtm_bn_sugerido").val() + "</h2><h2 style='margin-top:15px'>BT propuesto: " + $("#bt_propuesto").html() + "</h2><h2 style='margin-top:15px'>Posicionamiento: " + $("#posic-nuevo").val() + "</h2>" + getHtmlValidacionesIncumplidas() + getHtmlValidacionesAjuste() +  "</div></div>"
-		
-		
-		
+		var reportHTML = "<div style='background-color:#004481;height:100px;width:1200px'><div style='height:100%;display:flex;align-items:center'><img style='margin-left: 25px;height: 45px;width: 150px' src='../images/logobanco.png'><span style='color: white;font-size:25px;margin-top:10px;margin-left:20px'>SIRSYS</span></div><div style='width:1025px;padding-left:20px;padding-top:20px;padding-bottom:20px;border: 2px solid black'><h2>Fecha simulacion: " + today + "</h2><h2 style='margin-top:15px'>Numero solicitud: " + idSolicitud + "</h2><h2 style='margin-top:15px'>Solicitante: " + legajoSupervisor + " - " + nombreSupervisor + "</h2><h1 style='text-decoration:underline;margin-left:400px;margin-top:35px'>Datos actuales</h1><h2 style='margin-top:30px'>Empleado: " + nombre + "</h2><h2 style='margin-top:15px'>Motivo del ajuste: "+ motivoAjuste +"</h2><h2 style='margin-top:15px'>Job profile: " + codigoJP + " - " + actualJP + "</h2><h2 style='margin-top:15px'>Supervisory: " + codigoSupervisory + " - " + actualSupervisory+"</h2><h2 style='margin-top:15px'>Empresa: " + codigoEmpresaActual + " - " + actualEmpresa + "</h2><h2 style='margin-top:15px'>Mapa de Talento: " +actualMapaTalento + "</h2><h2 style='margin-top:15px'>Potencial: " + actualPotencial +  "</h2><h2 style='margin-top:15px'>Performance: "+ actualPerformance+"</h2><h2 style='margin-top:15px'>RTM: " + $("#rtm").html() +"</h2>" + getHtmlValoresAdicionales() +"<h2 style='margin-top:15px'>Sueldo: " + $("#sueldo").html() + "</h2><h2 style='margin-top:15px'>BT: " + $("#bt").html() +"</h2><h1 style='text-decoration:underline;margin-left:400px;margin-top:35px'>Datos nuevos</h1><h2 style='margin-top:30px'>Nuevo supervisory: " + $("#supervisory").val() + "</h2><h2 style='margin-top:15px'>Nuevo JP: " + $("#nuevoJP").val() + "</h2><h2 style='margin-top:15px'>Nueva empresa:  " + codigoEmpresaFutura + " - " + $("#empresa").val() + "</h2><h2 style='margin-top:15px'>Sueldo actual: " + $("#sueldo").html() + "</h2><h2 style='margin-top:15px'>Importe a ajustar: " + importe + "<h2 style='margin-top:15px'>Porcentaje a ajustar: " + porcentaje + "<h2 style='margin-top:15px'>Sueldo nuevo: " + $("#sueldo_propuesto").html() + "<h2 style='margin-top:15px'>BT sugerido: " + $("#input_rtm_bn_sugerido").val() + "</h2><h2 style='margin-top:15px'>BT propuesto: " + $("#bt_propuesto").html() + "</h2><h2 style='margin-top:15px'>Posicionamiento: " + $("#posic-nuevo").val() + "</h2>" + getHtmlValidacionesIncumplidas() + getHtmlValidacionesAjuste() +  "</div></div>"
+			
 		reporte.html(reportHTML, {
 			html2canvas: {
 					scale:"0.2",
@@ -1495,7 +1481,7 @@ const handleClickOption = (event) =>  {
                 </div>
                 <div class="rtm-row-propuesta-panel">
 				<div class="propuesta-rtm-div">
-                        <label>Remuneración Total:</label>
+                        <label>Remuneracion Total:</label>
                  </div>
                     <div class="propuesta-rtm-div">
                         <div class="propuesta-radio-button">

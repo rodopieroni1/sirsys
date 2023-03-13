@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="../css/ValidacionSueldo.css" />
+        <link rel="stylesheet" type="text/css" href="ValidacionSueldo.css" />
     </head>
 
 	<script>
@@ -21,11 +21,7 @@
 				$("#cerrarSesion").hide();
 			},50)
 		});
-		
-		
-		
-
-		
+			
 		const handleClickUser = () => {
 			$("#cerrarSesion").show();
 		}
